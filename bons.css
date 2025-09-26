@@ -1,0 +1,135 @@
+body{
+	background-image:url(Images/fond.png);
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+	font-family: Roboto,sans-serif;
+	font-size: 1rem;
+	line-height: 1.6;
+	color:#222;
+	margin: 0;
+	padding; 0;
+}
+h1,h2{
+	text-align: justify;
+	font-family: Amiri, serif;
+	font-weight: bold;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
+	color: #8b0000;
+	font-size: clamp(1.5,4vw,2rem);
+	margin-left: 100px;
+}
+p{
+	text-align:justify;
+	font-size:1rem;
+	margin-bottom: 1rem;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	white-space: normal;
+}
+a{
+	color:#006400;
+	text-decoration:none;
+}
+a:hover{
+	text-decoration: underline;
+}
+main nav{
+	display:flex;
+	justify-content: center;
+	align-items:center;
+	gap:1rem;
+	margin: 1rem 0;
+}
+main nav a{
+	margin: 0 0.5rem;
+}
+header nav{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	padding:1rem;
+	gap:1rem;
+	font-family: Roboto, sans-serif;
+	font-size: 1rem;
+	position:relative;
+	z-index: 10;
+}
+header nav a:hover{
+	color: #8b0000;
+}
+.bannier{
+	background-image: url(Images/ban.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 5vw 2vw;
+	text-align: center;
+	min-height:40vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items:center;
+}
+.bannier-content{
+	position: relative;
+	z-index: 2;
+}
+.bannier h1{
+	font-size: clamp(2rem, 5vw, 2.5rem);
+	margin-bottom: 0.5rem;
+}
+.bannier p{
+	display: flex;
+	justify-content: center;
+	font-size: clamp(1rem, 3vw,1.2rem);
+	font-style:italic;
+	max-width:600px;
+}
+img, video{
+	max-width: 100%;
+	height: auto;
+	display:block;
+	margin: 0 auto;
+	border-radius: 5px;
+}
+.foot{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem;
+	text-align: center;
+}
+@media(max-width:1024px){
+	body{
+		font-size:0.95rem;
+	}
+	header nav{
+		gap:0.5rem;
+	}
+	.bannier{
+		min-height: 30vh;
+	}
+}
+@media(max-width:600px){
+	body{
+		font-size:0.9rem;
+		padding:0 0.5rem;
+	}
+	h1 h2{
+		text-align: center;
+	}
+	header nav{
+		flex-direction:column;
+		gap:0.5rem;
+	}
+	main nav{
+		flex-direction: column;
+		gap:0.5rem;
+	}
+	.bannier{
+		padding:3rem 1rem;
+		min-height:auto;
+	}
+}
