@@ -5,281 +5,796 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Coran, notre compagnon de vie - Ô Bons Rappels</title>
     <style>
-        /* Variables CSS pour une maintenance facile */
+        /* === RESET ET VARIABLES === */
         :root {
-            --primary-color: #2c5e3a;
-            --secondary-color: #d4af37;
-            --light-color: #f8f8f8;
-            --dark-color: #1a1a1a;
-            --text-color: #333;
-            --border-radius: 8px;
-            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --primary-color: #8b0000;
+            --secondary-color: #006400;
+            --accent-color: #2c5aa0;
+            --gold-color: #d4af37;
+            --text-color: #222;
+            --bg-color: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
             --transition: all 0.3s ease;
         }
 
-        /* Reset et styles de base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* === STYLES GÉNÉRAUX === */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--light-color);
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('Images/fond.png') center/cover fixed;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
         }
 
-        /* En-tête */
+        /* === HEADER ET NAVIGATION === */
         header {
-            background-color: var(--primary-color);
-            color: white;
-            box-shadow: var(--box-shadow);
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        /* Navigation principale */
         .main-nav {
             display: flex;
             justify-content: center;
-            padding: 15px 0;
-            background-color: rgba(0, 0, 0, 0.1);
+            align-items: center;
+            padding: 1rem;
+            gap: 2rem;
         }
 
         .main-nav a {
-            color: white;
+            color: var(--text-color);
             text-decoration: none;
-            margin: 0 20px;
             font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
             transition: var(--transition);
-            padding: 5px 10px;
-            border-radius: var(--border-radius);
         }
 
-        .main-nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary-color);
+            background: rgba(139, 0, 0, 0.1);
         }
 
-        /* Bannière */
-        .bannier {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c5e3a"/></svg>');
-            background-size: cover;
-            background-position: center;
-            padding: 60px 20px;
+        /* === BANNIERE HERO === */
+        .hero-banner {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Images/ban.png') center/cover;
+            padding: 4rem 2rem;
             text-align: center;
-            color: white;
+            color: var(--white);
+            position: relative;
         }
 
-        .bannier-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        .hero-content h1 {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .bannier-content p {
-            font-size: 1.2rem;
+        .hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-style: italic;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Contenu principal */
+        /* === CONTENU PRINCIPAL === */
         main {
             flex: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 30px 20px;
-            width: 100%;
-        }
-
-        /* Article */
-        article {
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-
-        article h1 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            line-height: 1.3;
-        }
-
-        article p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            text-align: justify;
-        }
-
-        /* Vidéo */
-        video {
-            width: 100%;
             max-width: 800px;
-            height: auto;
-            border-radius: var(--border-radius);
-            margin: 20px 0;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            width: 100%;
+        }
+
+        .article-container {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .article-title {
+            color: var(--primary-color);
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+            border-bottom: 2px solid var(--gold-color);
+            padding-bottom: 1rem;
+        }
+
+        /* === SECTIONS SPÉCIALES === */
+        .companion-section {
+            background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-color);
+            position: relative;
+        }
+
+        .companion-section::before {
+            content: "📖";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .guidance-section {
+            background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-right: 4px solid var(--primary-color);
+            position: relative;
+        }
+
+        .guidance-section::before {
+            content: "💫";
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .meditation-section {
+            background: linear-gradient(135deg, #fff9e6, #fff2cc);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border: 2px solid var(--gold-color);
+            text-align: center;
+            position: relative;
+        }
+
+        .meditation-section::before {
+            content: "✨";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .quran-quote {
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            text-align: center;
+            direction: rtl;
+            line-height: 2;
+            border: 1px solid var(--secondary-color);
+        }
+
+        .quran-translation {
             display: block;
-            box-shadow: var(--box-shadow);
-        }
-
-        /* Citation */
-        blockquote {
-            border-left: 4px solid var(--secondary-color);
-            padding-left: 20px;
-            margin: 25px 0;
+            margin-top: 1rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: var(--text-color);
+            direction: ltr;
             font-style: italic;
-            color: #555;
+            border-top: 1px solid #ccc;
+            padding-top: 1rem;
         }
 
-        /* Navigation des articles */
-        .article-nav {
+        .reflection-point {
+            background: var(--bg-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .reflection-title {
+            color: var(--primary-color);
+            font-family: 'Amiri', serif;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* === VIDÉO === */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin: 2rem auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .video-overlay:hover {
+            opacity: 1;
+        }
+
+        .play-button {
+            width: 70px;
+            height: 70px;
+            background: rgba(212, 175, 55, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .video-overlay:hover .play-button {
+            transform: scale(1.1);
+            background: rgba(212, 175, 55, 1);
+        }
+
+        .video-caption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* === NAVIGATION ARTICLES === */
+        .article-navigation {
             display: flex;
             justify-content: space-between;
-            margin-top: 30px;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 2rem;
         }
 
-        .article-nav a {
-            display: inline-block;
-            padding: 12px 20px;
-            background-color: var(--primary-color);
-            color: white;
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
             text-decoration: none;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
             font-weight: 500;
+            transition: var(--transition);
         }
 
-        .article-nav a:hover {
-            background-color: #234a2e;
+        .nav-button:hover {
+            background: #004d00;
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        /* Pied de page */
+        .nav-button.prev {
+            background: var(--primary-color);
+        }
+
+        .nav-button.prev:hover {
+            background: #a00;
+        }
+
+        /* === FOOTER === */
         footer {
-            background-color: var(--dark-color);
-            color: white;
+            background: var(--text-color);
+            color: var(--white);
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
         }
 
         footer p {
-            margin-bottom: 15px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 1rem;
+            line-height: 1.6;
         }
 
-        /* Responsive Design */
+        /* === LOADING INDICATOR === */
+        .loading-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            z-index: 9999;
+        }
+
+        /* === BOUTON RETOUR EN HAUT === */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #a00;
+            transform: translateY(-3px);
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-container {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes gentleGlow {
+            0%, 100% { 
+                box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3); 
+            }
+            50% { 
+                box-shadow: 0 4px 30px rgba(212, 175, 55, 0.6); 
+            }
+        }
+
+        .video-container {
+            animation: gentleGlow 3s ease-in-out infinite;
+        }
+
+        /* === RESPONSIVE DESIGN === */
         @media (max-width: 768px) {
-            .bannier-content h1 {
-                font-size: 2rem;
-            }
-            
-            .bannier-content p {
-                font-size: 1rem;
-            }
-            
-            article {
-                padding: 20px;
-            }
-            
-            article h1 {
-                font-size: 1.5rem;
-            }
-            
-            .article-nav {
+            .main-nav {
                 flex-direction: column;
-                gap: 15px;
+                gap: 1rem;
+                padding: 1rem 0.5rem;
             }
-            
-            .article-nav a {
+
+            .hero-banner {
+                padding: 3rem 1rem;
+            }
+
+            main {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .article-container {
+                padding: 1.5rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+                text-align: left;
+            }
+
+            .article-navigation {
+                flex-direction: column;
+                gap: 1rem;
                 text-align: center;
+            }
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .companion-section,
+            .guidance-section,
+            .meditation-section,
+            .quran-quote {
+                padding: 1.5rem;
+            }
+
+            .video-container {
+                margin: 1.5rem auto;
+            }
+
+            .play-button {
+                width: 60px;
+                height: 60px;
+                font-size: 1.3rem;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
             }
         }
 
         @media (max-width: 480px) {
-            .main-nav {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
+            .hero-banner {
+                padding: 2rem 1rem;
             }
-            
-            .main-nav a {
-                margin: 5px 0;
+
+            .article-container {
+                padding: 1rem;
             }
-            
-            .bannier {
-                padding: 40px 15px;
+
+            .article-title {
+                font-size: 1.4rem;
             }
-            
-            .bannier-content h1 {
-                font-size: 1.8rem;
+
+            .companion-section,
+            .guidance-section,
+            .meditation-section,
+            .quran-quote {
+                padding: 1rem;
             }
-            
-            main {
-                padding: 20px 15px;
+
+            .quran-quote {
+                font-size: 1.1rem;
+            }
+
+            .video-container {
+                margin: 1rem auto;
+            }
+
+            .play-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Indicateur de chargement -->
+    <div class="loading-indicator" id="loadingIndicator"></div>
+
+    <!-- Bouton retour en haut -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
     <header>
         <nav class="main-nav">
             <a href="index.html">Accueil</a>
             <a href="about.html">À Propos</a>
         </nav>
-        <section class="bannier">
-            <div class="bannier-content">
-                <h1>Ô Bons Rappels</h1>
-                <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-            </div>
-        </section>
     </header>
-    
+
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1>Ô Bons Rappels</h1>
+            <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+        </div>
+    </section>
+
     <main>
-        <article>
-            <h1>Le Coran, notre compagnon de vie ☝✨</h1>
-            
-            <video controls poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'><rect width='800' height='450' fill='%232c5e3a'/><text x='50%' y='50%' font-family='Arial' font-size='24' fill='white' text-anchor='middle'>Vidéo: Le Coran, notre compagnon de vie</text></svg>">
-                <source src="Vidéos/coran_compagnon.mp4" type="video/mp4">
-                <source src="Vidéos/coran_compagnon.webm" type="video/webm">
-                Votre navigateur ne supporte pas la lecture de vidéos.
-            </video>
-            
-            <p>
-                Dans les hauts comme dans les bas, dans les instants de calme comme dans les tourments, le Coran demeure un compagnon fidèle. Il n'est pas simplement un livre posé sur une étagère, mais une parole vivante, une source de guidance, de sérénité et de clarté.
-            </p>
-            
-            <p>
-                Chaque verset, chaque mot, résonne comme un rappel divin. Il nous parle avec douceur, nous oriente avec sagesse, et nous console avec miséricorde. Lorsque tout semble flou, il nous recentre. Lorsque tout semble s'effondrer, il nous élève.
-            </p>
-            
-            <p>
-                Le Coran n'est pas un simple texte à lire de temps en temps, c'est un compagnon de vie, à côtoyer chaque jour, à méditer, à aimer, à suivre.
-            </p>
-            
-            <blockquote>
-                "Ceci est un Livre béni que Nous avons fait descendre vers toi, afin qu'ils méditent sur ses versets et que les doués d'intelligence réfléchissent."<br>
-                <strong>(Sourate Sad, verset 29)</strong>
-            </blockquote>
+        <article class="article-container">
+            <h1 class="article-title">Le Coran, notre compagnon de vie ☝✨</h1>
+
+            <div class="video-container">
+                <video id="quranVideo" controls poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'><rect width='800' height='450' fill='%232c5e3a'/><text x='50%' y='50%' font-family='Arial' font-size='24' fill='white' text-anchor='middle'>Vidéo: Le Coran, notre compagnon de vie</text></svg>">
+                    <source src="Vidéos/coran_compagnon.mp4" type="video/mp4">
+                    <source src="Vidéos/coran_compagnon.webm" type="video/webm">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+                <div class="video-overlay" id="videoOverlay">
+                    <div class="play-button">▶</div>
+                </div>
+            </div>
+            <div class="video-caption">Le Coran, un compagnon fidèle dans chaque instant de la vie</div>
+
+            <div class="article-content">
+                <div class="companion-section">
+                    <p>
+                        Dans les hauts comme dans les bas, dans les instants de calme comme dans les tourments, 
+                        le Coran demeure un compagnon fidèle. Il n'est pas simplement un livre posé sur une étagère, 
+                        mais une parole vivante, une source de guidance, de sérénité et de clarté.
+                    </p>
+                </div>
+
+                <div class="guidance-section">
+                    <p>
+                        Chaque verset, chaque mot, résonne comme un rappel divin. Il nous parle avec douceur, 
+                        nous oriente avec sagesse, et nous console avec miséricorde. Lorsque tout semble flou, 
+                        il nous recentre. Lorsque tout semble s'effondrer, il nous élève.
+                    </p>
+                </div>
+
+                <div class="meditation-section">
+                    <p>
+                        <strong>Le Coran n'est pas un simple texte à lire de temps en temps,</strong><br>
+                        c'est un compagnon de vie, à côtoyer chaque jour, à méditer, à aimer, à suivre.
+                    </p>
+                </div>
+
+                <div class="quran-quote">
+                    <p>﴿ كِتَابٌ أَنْزَلْنَاهُ إِلَيْكَ مُبَارَكٌ لِيَدَّبَّرُوا آيَاتِهِ وَلِيَتَذَكَّرَ أُولُو الْأَلْبَابِ ﴾</p>
+                    <span class="quran-translation">
+                        « Ceci est un Livre béni que Nous avons fait descendre vers toi, 
+                        afin qu'ils méditent sur ses versets et que les doués d'intelligence réfléchissent. »<br>
+                        <small>Sourate Sad, verset 29</small>
+                    </span>
+                </div>
+
+                <div class="reflection-point">
+                    <h3 class="reflection-title">📖 Une présence constante</h3>
+                    <p>
+                        Le Coran n'attend pas que nous soyons parfaits pour nous accompagner. 
+                        Il est là dans nos moments de force comme dans nos faiblesses, 
+                        nous guidant pas à pas vers la lumière.
+                    </p>
+                </div>
+
+                <div class="reflection-point">
+                    <h3 class="reflection-title">💞 Un dialogue intime</h3>
+                    <p>
+                        Chaque lecture du Coran est une conversation avec le Créateur. 
+                        Il répond à nos questions, apaise nos cœurs, éclaire nos chemins 
+                        et transforme nos perspectives.
+                    </p>
+                </div>
+
+                <div class="reflection-point">
+                    <h3 class="reflection-title">🌱 Une croissance spirituelle</h3>
+                    <p>
+                        À mesure que nous fréquentons le Coran, notre relation avec lui évolue. 
+                        D'abord lecture, puis méditation, ensuite mise en pratique, 
+                        jusqu'à ce qu'il devienne la boussole de notre existence.
+                    </p>
+                </div>
+
+                <div class="companion-section">
+                    <p>
+                        <strong>Rappel :</strong> Le Coran n'est pas destiné à rester fermé sur une étagère, 
+                        mais à être ouvert dans nos cœurs, à être vécu dans nos actions, 
+                        et à être partagé dans nos paroles.
+                    </p>
+                </div>
+            </div>
+
+            <div class="article-navigation">
+                <a href="coran.html" class="nav-button prev">
+                    ← Article précédent
+                </a>
+                <a href="craindre.html" class="nav-button">
+                    Article suivant →
+                </a>
+            </div>
         </article>
-        
-        <nav class="article-nav">
-            <a href="coran.html">← Article précédent</a>
-            <a href="craindre.html">Article suivant →</a>
-        </nav>
     </main>
-    
+
     <footer>
-        <p>Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
+        <p>Si un rappel t'a été utile, pense à le partager — car le bien se propage par ceux qui le transmettent.</p>
         <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const backToTop = document.getElementById('backToTop');
+            const videoElement = document.getElementById('quranVideo');
+            const videoOverlay = document.getElementById('videoOverlay');
+
+            // Simuler le chargement
+            setTimeout(() => {
+                loadingIndicator.style.transform = 'scaleX(1)';
+                setTimeout(() => {
+                    loadingIndicator.style.display = 'none';
+                }, 500);
+            }, 1000);
+
+            // Gestion du bouton retour en haut
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Gestion de la vidéo
+            if (videoElement && videoOverlay) {
+                videoOverlay.addEventListener('click', function() {
+                    videoElement.play();
+                    this.style.display = 'none';
+                });
+
+                videoElement.addEventListener('play', function() {
+                    videoOverlay.style.display = 'none';
+                });
+
+                videoElement.addEventListener('pause', function() {
+                    videoOverlay.style.display = 'flex';
+                });
+
+                // Gestion des erreurs de vidéo
+                videoElement.addEventListener('error', function() {
+                    console.log("Erreur de chargement de la vidéo");
+                    videoOverlay.style.display = 'none';
+                    const errorMsg = document.createElement('div');
+                    errorMsg.innerHTML = '⚠️ La vidéo n\'a pas pu être chargée. Veuillez réessayer plus tard.';
+                    errorMsg.style.cssText = `
+                        text-align: center;
+                        padding: 2rem;
+                        color: var(--primary-color);
+                        font-style: italic;
+                    `;
+                    videoElement.parentNode.insertBefore(errorMsg, videoElement.nextSibling);
+                });
+            }
+
+            // Animation au défilement
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observer les sections spéciales
+            document.querySelectorAll('.companion-section, .guidance-section, .meditation-section, .reflection-point').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Effets interactifs
+            const videoContainer = document.querySelector('.video-container');
+            if (videoContainer) {
+                videoContainer.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                videoContainer.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            }
+
+            // Partage sur les réseaux sociaux
+            function shareArticle() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.title,
+                        text: 'Découvrez ce rappel bénéfique sur le Coran comme compagnon de vie - Ô Bons Rappels',
+                        url: window.location.href
+                    });
+                }
+            }
+
+            // Ajouter un bouton de partage si supporté
+            if (navigator.share) {
+                const shareButton = document.createElement('button');
+                shareButton.innerHTML = '📖 Partager ce rappel';
+                shareButton.style.cssText = `
+                    display: block;
+                    margin: 2rem auto;
+                    padding: 0.8rem 1.5rem;
+                    background: var(--gold-color);
+                    color: var(--text-color);
+                    border: none;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    transition: var(--transition);
+                    font-weight: bold;
+                `;
+                shareButton.onmouseover = function() {
+                    this.style.background = '#b8941f';
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 4px 15px rgba(212, 175, 55, 0.4)';
+                };
+                shareButton.onmouseout = function() {
+                    this.style.background = 'var(--gold-color)';
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                };
+                shareButton.onclick = shareArticle;
+                
+                const articleContent = document.querySelector('.article-content');
+                articleContent.appendChild(shareButton);
+            }
+
+            // Gestion du chargement des médias
+            window.addEventListener('load', function() {
+                loadingIndicator.style.transform = 'scaleX(1)';
+                setTimeout(() => {
+                    loadingIndicator.style.display = 'none';
+                }, 300);
+            });
+        });
+    </script>
 </body>
 </html>

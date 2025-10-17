@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Douceur dans l'Islam - Ô Bons Rappels</title>
+    <meta name="description" content="Réflexion spirituelle sur la subsistance divine cachée dans la patience selon Ibn al-Jawzî - Ô Bons Rappels">
+    <title>Une subsistance cachée dans la patience | Ô Bons Rappels</title>
     <style>
         /* === RESET ET VARIABLES === */
         :root {
@@ -107,6 +108,7 @@
             box-shadow: var(--shadow);
             margin-bottom: 2rem;
             position: relative;
+            animation: fadeInUp 0.8s ease forwards;
         }
 
         .article-title {
@@ -130,6 +132,7 @@
             box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
             transition: var(--transition);
             border: 2px solid var(--gold-color);
+            animation: glow 3s ease-in-out infinite;
         }
 
         .article-image:hover {
@@ -148,17 +151,23 @@
         }
 
         /* === SECTIONS SPÉCIALES === */
-        .quote-section {
+        .citation-sagesse {
             background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
             padding: 2rem;
             border-radius: 10px;
             margin: 2rem 0;
             border-left: 4px solid var(--accent-color);
             position: relative;
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .quote-section::before {
-            content: "💗";
+        .citation-sagesse::before {
+            content: "💭";
             position: absolute;
             top: -15px;
             left: -15px;
@@ -173,30 +182,63 @@
             box-shadow: var(--shadow);
         }
 
-        .quote-content {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+        .citation-sagesse cite {
+            display: block;
+            margin-top: 1rem;
             font-style: italic;
-            color: #555;
-        }
-
-        .quote-author {
+            color: var(--accent-color);
             font-weight: bold;
-            color: var(--primary-color);
-            text-align: right;
         }
 
-        .advice-section {
+        .coran-verse {
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            text-align: center;
+            direction: rtl;
+            line-height: 2;
+            border: 1px solid var(--secondary-color);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .verse {
+            direction: rtl;
+            line-height: 2;
+            margin-bottom: 1rem;
+        }
+
+        .coran-verse cite {
+            display: block;
+            margin-top: 1rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: var(--text-color);
+            direction: ltr;
+            font-style: italic;
+            border-top: 1px solid #ccc;
+            padding-top: 1rem;
+        }
+
+        .conclusion {
             background: linear-gradient(135deg, #fff9e6, #fff2cc);
             padding: 2rem;
             border-radius: 10px;
             margin: 2rem 0;
             border: 2px solid var(--gold-color);
+            text-align: center;
             position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .advice-section::before {
-            content: "💡";
+        .conclusion::before {
+            content: "✨";
             position: absolute;
             top: -20px;
             left: 50%;
@@ -212,124 +254,10 @@
             box-shadow: var(--shadow);
         }
 
-        .advice-section h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            text-align: center;
-            font-family: 'Amiri', serif;
-            font-size: 1.5rem;
-        }
-
-        .advice-list {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-        }
-
-        @media (min-width: 768px) {
-            .advice-list {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .advice-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1.2rem;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .advice-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .advice-icon {
-            color: var(--secondary-color);
-            font-size: 1.8rem;
-            flex-shrink: 0;
-            transition: var(--transition);
-        }
-
-        .advice-item:hover .advice-icon {
-            transform: scale(1.1);
-        }
-
-        .advice-text {
-            flex: 1;
-        }
-
-        .advice-text strong {
-            color: var(--secondary-color);
-            display: block;
-            margin-bottom: 0.3rem;
-        }
-
-        .conclusion-section {
-            background: linear-gradient(135deg, #e8f5e8, #d4edda);
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            border: 2px solid var(--secondary-color);
-            position: relative;
-        }
-
-        .conclusion-section::before {
-            content: "📝";
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--white);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: var(--shadow);
-        }
-
-        .conclusion-section p {
-            margin-bottom: 15px;
-        }
-
-        .conclusion-section strong {
-            color: var(--secondary-color);
-            display: block;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .conclusion-section .special-text {
-            text-align: center;
-            font-style: italic;
-            margin-top: 15px;
+        .final-message {
+            font-weight: bold;
             font-size: 1.1rem;
             color: var(--primary-color);
-            font-weight: 500;
-        }
-
-        .reflection-point {
-            background: var(--bg-color);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1.5rem 0;
-            border-left: 4px solid var(--accent-color);
-        }
-
-        .reflection-title {
-            color: var(--primary-color);
-            font-family: 'Amiri', serif;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         /* === NAVIGATION ARTICLES === */
@@ -427,6 +355,26 @@
             transform: translateY(-3px);
         }
 
+        /* === BOUTON PARTAGE === */
+        .share-button {
+            display: block;
+            margin: 2rem auto;
+            padding: 0.8rem 1.5rem;
+            background: var(--gold-color);
+            color: var(--text-color);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: bold;
+        }
+
+        .share-button:hover {
+            background: #b8941f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
         /* === ANIMATIONS === */
         @keyframes fadeInUp {
             from {
@@ -439,17 +387,9 @@
             }
         }
 
-        .article-container {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
         @keyframes glow {
             0%, 100% { box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3); }
             50% { box-shadow: 0 4px 30px rgba(212, 175, 55, 0.6); }
-        }
-
-        .article-image {
-            animation: glow 3s ease-in-out infinite;
         }
 
         /* === RESPONSIVE DESIGN === */
@@ -488,9 +428,9 @@
                 justify-content: center;
             }
 
-            .quote-section,
-            .advice-section,
-            .conclusion-section {
+            .citation-sagesse,
+            .coran-verse,
+            .conclusion {
                 padding: 1.5rem;
             }
 
@@ -515,28 +455,14 @@
                 font-size: 1.4rem;
             }
 
-            .quote-section,
-            .advice-section,
-            .conclusion-section {
+            .citation-sagesse,
+            .coran-verse,
+            .conclusion {
                 padding: 1rem;
             }
 
-            .quote-content {
+            .coran-verse {
                 font-size: 1.1rem;
-            }
-
-            .advice-list {
-                grid-template-columns: 1fr;
-            }
-
-            .advice-item {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.5rem;
-            }
-
-            .advice-icon {
-                font-size: 2rem;
             }
         }
     </style>
@@ -564,125 +490,94 @@
 
     <main>
         <article class="article-container">
-            <h1 class="article-title">La Douceur : Une Miséricorde Divine ✨</h1>
+            <h1 class="article-title">Une subsistance cachée dans la patience</h1>
             
-            <img src="Images/douceur.jpg" alt="Illustration représentant la douceur dans les relations humaines" class="article-image" loading="lazy">
+            <img src="Images/subsistance.jpg" alt="Représentation spirituelle de la subsistance divine et de la patience" class="article-image" loading="lazy">
 
             <div class="article-content">
-                <p>
-                    Dans un monde souvent dur et impatient, la douceur apparaît comme une oasis de paix, une qualité précieuse qui adoucit les cœurs et rapproche les âmes. En Islam, la douceur n'est pas une faiblesse, mais une force spirituelle qui reflète la miséricorde divine.
-                </p>
-                
-                <div class="quote-section">
-                    <div class="quote-content">
-                        « La douceur n'est présente dans une chose sans l'embellir, et elle n'en est retirée sans l'enlaidir. »
-                    </div>
-                    <div class="quote-author">
-                        Prophète Mohammed ﷺ - Rapporté par Muslim
-                    </div>
+                <div class="citation-sagesse">
+                    « La subsistance peut se présenter sous la forme
+                    d'une patience facile lors des épreuves, une
+                    rapidité par laquelle défilent les jours, et une belle
+                    récompense suite à une belle patience. »<br>
+                    <cite>Ibn al-Jawzî</cite>
                 </div>
                 
                 <p>
-                    Le Messager d'Allah ﷺ nous a enseigné que la douceur est une bénédiction qui transforme nos relations et nos actions. Que ce soit dans l'éducation des enfants, les relations conjugales, les échanges commerciaux ou même dans l'appel à Allah, la douceur ouvre les portes que la dureté ferme.
+                    Lorsque l'on parle de « rizq » (subsistance),
+                    beaucoup pensent immédiatement à l'argent, à la
+                    nourriture ou aux biens matériels. Pourtant, Ibn
+                    al-Jawzî nous rappelle ici une vérité profonde : la
+                    subsistance d'Allah peut prendre des formes non
+                    visibles, mais profondément précieuses.
                 </p>
                 
                 <p>
-                    Allah Lui-même décrit le Prophète ﷺ dans le Coran : <em>"C'est par quelque miséricorde de la part d'Allah que tu as été si doux envers eux! Mais si tu avais été rude, au cœur dur, ils se seraient enfuis de ton entourage."</em> (Sourate Al-Imran, verset 159)
+                    Il y a, dans certaines épreuves, une facilité étonnante à
+                    supporter ce que d'autres trouveraient
+                    insupportable. Cette patience douce, ce temps qui
+                    passe sans trop peser, ou encore cette
+                    récompense intérieure que l'on ressent malgré
+                    l'épreuve, sont autant de signes du soutien d'Allah.
                 </p>
-
-                <div class="reflection-point">
-                    <h3 class="reflection-title">🌙 Une force spirituelle</h3>
-                    <p>
-                        La douceur n'est pas une faiblesse mais une manifestation de force intérieure 
-                        et de confiance en la miséricorde d'Allah. Elle témoigne d'un cœur apaisé 
-                        et d'une âme sereine.
+                
+                <div class="coran-verse">
+                    <p>Dans le Qur'ân, Allah dit :</p>
+                    <blockquote class="verse">
+                        « Et il y a dans le ciel votre subsistance et ce qui
+                        vous a été promis. »<br>
+                    </blockquote>
+                    <cite>[Sourate Adh-Dhâriyât (51), verset 22]</cite>
+                </div>
+                
+                <p>
+                    Ce verset souligne que la subsistance est déjà
+                    prévue et décrétée par Allah, au-delà de nos
+                    efforts humains. Elle vient d'en haut, parfois dans
+                    des formes que l'on ne soupçonnait même pas.
+                </p>
+                
+                <div class="conclusion">
+                    <p class="final-message">
+                        Ainsi, si tu traverses une difficulté avec une
+                        certaine sérénité, sache que cela aussi est une
+                        provision céleste, une forme de rizq plus précieuse
+                        encore que le matériel.
                     </p>
                 </div>
 
-                <div class="reflection-point">
-                    <h3 class="reflection-title">💫 Transformation des relations</h3>
-                    <p>
-                        La douceur a le pouvoir extraordinaire de transformer les relations les plus 
-                        tendues en occasions de rapprochement et de compréhension mutuelle.
-                    </p>
-                </div>
-
-                <div class="reflection-point">
-                    <h3 class="reflection-title">📖 Reflet de la miséricorde divine</h3>
-                    <p>
-                        En pratiquant la douceur, nous manifestons dans nos comportements 
-                        un attribut d'Allah, Ar-Rahmân (Le Tout Miséricordieux), 
-                        devenant ainsi des canaux de Sa miséricorde sur terre.
-                    </p>
-                </div>
-                
-                <div class="advice-section">
-                    <h2>Comment cultiver la douceur au quotidien</h2>
-                    <div class="advice-list">
-                        <div class="advice-item">
-                            <div class="advice-icon">💝</div>
-                            <div class="advice-text">
-                                <strong>Parler avec bienveillance</strong>
-                                Choisir des mots doux et éviter les paroles blessantes, même en situation de désaccord.
-                            </div>
-                        </div>
-                        <div class="advice-item">
-                            <div class="advice-icon">🤲</div>
-                            <div class="advice-text">
-                                <strong>Prier pour la douceur</strong>
-                                Demander à Allah d'embellir notre caractère et d'adoucir notre cœur.
-                            </div>
-                        </div>
-                        <div class="advice-item">
-                            <div class="advice-icon">👨‍👩‍👧‍👦</div>
-                            <div class="advice-text">
-                                <strong>Être doux en famille</strong>
-                                Commencer par ceux qui nous sont les plus proches : parents, conjoint, enfants.
-                            </div>
-                        </div>
-                        <div class="advice-item">
-                            <div class="advice-icon">😊</div>
-                            <div class="advice-text">
-                                <strong>Sourire souvent</strong>
-                                Le sourire est une aumône et le premier pas vers un cœur apaisé.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <p>
-                    La douceur n'est pas l'absence de fermeté, mais la capacité d'être ferme avec compassion. Elle nous permet de corriger sans humilier, d'enseigner sans décourager, et de guider sans imposer.
-                </p>
-                
-                <div class="conclusion-section">
-                    <strong>En résumé :</strong>
-                    <p>La douceur est un cadeau d'Allah qui transforme nos vies et nos relations. Elle est le chemin vers les cœurs et le reflet de la miséricorde divine en nous.</p>
-                    <p class="special-text">
-                        « Ô Allah, embellis mon caractère comme Tu as embelli ma création. »
-                    </p>
-                </div>
+                <!-- Bouton de partage -->
+                <button class="share-button" id="shareButton">
+                    📖 Partager cette sagesse
+                </button>
             </div>
 
             <div class="article-navigation">
-                <a href="craindre.html" class="nav-button prev">
+                <a href="soudan.html" class="nav-button prev">
                     ← Article précédent
                 </a>
-                <a href="index.html" class="nav-button">
-                    Retour à l'accueil →
+                <a href="vie.html" class="nav-button">
+                    Article suivant →
                 </a>
             </div>
         </article>
     </main>
 
-    <footer class="foot">
-        <p>Si un rappel t'a été utile, pense à le partager — car le bien se propage par ceux qui le transmettent.</p>
-        <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
+    <footer>
+        <p>
+            Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.
+        </p>
+        <p>
+            &copy; 2025 Ô Bons Rappels - Tous droits réservés.
+        </p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const loadingIndicator = document.getElementById('loadingIndicator');
             const backToTop = document.getElementById('backToTop');
+            const shareButton = document.getElementById('shareButton');
+            const specialSections = document.querySelectorAll('.citation-sagesse, .coran-verse, .conclusion');
 
             // Simuler le chargement
             setTimeout(() => {
@@ -725,10 +620,7 @@
             }, observerOptions);
 
             // Observer les sections spéciales
-            document.querySelectorAll('.quote-section, .advice-section, .conclusion-section, .reflection-point').forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            specialSections.forEach(section => {
                 observer.observe(section);
             });
 
@@ -744,14 +636,14 @@
                 });
             }
 
-            // Effet spécial pour la section de conseils
-            const adviceSection = document.querySelector('.advice-section');
-            if (adviceSection) {
-                adviceSection.addEventListener('mouseenter', function() {
+            // Effet spécial pour la section conclusion
+            const conclusionSection = document.querySelector('.conclusion');
+            if (conclusionSection) {
+                conclusionSection.addEventListener('mouseenter', function() {
                     this.style.transform = 'scale(1.02)';
                     this.style.transition = 'transform 0.3s ease';
                 });
-                adviceSection.addEventListener('mouseleave', function() {
+                conclusionSection.addEventListener('mouseleave', function() {
                     this.style.transform = 'scale(1)';
                 });
             }
@@ -761,54 +653,21 @@
                 if (navigator.share) {
                     navigator.share({
                         title: document.title,
-                        text: 'Découvrez ce rappel bénéfique sur la douceur en Islam - Ô Bons Rappels',
+                        text: 'Découvrez ce rappel bénéfique sur la subsistance divine - Ô Bons Rappels',
                         url: window.location.href
                     });
+                } else {
+                    // Fallback pour les navigateurs qui ne supportent pas l'API de partage
+                    const url = window.location.href;
+                    const text = encodeURIComponent('Découvrez ce rappel bénéfique sur la subsistance divine - Ô Bons Rappels');
+                    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
                 }
             }
 
-            // Ajouter un bouton de partage si supporté
-            if (navigator.share) {
-                const shareButton = document.createElement('button');
-                shareButton.innerHTML = '📖 Partager cette douceur';
-                shareButton.style.cssText = `
-                    display: block;
-                    margin: 2rem auto;
-                    padding: 0.8rem 1.5rem;
-                    background: var(--gold-color);
-                    color: var(--text-color);
-                    border: none;
-                    border-radius: 25px;
-                    cursor: pointer;
-                    transition: var(--transition);
-                    font-weight: bold;
-                `;
-                shareButton.onmouseover = function() {
-                    this.style.background = '#b8941f';
-                    this.style.transform = 'translateY(-2px)';
-                    this.style.boxShadow = '0 4px 15px rgba(212, 175, 55, 0.4)';
-                };
-                shareButton.onmouseout = function() {
-                    this.style.background = 'var(--gold-color)';
-                    this.style.transform = 'translateY(0)';
-                    this.style.boxShadow = 'none';
-                };
-                shareButton.onclick = shareArticle;
-                
-                const articleContent = document.querySelector('.article-content');
-                articleContent.appendChild(shareButton);
+            // Ajouter un bouton de partage
+            if (shareButton) {
+                shareButton.addEventListener('click', shareArticle);
             }
-
-            // Animation des icônes de conseils
-            const adviceIcons = document.querySelectorAll('.advice-icon');
-            adviceIcons.forEach(icon => {
-                icon.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.2) rotate(5deg)';
-                });
-                icon.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1) rotate(0)';
-                });
-            });
         });
     </script>
 </body>

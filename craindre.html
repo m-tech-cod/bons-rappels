@@ -5,328 +5,670 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Craindre Allah - Ô Bons Rappels</title>
     <style>
-        /* Variables CSS pour une maintenance facile */
+        /* === RESET ET VARIABLES === */
         :root {
-            --primary-color: #2c5e3a;
-            --secondary-color: #d4af37;
-            --light-color: #f8f8f8;
-            --dark-color: #1a1a1a;
-            --text-color: #333;
-            --quote-bg: #f9f5e9;
-            --border-radius: 8px;
-            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --primary-color: #8b0000;
+            --secondary-color: #006400;
+            --accent-color: #2c5aa0;
+            --gold-color: #d4af37;
+            --text-color: #222;
+            --bg-color: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
             --transition: all 0.3s ease;
         }
 
-        /* Reset et styles de base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* === STYLES GÉNÉRAUX === */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--light-color);
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('Images/fond.png') center/cover fixed;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
         }
 
-        /* En-tête */
+        /* === HEADER ET NAVIGATION === */
         header {
-            background-color: var(--primary-color);
-            color: white;
-            box-shadow: var(--box-shadow);
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        /* Navigation principale */
         .main-nav {
             display: flex;
             justify-content: center;
-            padding: 15px 0;
-            background-color: rgba(0, 0, 0, 0.1);
+            align-items: center;
+            padding: 1rem;
+            gap: 2rem;
         }
 
         .main-nav a {
-            color: white;
+            color: var(--text-color);
             text-decoration: none;
-            margin: 0 20px;
             font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
             transition: var(--transition);
-            padding: 5px 10px;
-            border-radius: var(--border-radius);
         }
 
-        .main-nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary-color);
+            background: rgba(139, 0, 0, 0.1);
         }
 
-        /* Bannière */
-        .bannier {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c5e3a"/></svg>');
-            background-size: cover;
-            background-position: center;
-            padding: 60px 20px;
+        /* === BANNIERE HERO === */
+        .hero-banner {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Images/ban.png') center/cover;
+            padding: 4rem 2rem;
             text-align: center;
-            color: white;
+            color: var(--white);
+            position: relative;
         }
 
-        .bannier-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        .hero-content h1 {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .bannier-content p {
-            font-size: 1.2rem;
+        .hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-style: italic;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Contenu principal */
+        /* === CONTENU PRINCIPAL === */
         main {
             flex: 1;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 30px 20px;
+            padding: 2rem 1rem;
             width: 100%;
         }
 
-        /* Article */
-        article {
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            padding: 30px;
-            margin-bottom: 30px;
+        .article-container {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            position: relative;
         }
 
-        article h1 {
+        .article-title {
             color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            text-align: center;
+            margin-bottom: 2rem;
             line-height: 1.3;
+            border-bottom: 2px solid var(--gold-color);
+            padding-bottom: 1rem;
         }
 
-        article p {
-            margin-bottom: 20px;
+        .article-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            margin: 0 auto 2rem auto;
+            display: block;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+            border: 2px solid var(--gold-color);
+        }
+
+        .article-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .article-content {
             line-height: 1.8;
+            font-size: 1.1rem;
             text-align: justify;
         }
 
-        /* Image */
-        article img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: var(--border-radius);
-            margin: 20px 0;
-            display: block;
-            box-shadow: var(--box-shadow);
+        .article-content p {
+            margin-bottom: 1.5rem;
         }
 
-        /* Citation */
-        .quote {
-            background-color: var(--quote-bg);
-            border-left: 4px solid var(--secondary-color);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
-            font-style: italic;
-            color: #555;
+        /* === SECTIONS SPÉCIALES === */
+        .quote-section {
+            background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-color);
+            position: relative;
+        }
+
+        .quote-section::before {
+            content: "💗";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
         }
 
         .quote-content {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 10px;
+            font-style: italic;
+            color: #555;
         }
 
         .quote-author {
             font-weight: bold;
             color: var(--primary-color);
+            text-align: right;
         }
 
-        /* Section de conclusion */
-        .conclusion {
-            background-color: #f0f7f0;
-            border-radius: var(--border-radius);
-            padding: 20px;
-            margin: 25px 0;
-            border-left: 4px solid var(--primary-color);
+        .conclusion-section {
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border: 2px solid var(--secondary-color);
+            position: relative;
         }
 
-        .conclusion p {
+        .conclusion-section::before {
+            content: "📝";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .conclusion-section p {
             margin-bottom: 15px;
         }
 
-        /* Navigation des articles */
-        .article-nav {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
+        .conclusion-section strong {
+            color: var(--secondary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
         }
 
-        .article-nav a {
-            display: inline-block;
-            padding: 12px 20px;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
+        .conclusion-section .special-text {
+            text-align: center;
+            font-style: italic;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: var(--primary-color);
             font-weight: 500;
         }
 
-        .article-nav a:hover {
-            background-color: #234a2e;
-            transform: translateY(-2px);
+        .reflection-point {
+            background: var(--bg-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
         }
 
-        /* Pied de page */
+        .reflection-title {
+            color: var(--primary-color);
+            font-family: 'Amiri', serif;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* === NAVIGATION ARTICLES === */
+        .article-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 2rem;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-button:hover {
+            background: #004d00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .nav-button.prev {
+            background: var(--primary-color);
+        }
+
+        .nav-button.prev:hover {
+            background: #a00;
+        }
+
+        /* === FOOTER === */
         footer {
-            background-color: var(--dark-color);
-            color: white;
+            background: var(--text-color);
+            color: var(--white);
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
         }
 
         footer p {
-            margin-bottom: 15px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 1rem;
+            line-height: 1.6;
         }
 
-        /* Responsive Design */
+        /* === LOADING INDICATOR === */
+        .loading-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            z-index: 9999;
+        }
+
+        /* === BOUTON RETOUR EN HAUT === */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #a00;
+            transform: translateY(-3px);
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-container {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 4px 30px rgba(212, 175, 55, 0.6); }
+        }
+
+        .article-image {
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        /* === RESPONSIVE DESIGN === */
         @media (max-width: 768px) {
-            .bannier-content h1 {
-                font-size: 2rem;
-            }
-            
-            .bannier-content p {
-                font-size: 1rem;
-            }
-            
-            article {
-                padding: 20px;
-            }
-            
-            article h1 {
-                font-size: 1.5rem;
-            }
-            
-            .article-nav {
+            .main-nav {
                 flex-direction: column;
-                gap: 15px;
+                gap: 1rem;
+                padding: 1rem 0.5rem;
             }
-            
-            .article-nav a {
+
+            .hero-banner {
+                padding: 3rem 1rem;
+            }
+
+            main {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .article-container {
+                padding: 1.5rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+                text-align: left;
+            }
+
+            .article-navigation {
+                flex-direction: column;
+                gap: 1rem;
                 text-align: center;
+            }
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .quote-section,
+            .conclusion-section {
+                padding: 1.5rem;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
             }
         }
 
         @media (max-width: 480px) {
-            .main-nav {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
+            .hero-banner {
+                padding: 2rem 1rem;
             }
-            
-            .main-nav a {
-                margin: 5px 0;
+
+            .article-container {
+                padding: 1rem;
             }
-            
-            .bannier {
-                padding: 40px 15px;
+
+            .article-title {
+                font-size: 1.4rem;
             }
-            
-            .bannier-content h1 {
-                font-size: 1.8rem;
+
+            .quote-section,
+            .conclusion-section {
+                padding: 1rem;
             }
-            
-            main {
-                padding: 20px 15px;
-            }
-            
-            .quote {
-                padding: 15px;
+
+            .quote-content {
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Indicateur de chargement -->
+    <div class="loading-indicator" id="loadingIndicator"></div>
+
+    <!-- Bouton retour en haut -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
     <header>
         <nav class="main-nav">
             <a href="index.html">Accueil</a>
             <a href="about.html">À Propos</a>
         </nav>
-        <section class="bannier">
-            <div class="bannier-content">
-                <h1>Ô Bons Rappels</h1>
-                <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-            </div>
-        </section>
     </header>
-    
+
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1>Ô Bons Rappels</h1>
+            <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+        </div>
+    </section>
+
     <main>
-        <article>
-            <h1>Craindre Allah… c'est vouloir s'en rapprocher</h1>
+        <article class="article-container">
+            <h1 class="article-title">Craindre Allah… c'est vouloir s'en rapprocher</h1>
             
-            <img src="Images/craindre.jpg" alt="Illustration représentant la crainte d'Allah qui rapproche">
-            
-            <p>
-                Dans notre expérience humaine, la crainte pousse souvent à fuir. Lorsqu'on a peur d'un être, d'un danger ou d'une situation, notre réflexe est de nous éloigner, de nous protéger, voire de fuir complètement.
-            </p>
-            
-            <p>
-                Mais cette logique change radicalement lorsqu'il s'agit de la crainte d'Allah.
-            </p>
-            
-            <div class="quote">
-                <div class="quote-content">
-                    💗 « Lorsque l'on craint une créature, on la fuit et s'éloigne d'elle. Quant au Seigneur – Taʿālā –, lorsqu'on Le craint, on cherche Sa compagnie et à se rapprocher de Lui. »
+            <img src="Images/craindre.jpg" alt="Illustration représentant la crainte d'Allah qui rapproche" class="article-image" loading="lazy">
+
+            <div class="article-content">
+                <p>
+                    Dans notre expérience humaine, la crainte pousse souvent à fuir. Lorsqu'on a peur d'un être, d'un danger ou d'une situation, notre réflexe est de nous éloigner, de nous protéger, voire de fuir complètement.
+                </p>
+                
+                <p>
+                    Mais cette logique change radicalement lorsqu'il s'agit de la crainte d'Allah.
+                </p>
+                
+                <div class="quote-section">
+                    <div class="quote-content">
+                        « Lorsque l'on craint une créature, on la fuit et s'éloigne d'elle. Quant au Seigneur – Taʿālā –, lorsqu'on Le craint, on cherche Sa compagnie et à se rapprocher de Lui. »
+                    </div>
+                    <div class="quote-author">
+                        Ibn Qayyim Al-Jawziyya rahimahullāh – Les Méditations
+                    </div>
                 </div>
-                <div class="quote-author">
-                    Ibn Qayyim Al-Jawziyya rahimahullāh – Les Méditations
+                
+                <p>
+                    Cette parole simple mais profonde renverse notre compréhension habituelle de la peur. La crainte d'Allah (al-khawf) n'est pas une peur paralysante ni une angoisse destructrice. Elle est plutôt une lumière dans le cœur, qui pousse vers le repentir, la réforme, l'invocation et l'amour.
+                </p>
+                
+                <p>
+                    Craindre Allah, c'est être conscient de Sa grandeur, de Sa justice, mais aussi de Sa miséricorde infinie. Ce sentiment noble n'éloigne pas, il attire vers le Bien, vers le pardon, vers l'effort sincère.
+                </p>
+                
+                <p>
+                    Alors que la peur des créatures éloigne et isole, la crainte d'Allah rapproche et libère. Elle invite à se réfugier en Lui, à multiplier les bonnes actions, à purifier son cœur, et à vivre avec cette belle conscience qu'Il nous voit, qu'Il entend nos soupirs, qu'Il connaît nos intentions.
+                </p>
+                
+                <div class="reflection-point">
+                    <h3 class="reflection-title">🌙 La crainte qui rapproche</h3>
+                    <p>
+                        La crainte d'Allah n'est pas une peur qui éloigne, mais une conscience qui rapproche. 
+                        Elle nous pousse à nous tourner vers Lui, à chercher Son pardon et à nous améliorer.
+                    </p>
+                </div>
+
+                <div class="reflection-point">
+                    <h3 class="reflection-title">💫 Une lumière dans le cœur</h3>
+                    <p>
+                        Cette crainte noble illumine le cœur et guide vers le repentir, la réforme et l'amour 
+                        d'Allah. C'est une peur qui transforme positivement notre relation avec notre Créateur.
+                    </p>
+                </div>
+
+                <div class="reflection-point">
+                    <h3 class="reflection-title">📖 Conscience de Sa présence</h3>
+                    <p>
+                        La vraie crainte d'Allah nous fait vivre avec la conscience permanente qu'Il nous voit, 
+                        qu'Il entend nos invocations et qu'Il connaît nos intentions les plus secrètes.
+                    </p>
+                </div>
+                
+                <div class="conclusion-section">
+                    <strong>Conclusion :</strong>
+                    <p>La vraie crainte d'Allah ne rend pas amer, elle rend humble. Elle ne fait pas fuir, elle ramène vers Lui.</p>
+                    <p>Et c'est peut-être là l'un des plus beaux signes de foi : Lorsque ton cœur se serre à cause d'un manquement, mais qu'au lieu de fuir, tu dis doucement :</p>
+                    <p class="special-text">
+                        « Rabbī, je reviens à Toi… »
+                    </p>
                 </div>
             </div>
-            
-            <p>
-                Cette parole simple mais profonde renverse notre compréhension habituelle de la peur. La crainte d'Allah (al-khawf) n'est pas une peur paralysante ni une angoisse destructrice. Elle est plutôt une lumière dans le cœur, qui pousse vers le repentir, la réforme, l'invocation et l'amour.
-            </p>
-            
-            <p>
-                Craindre Allah, c'est être conscient de Sa grandeur, de Sa justice, mais aussi de Sa miséricorde infinie. Ce sentiment noble n'éloigne pas, il attire vers le Bien, vers le pardon, vers l'effort sincère.
-            </p>
-            
-            <p>
-                Alors que la peur des créatures éloigne et isole, la crainte d'Allah rapproche et libère. Elle invite à se réfugier en Lui, à multiplier les bonnes actions, à purifier son cœur, et à vivre avec cette belle conscience qu'Il nous voit, qu'Il entend nos soupirs, qu'Il connaît nos intentions.
-            </p>
-            
-            <div class="conclusion">
-                <p><strong>Conclusion :</strong></p>
-                <p>La vraie crainte d'Allah ne rend pas amer, elle rend humble. Elle ne fait pas fuir, elle ramène vers Lui.</p>
-                <p>Et c'est peut-être là l'un des plus beaux signes de foi : Lorsque ton cœur se serre à cause d'un manquement, mais qu'au lieu de fuir, tu dis doucement :</p>
-                <p style="text-align: center; font-style: italic; margin-top: 15px; font-size: 1.1rem;">
-                    « Rabbī, je reviens à Toi… »
-                </p>
+
+            <div class="article-navigation">
+                <a href="coran_compagnons.html" class="nav-button prev">
+                    ← Article précédent
+                </a>
+                <a href="douceur.html" class="nav-button">
+                    Article suivant →
+                </a>
             </div>
         </article>
-        
-        <nav class="article-nav">
-            <a href="coran_compagnons.html">← Article précédent</a>
-            <a href="douceur.html">Article suivant →</a>
-        </nav>
     </main>
-    
-    <footer>
-        <p>Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
+
+    <footer class="foot">
+        <p>Si un rappel t'a été utile, pense à le partager — car le bien se propage par ceux qui le transmettent.</p>
         <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const backToTop = document.getElementById('backToTop');
+
+            // Simuler le chargement
+            setTimeout(() => {
+                loadingIndicator.style.transform = 'scaleX(1)';
+                setTimeout(() => {
+                    loadingIndicator.style.display = 'none';
+                }, 500);
+            }, 1000);
+
+            // Gestion du bouton retour en haut
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Animation au défilement
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observer les sections spéciales
+            document.querySelectorAll('.quote-section, .conclusion-section, .reflection-point').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Gestion du chargement de l'image
+            const articleImage = document.querySelector('.article-image');
+            if (articleImage) {
+                articleImage.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                });
+                articleImage.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    console.log("Image non chargée : " + this.src);
+                });
+            }
+
+            // Effet spécial pour la section de conclusion
+            const conclusionSection = document.querySelector('.conclusion-section');
+            if (conclusionSection) {
+                conclusionSection.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                conclusionSection.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            }
+
+            // Partage sur les réseaux sociaux
+            function shareArticle() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.title,
+                        text: 'Découvrez ce rappel bénéfique sur la crainte d\'Allah - Ô Bons Rappels',
+                        url: window.location.href
+                    });
+                }
+            }
+
+            // Ajouter un bouton de partage si supporté
+            if (navigator.share) {
+                const shareButton = document.createElement('button');
+                shareButton.innerHTML = '📖 Partager ce rappel';
+                shareButton.style.cssText = `
+                    display: block;
+                    margin: 2rem auto;
+                    padding: 0.8rem 1.5rem;
+                    background: var(--gold-color);
+                    color: var(--text-color);
+                    border: none;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    transition: var(--transition);
+                    font-weight: bold;
+                `;
+                shareButton.onmouseover = function() {
+                    this.style.background = '#b8941f';
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 4px 15px rgba(212, 175, 55, 0.4)';
+                };
+                shareButton.onmouseout = function() {
+                    this.style.background = 'var(--gold-color)';
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                };
+                shareButton.onclick = shareArticle;
+                
+                const articleContent = document.querySelector('.article-content');
+                articleContent.appendChild(shareButton);
+            }
+        });
+    </script>
 </body>
 </html>

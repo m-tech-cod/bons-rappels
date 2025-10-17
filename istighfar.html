@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Istighfar - Ô Bons Rappels</title>
     <style>
-        /* Variables CSS pour une maintenance facile */
+        /* === VARIABLES CSS POUR UNE MAINTENANCE FACILE === */
         :root {
             --primary-color: #2c5e3a;
             --secondary-color: #d4af37;
@@ -18,9 +18,10 @@
             --border-radius: 8px;
             --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
+            --white: #ffffff;
         }
 
-        /* Reset et styles de base */
+        /* === RESET ET STYLES DE BASE === */
         * {
             margin: 0;
             padding: 0;
@@ -31,114 +32,147 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--light-color);
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('Images/fond.png') center/cover fixed;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
         }
 
-        /* En-tête */
+        /* === HEADER ET NAVIGATION === */
         header {
-            background-color: var(--primary-color);
-            color: white;
+            background: var(--white);
             box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        /* Navigation principale */
         .main-nav {
             display: flex;
             justify-content: center;
-            padding: 15px 0;
-            background-color: rgba(0, 0, 0, 0.1);
+            align-items: center;
+            padding: 1rem;
+            gap: 2rem;
         }
 
         .main-nav a {
-            color: white;
+            color: var(--text-color);
             text-decoration: none;
-            margin: 0 20px;
             font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
             transition: var(--transition);
-            padding: 5px 10px;
-            border-radius: var(--border-radius);
         }
 
-        .main-nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary-color);
+            background: rgba(44, 94, 58, 0.1);
         }
 
-        /* Bannière */
-        .bannier {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c5e3a"/></svg>');
-            background-size: cover;
-            background-position: center;
-            padding: 60px 20px;
+        /* === BANNIÈRE HERO === */
+        .hero-banner {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Images/ban.png') center/cover;
+            padding: 4rem 2rem;
             text-align: center;
-            color: white;
+            color: var(--white);
+            position: relative;
         }
 
-        .bannier-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        .hero-content h1 {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .bannier-content p {
-            font-size: 1.2rem;
+        .hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-style: italic;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Contenu principal */
+        /* === CONTENU PRINCIPAL === */
         main {
             flex: 1;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 30px 20px;
+            padding: 2rem 1rem;
             width: 100%;
         }
 
-        /* Article */
-        article {
-            background-color: white;
-            border-radius: var(--border-radius);
+        .article-container {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
             box-shadow: var(--box-shadow);
-            padding: 30px;
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
+            position: relative;
         }
 
-        article h1 {
+        .article-title {
             color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            line-height: 1.3;
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
             text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 1rem;
         }
 
-        article p {
-            margin-bottom: 20px;
+        .article-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            margin: 0 auto 2rem auto;
+            display: block;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .article-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .article-content {
             line-height: 1.8;
+            font-size: 1.1rem;
             text-align: justify;
         }
 
-        /* Image */
-        article img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: var(--border-radius);
-            margin: 20px auto;
-            display: block;
-            box-shadow: var(--box-shadow);
+        .article-content p {
+            margin-bottom: 1.5rem;
         }
 
-        /* Citation du Cheikh */
-        .sheikh-quote {
-            background-color: var(--quote-bg);
-            border-left: 4px solid var(--secondary-color);
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        /* === SECTIONS SPÉCIALES === */
+        .quote-section {
+            background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-color);
+            position: relative;
+        }
+
+        .quote-section::before {
+            content: "💬";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--box-shadow);
         }
 
         .quote-content {
@@ -154,18 +188,36 @@
             text-align: right;
         }
 
-        /* Section des bienfaits */
         .benefits-section {
-            background-color: var(--peace-bg);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            margin: 30px 0;
+            background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-right: 4px solid var(--primary-color);
+            position: relative;
+        }
+
+        .benefits-section::before {
+            content: "💖";
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--box-shadow);
         }
 
         .benefits-section h3 {
             color: var(--accent-color);
             margin-bottom: 20px;
             text-align: center;
+            font-family: 'Amiri', serif;
         }
 
         .benefits-list {
@@ -188,6 +240,12 @@
             background-color: white;
             border-radius: var(--border-radius);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .benefit-icon {
@@ -200,29 +258,65 @@
             flex: 1;
         }
 
-        /* Section de pratique */
         .practice-section {
-            background-color: #f8f8f8;
-            border-radius: var(--border-radius);
-            padding: 25px;
-            margin: 30px 0;
-            border-left: 4px solid var(--primary-color);
+            background: linear-gradient(135deg, #fff9e6, #fff2cc);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border: 2px solid var(--secondary-color);
+            text-align: center;
+            position: relative;
+        }
+
+        .practice-section::before {
+            content: "📝";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--box-shadow);
         }
 
         .practice-section h3 {
             color: var(--accent-color);
             margin-bottom: 15px;
             text-align: center;
+            font-family: 'Amiri', serif;
         }
 
-        /* Invocation en arabe */
+        .practice-section p {
+            margin-bottom: 1rem;
+        }
+
+        .practice-section ul {
+            text-align: left;
+            margin-left: 1.5rem;
+        }
+
+        .practice-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* === INVOCATION EN ARABE === */
         .arabic-invocation {
-            background-color: var(--quote-bg);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            margin: 25px 0;
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
             text-align: center;
             direction: rtl;
+            line-height: 2;
+            border: 1px solid var(--primary-color);
         }
 
         .arabic-text {
@@ -234,19 +328,42 @@
         }
 
         .translation {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin-bottom: 10px;
+            display: block;
+            margin-top: 1rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1rem;
+            color: var(--text-color);
+            direction: ltr;
+            font-style: italic;
+            border-top: 1px solid #ccc;
+            padding-top: 1rem;
         }
 
-        /* Section de conclusion */
+        /* === SECTION DE CONCLUSION === */
         .conclusion {
-            background-color: var(--peace-bg);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            margin: 30px 0;
+            background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
             text-align: center;
             border: 2px dashed var(--secondary-color);
+            position: relative;
+        }
+
+        .conclusion::before {
+            content: "✨";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--box-shadow);
         }
 
         .conclusion p {
@@ -254,230 +371,464 @@
             font-size: 1.1rem;
         }
 
-        /* Navigation des articles */
-        .article-nav {
+        /* === NAVIGATION ARTICLES === */
+        .article-navigation {
             display: flex;
             justify-content: space-between;
-            margin-top: 30px;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 2rem;
         }
 
-        .article-nav a {
-            display: inline-block;
-            padding: 12px 20px;
-            background-color: var(--primary-color);
-            color: white;
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
             text-decoration: none;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
             font-weight: 500;
+            transition: var(--transition);
         }
 
-        .article-nav a:hover {
-            background-color: #234a2e;
+        .nav-button:hover {
+            background: #234a2e;
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        /* Pied de page */
+        .nav-button.prev {
+            background: var(--accent-color);
+        }
+
+        .nav-button.prev:hover {
+            background: #6b3612;
+        }
+
+        /* === FOOTER === */
         footer {
-            background-color: var(--dark-color);
-            color: white;
+            background: var(--dark-color);
+            color: var(--white);
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
         }
 
         footer p {
-            margin-bottom: 15px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 1rem;
+            line-height: 1.6;
         }
 
-        /* Responsive Design */
+        /* === LOADING INDICATOR === */
+        .loading-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            z-index: 9999;
+        }
+
+        /* === BOUTON RETOUR EN HAUT === */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #234a2e;
+            transform: translateY(-3px);
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-container {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 4px 30px rgba(212, 175, 55, 0.6); }
+        }
+
+        .article-image {
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        /* === RESPONSIVE DESIGN === */
         @media (max-width: 768px) {
-            .bannier-content h1 {
-                font-size: 2rem;
-            }
-            
-            .bannier-content p {
-                font-size: 1rem;
-            }
-            
-            article {
-                padding: 20px;
-            }
-            
-            article h1 {
-                font-size: 1.5rem;
-            }
-            
-            .arabic-text {
-                font-size: 1.5rem;
-            }
-            
-            .article-nav {
+            .main-nav {
                 flex-direction: column;
-                gap: 15px;
+                gap: 1rem;
+                padding: 1rem 0.5rem;
             }
-            
-            .article-nav a {
+
+            .hero-banner {
+                padding: 3rem 1rem;
+            }
+
+            main {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .article-container {
+                padding: 1.5rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+                text-align: left;
+            }
+
+            .article-navigation {
+                flex-direction: column;
+                gap: 1rem;
                 text-align: center;
+            }
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .quote-section,
+            .benefits-section,
+            .practice-section,
+            .arabic-invocation,
+            .conclusion {
+                padding: 1.5rem;
+            }
+
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+
+            .benefit-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
             }
         }
 
         @media (max-width: 480px) {
-            .main-nav {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
+            .hero-banner {
+                padding: 2rem 1rem;
             }
-            
-            .main-nav a {
-                margin: 5px 0;
+
+            .article-container {
+                padding: 1rem;
             }
-            
-            .bannier {
-                padding: 40px 15px;
+
+            .article-title {
+                font-size: 1.4rem;
             }
-            
-            .bannier-content h1 {
-                font-size: 1.8rem;
+
+            .quote-section,
+            .benefits-section,
+            .practice-section,
+            .arabic-invocation,
+            .conclusion {
+                padding: 1rem;
             }
-            
-            main {
-                padding: 20px 15px;
-            }
-            
-            .sheikh-quote, .benefits-section, .practice-section, .arabic-invocation, .conclusion {
-                padding: 15px;
-            }
-            
+
             .arabic-text {
-                font-size: 1.3rem;
-            }
-            
-            .benefit-item {
-                flex-direction: column;
-                text-align: center;
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Indicateur de chargement -->
+    <div class="loading-indicator" id="loadingIndicator"></div>
+
+    <!-- Bouton retour en haut -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
     <header>
         <nav class="main-nav">
             <a href="index.html">Accueil</a>
             <a href="about.html">À Propos</a>
         </nav>
-        <section class="bannier">
-            <div class="bannier-content">
-                <h1>Ô Bons Rappels</h1>
-                <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-            </div>
-        </section>
     </header>
-    
+
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1>Ô Bons Rappels</h1>
+            <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+        </div>
+    </section>
+
     <main>
-        <article>
-            <h1>Le pouvoir apaisant de l'Istighfâr</h1>
+        <article class="article-container">
+            <h1 class="article-title">Le pouvoir apaisant de l'Istighfâr</h1>
             
-            <img src="Images/istighfar.jpg" alt="Illustration représentant la demande de pardon et la paix intérieure">
+            <img src="Images/istighfar.jpg" alt="Illustration représentant la demande de pardon et la paix intérieure" class="article-image" loading="lazy">
             
-            <div class="sheikh-quote">
-                <div class="quote-content">
-                    « Il y a dans al istighfâr (la demande de pardon) la disparition des soucis, la dissipation des angoisses et la facilitation des affaires. Plus encore, ses bienfaits et ses bénédictions pour ceux qui demandent pardon, dans ce bas-monde comme dans l'au-delà, sont tels qu'on ne peut les compter ni les dénombrer. »
-                </div>
-                <div class="quote-reference">
-                    Cheikh ʿAbdur-Razzāq al-Badr – qu'Allah le préserve<br>
-                    [Sharḥ Shamā'il an-Nabī ﷺ, page 287]
-                </div>
-            </div>
-            
-            <p>
-                L'istighfâr est une clé spirituelle puissante, trop souvent négligée. Il ne s'agit pas uniquement de répéter « Astaghfirullâh » de manière automatique, mais de reconnaître nos fautes, implorer la miséricorde d'Allah, et nous rapprocher de Lui avec sincérité et humilité.
-            </p>
-            
-            <div class="benefits-section">
-                <h3>Les bienfaits spirituels de l'Istighfâr</h3>
-                <div class="benefits-list">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">🕊️</div>
-                        <div class="benefit-text">
-                            <strong>Disparition des soucis</strong><br>
-                            Allège les peines et préoccupations du cœur
-                        </div>
+            <div class="article-content">
+                <div class="quote-section">
+                    <div class="quote-content">
+                        « Il y a dans al istighfâr (la demande de pardon) la disparition des soucis, la dissipation des angoisses et la facilitation des affaires. Plus encore, ses bienfaits et ses bénédictions pour ceux qui demandent pardon, dans ce bas-monde comme dans l'au-delà, sont tels qu'on ne peut les compter ni les dénombrer. »
                     </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">💫</div>
-                        <div class="benefit-text">
-                            <strong>Dissipation des angoisses</strong><br>
-                            Apaise les tourments intérieurs et l'anxiété
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">🔑</div>
-                        <div class="benefit-text">
-                            <strong>Facilitation des affaires</strong><br>
-                            Ouvre les portes vers des solutions inattendues
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">🌧️</div>
-                        <div class="benefit-text">
-                            <strong>Bénédictions divines</strong><br>
-                            Attire les bénédictions dans ce monde et dans l'au-delà
-                        </div>
+                    <div class="quote-reference">
+                        Cheikh ʿAbdur-Razzāq al-Badr – qu'Allah le préserve<br>
+                        [Sharḥ Shamā'il an-Nabī ﷺ, page 287]
                     </div>
                 </div>
-            </div>
-            
-            <div class="practice-section">
-                <h3>Comment pratiquer l'Istighfâr avec sincérité</h3>
+                
                 <p>
-                    L'istighfâr n'est pas une simple répétition mécanique. C'est un acte spirituel profond qui nécessite :
+                    L'istighfâr est une clé spirituelle puissante, trop souvent négligée. Il ne s'agit pas uniquement de répéter « Astaghfirullâh » de manière automatique, mais de reconnaître nos fautes, implorer la miséricorde d'Allah, et nous rapprocher de Lui avec sincérité et humilité.
                 </p>
-                <p>• La reconnaissance sincère de nos fautes</p>
-                <p>• Le regret authentique d'avoir désobéi à Allah</p>
-                <p>• La ferme intention de ne pas recommencer</p>
-                <p>• L'humilité devant la grandeur d'Allah</p>
-            </div>
-            
-            <div class="arabic-invocation">
-                <div class="arabic-text">
-                    أَسْتَغْفِرُ اللَّهَ
+                
+                <div class="benefits-section">
+                    <h3>Les bienfaits spirituels de l'Istighfâr</h3>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🕊️</div>
+                            <div class="benefit-text">
+                                <strong>Disparition des soucis</strong><br>
+                                Allège les peines et préoccupations du cœur
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">💫</div>
+                            <div class="benefit-text">
+                                <strong>Dissipation des angoisses</strong><br>
+                                Apaise les tourments intérieurs et l'anxiété
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🔑</div>
+                            <div class="benefit-text">
+                                <strong>Facilitation des affaires</strong><br>
+                                Ouvre les portes vers des solutions inattendues
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🌧️</div>
+                            <div class="benefit-text">
+                                <strong>Bénédictions divines</strong><br>
+                                Attire les bénédictions dans ce monde et dans l'au-delà
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="translation">
-                    "Je demande pardon à Allah"
+                
+                <div class="practice-section">
+                    <h3>Comment pratiquer l'Istighfâr avec sincérité</h3>
+                    <p>
+                        L'istighfâr n'est pas une simple répétition mécanique. C'est un acte spirituel profond qui nécessite :
+                    </p>
+                    <ul>
+                        <li>La reconnaissance sincère de nos fautes</li>
+                        <li>Le regret authentique d'avoir désobéi à Allah</li>
+                        <li>La ferme intention de ne pas recommencer</li>
+                        <li>L'humilité devant la grandeur d'Allah</li>
+                    </ul>
                 </div>
-                <p style="margin-top: 15px; font-style: italic;">
-                    L'invocation la plus courante pour demander pardon
-                </p>
-            </div>
-            
-            <p>
-                Les bienfaits de l'istighfâr sont tels qu'ils échappent au calcul humain. C'est un acte simple, à la portée de tous, mais qui peut transformer des situations sombres en clarté divine.
-            </p>
-            
-            <div class="conclusion">
-                <p><strong>Un refuge spirituel</strong></p>
+                
+                <div class="arabic-invocation">
+                    <div class="arabic-text">
+                        أَسْتَغْفِرُ اللَّهَ
+                    </div>
+                    <span class="translation">
+                        "Je demande pardon à Allah"<br>
+                        <small>L'invocation la plus courante pour demander pardon</small>
+                    </span>
+                </div>
+                
                 <p>
-                    Dans un monde où les angoisses et les préoccupations se multiplient, l'istighfâr reste un refuge puissant et une porte vers la tranquillité intérieure.
+                    Les bienfaits de l'istighfâr sont tels qu'ils échappent au calcul humain. C'est un acte simple, à la portée de tous, mais qui peut transformer des situations sombres en clarté divine.
                 </p>
-                <p style="margin-top: 15px; font-weight: bold;">
-                    Commençons dès aujourd'hui à multiplier nos istighfâr et à goûter à la paix qu'ils apportent.
-                </p>
+                
+                <div class="conclusion">
+                    <p><strong>Un refuge spirituel</strong></p>
+                    <p>
+                        Dans un monde où les angoisses et les préoccupations se multiplient, l'istighfâr reste un refuge puissant et une porte vers la tranquillité intérieure.
+                    </p>
+                    <p style="margin-top: 15px; font-weight: bold;">
+                        Commençons dès aujourd'hui à multiplier nos istighfâr et à goûter à la paix qu'ils apportent.
+                    </p>
+                </div>
+            </div>
+
+            <div class="article-navigation">
+                <a href="invocations.html" class="nav-button prev">
+                    ← Article précédent
+                </a>
+                <a href="joie.html" class="nav-button">
+                    Article suivant →
+                </a>
             </div>
         </article>
-        
-        <nav class="article-nav">
-            <a href="invocations.html">← Article précédent</a>
-            <a href="joie.html">Article suivant →</a>
-        </nav>
     </main>
     
     <footer>
         <p>Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
         <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const backToTop = document.getElementById('backToTop');
+
+            // Simuler le chargement
+            setTimeout(() => {
+                loadingIndicator.style.transform = 'scaleX(1)';
+                setTimeout(() => {
+                    loadingIndicator.style.display = 'none';
+                }, 500);
+            }, 1000);
+
+            // Gestion du bouton retour en haut
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Animation au défilement
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observer les sections spéciales
+            document.querySelectorAll('.quote-section, .benefits-section, .practice-section, .arabic-invocation, .conclusion, .benefit-item').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Gestion du chargement de l'image
+            const articleImage = document.querySelector('.article-image');
+            if (articleImage) {
+                articleImage.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                });
+                articleImage.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    console.log("Image non chargée : " + this.src);
+                });
+            }
+
+            // Effet spécial pour la section invocation
+            const arabicInvocation = document.querySelector('.arabic-invocation');
+            if (arabicInvocation) {
+                arabicInvocation.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                arabicInvocation.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            }
+
+            // Partage sur les réseaux sociaux
+            function shareArticle() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.title,
+                        text: 'Découvrez ce rappel bénéfique sur le pouvoir apaisant de l\'Istighfâr - Ô Bons Rappels',
+                        url: window.location.href
+                    });
+                }
+            }
+
+            // Ajouter un bouton de partage si supporté
+            if (navigator.share) {
+                const shareButton = document.createElement('button');
+                shareButton.innerHTML = '🕊️ Partager ce rappel';
+                shareButton.style.cssText = `
+                    display: block;
+                    margin: 2rem auto;
+                    padding: 0.8rem 1.5rem;
+                    background: var(--secondary-color);
+                    color: var(--text-color);
+                    border: none;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    transition: var(--transition);
+                    font-weight: bold;
+                `;
+                shareButton.onmouseover = function() {
+                    this.style.background = '#b8941f';
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 4px 15px rgba(212, 175, 55, 0.4)';
+                };
+                shareButton.onmouseout = function() {
+                    this.style.background = 'var(--secondary-color)';
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                };
+                shareButton.onclick = shareArticle;
+                
+                const articleContent = document.querySelector('.article-content');
+                articleContent.appendChild(shareButton);
+            }
+        });
+    </script>
 </body>
 </html>

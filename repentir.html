@@ -4,113 +4,340 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repentir - Ô Bons Rappels</title>
-    <link rel="stylesheet" href="bons.css">
     <style>
-        /* Styles complémentaires pour améliorer la mise en page */
-        .article-content {
+        /* === RESET ET VARIABLES === */
+        :root {
+            --primary-color: #8b0000;
+            --secondary-color: #006400;
+            --accent-color: #2c5aa0;
+            --gold-color: #d4af37;
+            --urgent-red: #ff4444;
+            --text-color: #222;
+            --bg-color: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* === STYLES GÉNÉRAUX === */
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('Images/fond.png') center/cover fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* === HEADER ET NAVIGATION === */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            gap: 2rem;
+        }
+
+        .main-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary-color);
+            background: rgba(139, 0, 0, 0.1);
+        }
+
+        /* === BANNIERE HERO === */
+        .hero-banner {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Images/ban.png') center/cover;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* === CONTENU PRINCIPAL === */
+        main {
+            flex: 1;
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 2rem 1rem;
+            width: 100%;
         }
-        
-        video {
+
+        .article-container {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .article-title {
+            color: var(--primary-color);
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+            border-bottom: 2px solid var(--gold-color);
+            padding-bottom: 1rem;
+        }
+
+        .article-video {
             width: 100%;
             max-width: 600px;
             height: auto;
-            border-radius: 8px;
-            margin: 20px auto;
+            border-radius: 10px;
+            margin: 0 auto 2rem auto;
             display: block;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+            border: 2px solid var(--gold-color);
         }
-        
+
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* === SECTIONS SPÉCIALES === */
         .human-nature-section {
-            background-color: rgba(249, 245, 233, 0.8);
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 8px;
-            border-left: 4px solid #8b0000;
+            background: linear-gradient(135deg, #f9f5e9, #f5f0e1);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary-color);
+            position: relative;
         }
-        
+
+        .human-nature-section::before {
+            content: "🌿";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
         .hadith-section {
-            background-color: rgba(240, 247, 240, 0.8);
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #f0f7f0, #e6f3e6);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border: 1px dashed var(--secondary-color);
             text-align: center;
-            border: 1px dashed #006400;
+            position: relative;
         }
-        
+
+        .hadith-section::before {
+            content: "📖";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
         .hadith-text {
             font-size: 1.2rem;
             font-style: italic;
             margin-bottom: 10px;
-            color: #006400;
+            color: var(--secondary-color);
+            font-family: 'Amiri', serif;
         }
-        
+
         .hadith-reference {
             font-style: italic;
             color: #666;
         }
-        
-        .quran-section {
-            background-color: rgba(249, 245, 233, 0.8);
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 8px;
+
+        .encouragement-section {
+            background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border: 2px solid var(--urgent-red);
             text-align: center;
-            border-left: 4px solid #8b0000;
-            border-right: 4px solid #8b0000;
+            position: relative;
         }
-        
+
+        .encouragement-section::before {
+            content: "💫";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .quran-section {
+            background: linear-gradient(135deg, #f9f5e9, #f5f0e1);
+            padding: 2.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+            border-left: 4px solid var(--primary-color);
+            border-right: 4px solid var(--primary-color);
+            position: relative;
+        }
+
+        .quran-section::before {
+            content: "🕌";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
         .quran-text {
-            font-size: 1.2rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
             font-weight: bold;
-            color: #8b0000;
-            margin-bottom: 10px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
             line-height: 1.6;
         }
-        
+
         .quran-reference {
             font-style: italic;
             color: #666;
         }
-        
+
         .repentance-section {
-            background-color: rgba(240, 247, 240, 0.8);
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+            padding: 2.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            position: relative;
         }
-        
+
+        .repentance-section::before {
+            content: "💧";
+            position: absolute;
+            top: -20px;
+            left: -15px;
+            background: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
         .repentance-section h3 {
-            color: #8b0000;
+            color: var(--primary-color);
             text-align: center;
             margin-bottom: 20px;
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
         }
-        
+
         .pillars-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
+            gap: 20px;
             margin: 25px 0;
         }
-        
+
         @media (min-width: 768px) {
             .pillars-grid {
                 grid-template-columns: 1fr 1fr 1fr;
             }
         }
-        
+
         .pillar-card {
             background-color: white;
             padding: 20px;
             border-radius: 8px;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
-        
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
         .pillar-number {
-            background-color: #8b0000;
+            background-color: var(--primary-color);
             color: white;
             width: 40px;
             height: 40px;
@@ -121,64 +348,359 @@
             margin: 0 auto 15px;
             font-weight: bold;
         }
-        
+
         .pillar-title {
             font-weight: bold;
-            color: #006400;
+            color: var(--secondary-color);
             margin-bottom: 10px;
             font-size: 1.1rem;
         }
-        
+
         .love-section {
-            background-color: rgba(249, 245, 233, 0.9);
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #f8f0ff, #e6d4ff);
+            padding: 2.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
             text-align: center;
-            border: 2px solid #8b0000;
+            border: 2px solid var(--primary-color);
+            position: relative;
         }
-        
+
+        .love-section::before {
+            content: "🌸";
+            position: absolute;
+            top: -20px;
+            right: -15px;
+            background: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
         .love-text {
             font-size: 1.1rem;
             line-height: 1.7;
             margin-bottom: 15px;
         }
-        
-        .encouragement {
-            background-color: rgba(139, 0, 0, 0.05);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 8px;
+
+        .quote-section {
+            background: linear-gradient(135deg, #fff9e6, #fff2cc);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
             text-align: center;
-            font-style: italic;
+            line-height: 1.8;
+            border: 1px solid var(--gold-color);
+            position: relative;
         }
-        
-        /* Améliorations responsives supplémentaires */
+
+        .quote-section::before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        /* === NAVIGATION ARTICLES === */
+        .article-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 2rem;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-button:hover {
+            background: #004d00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .nav-button.prev {
+            background: var(--primary-color);
+        }
+
+        .nav-button.prev:hover {
+            background: #a00;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--text-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* === LOADING INDICATOR === */
+        .loading-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            z-index: 9999;
+        }
+
+        /* === BOUTON RETOUR EN HAUT === */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #a00;
+            transform: translateY(-3px);
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-container {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 4px 30px rgba(212, 175, 55, 0.6); }
+        }
+
+        .article-video {
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        /* === AMÉLIORATIONS POUR LA LISIBILITÉ === */
+        .article-content p:first-of-type:first-letter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            float: left;
+            line-height: 1;
+            margin-right: 0.5rem;
+            margin-top: 0.3rem;
+            font-family: 'Amiri', serif;
+        }
+
+        /* === STYLES POUR LE PARTAGE === */
+        .share-section {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .share-button {
+            background: var(--gold-color);
+            color: var(--text-color);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .share-button:hover {
+            background: #b8941f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* === RESPONSIVE DESIGN === */
         @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0.5rem;
+            }
+
+            .hero-banner {
+                padding: 3rem 1rem;
+            }
+
+            main {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .article-container {
+                padding: 1.5rem;
+            }
+
             .article-content {
-                padding: 0 15px;
+                font-size: 1rem;
+                text-align: left;
             }
-            
-            .human-nature-section, .hadith-section, .quran-section, .repentance-section, .love-section {
-                padding: 20px;
-                margin: 25px 0;
+
+            .article-navigation {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
-            
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .human-nature-section,
+            .hadith-section,
+            .encouragement-section,
+            .quran-section,
+            .repentance-section,
+            .love-section,
+            .quote-section {
+                padding: 1.5rem;
+            }
+
+            .quran-text,
+            .hadith-text {
+                font-size: 1.1rem;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+            }
+
+            .article-content p:first-of-type:first-letter {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-banner {
+                padding: 2rem 1rem;
+            }
+
+            .article-container {
+                padding: 1rem;
+            }
+
+            .article-title {
+                font-size: 1.4rem;
+            }
+
+            .human-nature-section,
+            .hadith-section,
+            .encouragement-section,
+            .quran-section,
+            .repentance-section,
+            .love-section,
+            .quote-section {
+                padding: 1rem;
+            }
+
+            .quran-text,
+            .hadith-text {
+                font-size: 1rem;
+            }
+
+            .hadith-section::before,
+            .quran-section::before,
+            .encouragement-section::before {
+                width: 40px;
+                height: 40px;
+                top: -15px;
+                font-size: 1.2rem;
+            }
+
+            .article-content p:first-of-type:first-letter {
+                font-size: 1.8rem;
+            }
+
+            .pillars-grid {
+                gap: 15px;
+            }
+
             .pillar-card {
                 padding: 15px;
             }
         }
-        
-        @media (max-width: 480px) {
+
+        @media (max-width: 360px) {
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+
+            .article-title {
+                font-size: 1.2rem;
+            }
+
             .article-content {
-                padding: 0 10px;
+                font-size: 0.95rem;
             }
-            
-            h1 {
-                margin-left: 0 !important;
-                text-align: center !important;
-            }
-            
+
             .pillars-grid {
                 gap: 10px;
             }
@@ -186,29 +708,36 @@
     </style>
 </head>
 <body>
+    <!-- Indicateur de chargement -->
+    <div class="loading-indicator" id="loadingIndicator"></div>
+
+    <!-- Bouton retour en haut -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
     <header>
-        <nav>
+        <nav class="main-nav">
             <a href="index.html">Accueil</a>
             <a href="about.html">À Propos</a>
         </nav>
-        <section class="bannier">
-            <div class="bannier-content">
-                <h1>Ô Bons Rappels</h1>
-                <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-            </div>
-        </section>
     </header>
-    
+
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1>Ô Bons Rappels</h1>
+            <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+        </div>
+    </section>
+
     <main>
-        <article>
+        <article class="article-container">
+            <h1 class="article-title">Si tu pèches… repens-toi.</h1>
+            
+            <video controls class="article-video" poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'><rect width='600' height='400' fill='%232c5e3a'/><text x='50%' y='50%' font-family='Arial' font-size='20' fill='white' text-anchor='middle'>Vidéo : Le repentir et la miséricorde divine</text></svg>">
+                <source src="Vidéos/peche_repentir.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
+
             <div class="article-content">
-                <h1>Si tu pèches… repens-toi.</h1>
-                
-                <video controls poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'><rect width='600' height='400' fill='%232c5e3a'/><text x='50%' y='50%' font-family='Arial' font-size='20' fill='white' text-anchor='middle'>Vidéo : Le repentir et la miséricorde divine</text></svg>">
-                    <source src="Vidéos/peche_repentir.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéos.
-                </video>
-                
                 <div class="human-nature-section">
                     <p>
                         Tomber dans le péché fait partie de la nature humaine. Aucun être humain n'est infaillible. Même les plus pieux peuvent chuter. Ce qui fait la différence, c'est la réaction après la faute.
@@ -224,7 +753,7 @@
                     </div>
                 </div>
                 
-                <div class="encouragement">
+                <div class="encouragement-section">
                     <p><strong>Le repentir : une porte toujours ouverte</strong></p>
                     <p>
                         Repens-toi. Même si tu as fauté mille fois. Même si tu as honte. Même si tu penses que c'est trop tard. Allah aime ceux qui reviennent à Lui.
@@ -241,7 +770,7 @@
                 </div>
                 
                 <p>
-                    Chaque fois que tu péches, Satan veut te faire croire que tu n'as plus de valeur, que tu n'as plus le droit de revenir. Ne l'écoute pas. Car tant que tu es vivant, le repentir reste possible. Et tant que tu te repens sincèrement, Allah t'accueille.
+                    Chaque fois que tu péches, Satan veut te faire croire que tu n'as plus de valeur, que tu n'as plus le droit de revenir. Ne l'écoute pas. Car tant que tu es vivante, le repentir reste possible. Et tant que tu te repens sincèrement, Allah t'accueille.
                 </p>
                 
                 <div class="repentance-section">
@@ -268,9 +797,11 @@
                         </div>
                     </div>
                     
-                    <p style="text-align: center; font-style: italic; margin-top: 15px;">
-                        <strong>Important :</strong> Si le péché concernait les droits d'autrui (vol, injustice, diffamation…), il faut en plus réparer le tort causé.
-                    </p>
+                    <div class="quote-section">
+                        <p>
+                            <strong>Important :</strong> Si le péché concernait les droits d'autrui (vol, injustice, diffamation…), il faut en plus réparer le tort causé.
+                        </p>
+                    </div>
                 </div>
                 
                 <div class="love-section">
@@ -290,22 +821,180 @@
                         </div>
                     </div>
                     
-                    <p style="font-weight: bold; color: #8b0000; margin-top: 15px;">
+                    <p style="font-weight: bold; color: var(--primary-color); margin-top: 15px;">
                         N'attends pas demain. Repens-toi aujourd'hui. Ta place auprès d'Allah t'attend.
                     </p>
                 </div>
+
+                <div class="share-section">
+                    <button class="share-button" onclick="shareArticle()">
+                        <span>📤</span> Partager ce rappel
+                    </button>
+                </div>
+            </div>
+
+            <div class="article-navigation">
+                <a href="paroles.html" class="nav-button prev">
+                    ← Article précédent
+                </a>
+                <a href="sagesse.html" class="nav-button">
+                    Article suivant →
+                </a>
             </div>
         </article>
-        
-        <nav>
-            <a href="paroles.html">Article précédent</a>
-            <a href="sagesse.html">Article suivant</a>
-        </nav>
     </main>
-    
+
     <footer class="foot">
-        <p>Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
+        <p>Si un rappel t'a été utile, pense à le partager — car le bien se propage par ceux qui le transmettent.</p>
         <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const backToTop = document.getElementById('backToTop');
+
+            // Simuler le chargement
+            setTimeout(() => {
+                loadingIndicator.style.transform = 'scaleX(1)';
+                setTimeout(() => {
+                    loadingIndicator.style.display = 'none';
+                }, 500);
+            }, 1000);
+
+            // Gestion du bouton retour en haut
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Animation au défilement
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observer les sections spéciales
+            document.querySelectorAll('.human-nature-section, .hadith-section, .encouragement-section, .quran-section, .repentance-section, .love-section, .pillar-card, .quote-section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Gestion du chargement de la vidéo
+            const articleVideo = document.querySelector('.article-video');
+            if (articleVideo) {
+                articleVideo.addEventListener('loadeddata', function() {
+                    this.classList.add('loaded');
+                });
+                articleVideo.addEventListener('error', function() {
+                    console.log("Vidéo non chargée : " + this.src);
+                    // Remplacer par un placeholder élégant
+                    this.outerHTML = `
+                        <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); 
+                                    padding: 3rem 1rem; 
+                                    border-radius: 10px; 
+                                    text-align: center;
+                                    margin: 0 auto 2rem auto;
+                                    max-width: 600px;
+                                    border: 2px dashed #ccc;">
+                            <p style="color: #666; font-style: italic;">
+                                🎥 Vidéo : Le repentir et la miséricorde divine
+                            </p>
+                            <p style="color: #888; margin-top: 10px;">
+                                (La vidéo n'a pas pu être chargée)
+                            </p>
+                        </div>
+                    `;
+                });
+            }
+
+            // Amélioration de l'accessibilité
+            document.querySelectorAll('.nav-button, .share-button').forEach(button => {
+                button.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+
+            // Optimisation pour les connexions lentes
+            if (navigator.connection) {
+                const connection = navigator.connection;
+                if (connection.saveData || connection.effectiveType.includes('2g')) {
+                    // Désactiver les animations complexes
+                    document.querySelectorAll('*').forEach(el => {
+                        el.style.animation = 'none';
+                    });
+                }
+            }
+        });
+
+        // Partage sur les réseaux sociaux
+        function shareArticle() {
+            if (navigator.share) {
+                navigator.share({
+                    title: document.title,
+                    text: 'Découvrez ce rappel important sur le repentir - Ô Bons Rappels',
+                    url: window.location.href
+                }).then(() => {
+                    console.log('Article partagé avec succès');
+                }).catch((error) => {
+                    console.log('Erreur de partage:', error);
+                });
+            } else {
+                // Fallback pour les navigateurs qui ne supportent pas l'API Share
+                const shareUrl = window.location.href;
+                const shareText = 'Découvrez "Si tu pèches… repens-toi" sur Ô Bons Rappels';
+                
+                // Copier le lien dans le presse-papiers
+                navigator.clipboard.writeText(shareUrl + ' - ' + shareText).then(() => {
+                    alert('Lien copié dans le presse-papiers ! Partagez-le avec vos proches.');
+                }).catch(() => {
+                    // Fallback si l'API clipboard n'est pas supportée
+                    alert('Partagez cet article avec vos proches !\n\n' + shareText + '\n' + shareUrl);
+                });
+            }
+        }
+
+        // Gestion des erreurs globales
+        window.addEventListener('error', function(e) {
+            console.error('Erreur JavaScript:', e.error);
+        });
+
+        // Amélioration des performances sur mobile
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    // Mettre à jour les éléments visuels si nécessaire
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    </script>
 </body>
 </html>

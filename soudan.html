@@ -5,58 +5,616 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Appel à la solidarité et aux prières pour le Soudan face à la famine et l'oubli médiatique - Ô Bons Rappels">
     <title>Le Soudan s'effondre en silence : famine, oubli et prière | Ô Bons Rappels</title>
-    <link rel="stylesheet" href="bons.css">
+    <style>
+        /* === RESET ET VARIABLES === */
+        :root {
+            --primary-color: #8b0000;
+            --secondary-color: #006400;
+            --accent-color: #2c5aa0;
+            --gold-color: #d4af37;
+            --text-color: #222;
+            --bg-color: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* === STYLES GÉNÉRAUX === */
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('Images/fond.png') center/cover fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* === HEADER ET NAVIGATION === */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            gap: 2rem;
+        }
+
+        .main-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary-color);
+            background: rgba(139, 0, 0, 0.1);
+        }
+
+        /* === BANNIERE HERO === */
+        .hero-banner {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Images/ban.png') center/cover;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* === CONTENU PRINCIPAL === */
+        main {
+            flex: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            width: 100%;
+        }
+
+        .article-container {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            position: relative;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .article-title {
+            color: var(--primary-color);
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+            border-bottom: 2px solid var(--gold-color);
+            padding-bottom: 1rem;
+        }
+
+        .article-video {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            margin: 0 auto 2rem auto;
+            display: block;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            border: 2px solid var(--primary-color);
+        }
+
+        .article-video:hover {
+            transform: scale(1.01);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* === SECTIONS SPÉCIALES === */
+        .intro-section {
+            background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-color);
+            position: relative;
+        }
+
+        .intro-section::before {
+            content: "🌍";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .invocation-section {
+            background: linear-gradient(135deg, #fff9e6, #fff2cc);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border: 2px solid var(--gold-color);
+            text-align: center;
+            position: relative;
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            line-height: 2;
+        }
+
+        .invocation-section::before {
+            content: "🕌";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .call-to-action-section {
+            background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-right: 4px solid var(--primary-color);
+            position: relative;
+        }
+
+        .call-to-action-section::before {
+            content: "🤲";
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .emphasis-section {
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+            line-height: 1.8;
+            border: 1px solid var(--secondary-color);
+            position: relative;
+            font-weight: bold;
+        }
+
+        .emphasis-section::before {
+            content: "⚠️";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .action-guide-section {
+            background: linear-gradient(135deg, #f9f3e9, #f5ebd8);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .action-guide-section::before {
+            content: "💡";
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .heart-section {
+            background: linear-gradient(135deg, #ffe6f2, #ffccf2);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+            font-style: italic;
+            position: relative;
+        }
+
+        .heart-section::before {
+            content: "💖";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .conclusion-section {
+            background: linear-gradient(135deg, #e6f7ff, #ccf2ff);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .conclusion-section::before {
+            content: "📜";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        /* === LISTES STYLISÉES === */
+        .needs-list, .action-list, .prayer-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 1.5rem 0;
+        }
+
+        .needs-list li, .action-list li, .prayer-list li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .needs-list li::before {
+            content: "🆘";
+            position: absolute;
+            left: 0;
+        }
+
+        .action-list li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        .prayer-list li::before {
+            content: "🙏";
+            position: absolute;
+            left: 0;
+        }
+
+        /* === NAVIGATION ARTICLES === */
+        .article-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 2rem;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-button:hover {
+            background: #004d00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .nav-button.prev {
+            background: var(--primary-color);
+        }
+
+        .nav-button.prev:hover {
+            background: #a00;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--text-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* === LOADING INDICATOR === */
+        .loading-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            z-index: 9999;
+        }
+
+        /* === BOUTON RETOUR EN HAUT === */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #a00;
+            transform: translateY(-3px);
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0.5rem;
+            }
+
+            .hero-banner {
+                padding: 3rem 1rem;
+            }
+
+            main {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .article-container {
+                padding: 1.5rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+                text-align: left;
+            }
+
+            .article-navigation {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .intro-section,
+            .invocation-section,
+            .call-to-action-section,
+            .emphasis-section,
+            .action-guide-section,
+            .heart-section,
+            .conclusion-section {
+                padding: 1.5rem;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-banner {
+                padding: 2rem 1rem;
+            }
+
+            .article-container {
+                padding: 1rem;
+            }
+
+            .article-title {
+                font-size: 1.4rem;
+            }
+
+            .intro-section,
+            .invocation-section,
+            .call-to-action-section,
+            .emphasis-section,
+            .action-guide-section,
+            .heart-section,
+            .conclusion-section {
+                padding: 1rem;
+            }
+
+            .invocation-section {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- En-tête du site -->
+    <!-- Indicateur de chargement -->
+    <div class="loading-indicator" id="loadingIndicator"></div>
+
+    <!-- Bouton retour en haut -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
     <header>
         <nav class="main-nav">
             <a href="index.html">Accueil</a>
             <a href="about.html">À Propos</a>
         </nav>
-        
-        <!-- Bannière principale -->
-        <section class="banniere">
-            <div class="banniere-content">
-                <h1>Ô Bons Rappels</h1>
-                <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-            </div>
-        </section>
     </header>
 
-    <!-- Contenu principal de l'article -->
-    <main class="article-container">
-        <article class="article-content">
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1>Ô Bons Rappels</h1>
+            <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+        </div>
+    </section>
+
+    <main>
+        <article class="article-container">
             <h1 class="article-title">Le Soudan s'effondre en silence : famine, oubli et prière</h1>
             
-            <div class="article-media">
-                <video controls class="article-video">
-                    <source src="Vidéos/soudan.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéos.
-                </video>
-            </div>
-            
-            <div class="article-text">
-                <p class="intro">
-                    Depuis mai 2024, le Soudan vit l'une des famines les plus graves
-                    de son histoire récente. Les chiffres sont étouffants. Les visages sont
-                    creusés. Les enfants, les mères, les anciens… tous frappés par la faim, la
-                    peur, et le silence du monde.
-                </p>
-                
-                <blockquote class="invocation">
-                    « Lâ hawla wa lâ quwwata illâ billâh »<br>
-                    Il n'y a de force ni de puissance qu'en Allah.
-                </blockquote>
-                
+            <video controls class="article-video" poster="Images/soudan-poster.jpg">
+                <source src="Vidéos/soudan.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
+
+            <div class="article-content">
+                <div class="intro-section">
+                    <p>
+                        Depuis mai 2024, le Soudan vit l'une des famines les plus graves
+                        de son histoire récente. Les chiffres sont étouffants. Les visages sont
+                        creusés. Les enfants, les mères, les anciens… tous frappés par la faim, la
+                        peur, et le silence du monde.
+                    </p>
+                </div>
+
+                <div class="invocation-section">
+                    <p>« Lâ hawla wa lâ quwwata illâ billâh »</p>
+                    <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; margin-top: 1rem;">
+                        Il n'y a de force ni de puissance qu'en Allah.
+                    </p>
+                </div>
+
                 <p>
                     Les souffrances sont bien réelles, mais la visibilité ne suit pas.
                     Les nouvelles circulent à peine. Les médias, les dirigeants, les réseaux,
                     parlent peu, ou pas du tout.
                     Et pourtant, des vies se perdent chaque jour.
                 </p>
-                
-                <div class="call-to-action">
+
+                <div class="call-to-action-section">
                     <p>
                         Ceux qui n'ont ni armes, ni caméras, ni voix médiatique ont besoin
                         de nous.
@@ -68,14 +626,16 @@
                         <li>De notre compassion active.</li>
                     </ul>
                 </div>
-                
-                <p class="emphasis">
-                    Car il y a une injustice dans la souffrance, mais il y en a une autre dans
-                    l'oubli.<br>
-                    Ne pas détourner les yeux.
-                </p>
-                
-                <div class="action-guide">
+
+                <div class="emphasis-section">
+                    <p>
+                        Car il y a une injustice dans la souffrance, mais il y en a une autre dans
+                        l'oubli.<br>
+                        Ne pas détourner les yeux.
+                    </p>
+                </div>
+
+                <div class="action-guide-section">
                     <p>
                         Il ne s'agit pas d'agir par culpabilité. Il s'agit d'agir par fraternité.
                     </p>
@@ -86,40 +646,180 @@
                         <li>De ne pas détourner les yeux lorsque l'humanité s'effondre ailleurs.</li>
                     </ul>
                 </div>
-                
-                <p class="heart-message">
-                    Le Soudan n'est pas si loin, quand le cœur reste vivant.
-                </p>
-                
-                <div class="conclusion">
-                    <h3>Conclusion :</h3>
+
+                <div class="heart-section">
+                    <p>
+                        Le Soudan n'est pas si loin, quand le cœur reste vivant.
+                    </p>
+                </div>
+
+                <div class="conclusion-section">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem; text-align: center;">Conclusion :</h3>
                     <ul class="prayer-list">
                         <li>Qu'Allah apaise leur douleur,</li>
                         <li>Qu'Il leur accorde une issue,</li>
                         <li>Et qu'Il réveille en nous la conscience endormie.</li>
                     </ul>
-                    <p class="final-call">
+                    <p style="text-align: center; font-weight: bold; margin-top: 1.5rem; font-style: italic;">
                         Prions pour eux. Parlons d'eux. Ne les laissons pas seuls.
                     </p>
                 </div>
             </div>
+
+            <div class="article-navigation">
+                <a href="savants.html" class="nav-button prev">
+                    ← Article précédent
+                </a>
+                <a href="susistance.html" class="nav-button">
+                    Article suivant →
+                </a>
+            </div>
         </article>
-        
-        <!-- Navigation entre articles -->
-        <nav class="article-nav">
-            <a href="savants.html" class="nav-link prev">← Article précédent</a>
-            <a href="susistance.html" class="nav-link next">Article suivant →</a>
-        </nav>
     </main>
 
-    <!-- Pied de page -->
-    <footer class="footer">
-        <p class="footer-message">
-            Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.
-        </p>
-        <p class="footer-copyright">
-            &copy; 2025 Ô Bons Rappels - Tous droits réservés.
-        </p>
+    <footer>
+        <p>Si un rappel t'a été utile, pense à le partager — car le bien se propage par ceux qui le transmettent.</p>
+        <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const backToTop = document.getElementById('backToTop');
+
+            // Simuler le chargement
+            setTimeout(() => {
+                loadingIndicator.style.transform = 'scaleX(1)';
+                setTimeout(() => {
+                    loadingIndicator.style.display = 'none';
+                }, 500);
+            }, 1000);
+
+            // Gestion du bouton retour en haut
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Animation au défilement
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observer les sections spéciales
+            document.querySelectorAll('.intro-section, .invocation-section, .call-to-action-section, .emphasis-section, .action-guide-section, .heart-section, .conclusion-section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Gestion du chargement de la vidéo
+            const articleVideo = document.querySelector('.article-video');
+            if (articleVideo) {
+                articleVideo.addEventListener('loadeddata', function() {
+                    this.classList.add('loaded');
+                });
+                articleVideo.addEventListener('error', function() {
+                    console.log("Vidéo non chargée : " + this.src);
+                });
+            }
+
+            // Effet spécial pour la section invocation
+            const invocationSection = document.querySelector('.invocation-section');
+            if (invocationSection) {
+                invocationSection.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                invocationSection.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            }
+
+            // Partage sur les réseaux sociaux
+            function shareArticle() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.title,
+                        text: 'Découvrez cet appel à la solidarité pour le Soudan - Ô Bons Rappels',
+                        url: window.location.href
+                    });
+                }
+            }
+
+            // Ajouter un bouton de partage si supporté
+            if (navigator.share) {
+                const shareButton = document.createElement('button');
+                shareButton.innerHTML = '🤲 Partager cet appel';
+                shareButton.style.cssText = `
+                    display: block;
+                    margin: 2rem auto;
+                    padding: 0.8rem 1.5rem;
+                    background: var(--gold-color);
+                    color: var(--text-color);
+                    border: none;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    transition: var(--transition);
+                    font-weight: bold;
+                `;
+                shareButton.onmouseover = function() {
+                    this.style.background = '#b8941f';
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 4px 15px rgba(212, 175, 55, 0.4)';
+                };
+                shareButton.onmouseout = function() {
+                    this.style.background = 'var(--gold-color)';
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                };
+                shareButton.onclick = shareArticle;
+                
+                const articleContent = document.querySelector('.article-content');
+                articleContent.appendChild(shareButton);
+            }
+
+            // Animation pour les listes
+            const lists = document.querySelectorAll('.needs-list li, .action-list li, .prayer-list li');
+            lists.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                item.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+                
+                const listObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateX(0)';
+                        }
+                    });
+                }, observerOptions);
+                
+                listObserver.observe(item);
+            });
+        });
+    </script>
 </body>
 </html>

@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Allah Guide - Ô Bons Rappels</title>
     <style>
-        /* Variables CSS pour une maintenance facile */
+        /* === VARIABLES CSS === */
         :root {
-            --primary-color: #2c5e3a;
-            --secondary-color: #d4af37;
-            --accent-color: #8B4513;
-            --light-color: #f8f8f8;
-            --dark-color: #1a1a1a;
-            --text-color: #333;
-            --quote-bg: #f9f5e9;
+            --primary-color: #8b0000;
+            --secondary-color: #006400;
+            --accent-color: #2c5aa0;
+            --gold-color: #d4af37;
+            --text-color: #222;
+            --bg-color: #f8f9fa;
+            --white: #ffffff;
+            --light-bg: #f8f8f8;
             --guidance-bg: #f0f7f0;
-            --border-radius: 8px;
-            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
             --transition: all 0.3s ease;
+            --border-radius: 10px;
         }
 
-        /* Reset et styles de base */
+        /* === RESET ET STYLES DE BASE === */
         * {
             margin: 0;
             padding: 0;
@@ -28,118 +29,182 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--light-color);
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('Images/fond.png') center/cover fixed;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
         }
 
-        /* En-tête */
+        /* === HEADER ET NAVIGATION === */
         header {
-            background-color: var(--primary-color);
-            color: white;
-            box-shadow: var(--box-shadow);
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        /* Navigation principale */
         .main-nav {
             display: flex;
             justify-content: center;
-            padding: 15px 0;
-            background-color: rgba(0, 0, 0, 0.1);
+            align-items: center;
+            padding: 1rem;
+            gap: 2rem;
         }
 
         .main-nav a {
-            color: white;
+            color: var(--text-color);
             text-decoration: none;
-            margin: 0 20px;
             font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
             transition: var(--transition);
-            padding: 5px 10px;
-            border-radius: var(--border-radius);
         }
 
-        .main-nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary-color);
+            background: rgba(139, 0, 0, 0.1);
         }
 
-        /* Bannière */
-        .bannier {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c5e3a"/></svg>');
-            background-size: cover;
-            background-position: center;
-            padding: 60px 20px;
+        /* === BANNIERE HERO === */
+        .hero-banner {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Images/ban.png') center/cover;
+            padding: 4rem 2rem;
             text-align: center;
-            color: white;
+            color: var(--white);
+            position: relative;
         }
 
-        .bannier-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        .hero-content h1 {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .bannier-content p {
-            font-size: 1.2rem;
+        .hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-style: italic;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Contenu principal */
+        /* === CONTENU PRINCIPAL === */
         main {
             flex: 1;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 30px 20px;
+            padding: 2rem 1rem;
             width: 100%;
         }
 
-        /* Article */
-        article {
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            padding: 30px;
-            margin-bottom: 30px;
+        .article-container {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            position: relative;
         }
 
-        article h1 {
+        .article-title {
             color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            line-height: 1.3;
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
             text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+            border-bottom: 2px solid var(--gold-color);
+            padding-bottom: 1rem;
         }
 
-        article p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            text-align: justify;
-        }
-
-        /* Image */
-        article img {
+        .article-image {
             width: 100%;
             max-width: 600px;
             height: auto;
             border-radius: var(--border-radius);
-            margin: 20px auto;
+            margin: 0 auto 2rem auto;
             display: block;
-            box-shadow: var(--box-shadow);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            border: 2px solid var(--gold-color);
         }
 
-        /* Citation coranique */
+        .article-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* === SECTIONS SPÉCIALES === */
+        .guidance-section {
+            background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-color);
+            position: relative;
+        }
+
+        .guidance-section::before {
+            content: "🕊️";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
         .quran-quote {
-            background-color: var(--quote-bg);
-            border-left: 4px solid var(--secondary-color);
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
             text-align: center;
+            direction: rtl;
+            line-height: 2;
+            border: 1px solid var(--secondary-color);
+            position: relative;
+        }
+
+        .quran-quote::before {
+            content: "📖";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
         }
 
         .quran-text {
@@ -151,31 +216,41 @@
         }
 
         .quran-reference {
+            display: block;
+            margin-top: 1rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: var(--text-color);
+            direction: ltr;
             font-style: italic;
-            color: #555;
+            border-top: 1px solid #ccc;
+            padding-top: 1rem;
         }
 
-        /* Section de guidance */
-        .guidance-section {
-            background-color: var(--guidance-bg);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            margin: 30px 0;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .guidance-section p {
-            margin-bottom: 15px;
-        }
-
-        /* Section de prière */
         .prayer-section {
-            background-color: var(--quote-bg);
+            background: linear-gradient(135deg, #fff9e6, #fff2cc);
+            padding: 2rem;
             border-radius: var(--border-radius);
-            padding: 25px;
-            margin: 30px 0;
+            margin: 2rem 0;
+            border: 2px dashed var(--gold-color);
             text-align: center;
-            border: 2px dashed var(--secondary-color);
+            position: relative;
+        }
+
+        .prayer-section::before {
+            content: "🙏";
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
         }
 
         .prayer-text {
@@ -185,18 +260,36 @@
             margin-bottom: 15px;
         }
 
-        /* Points importants */
         .key-points {
-            background-color: #f8f8f8;
+            background: var(--light-bg);
+            padding: 2rem;
             border-radius: var(--border-radius);
-            padding: 25px;
-            margin: 30px 0;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .key-points::before {
+            content: "🔑";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
         }
 
         .key-points h3 {
             color: var(--accent-color);
             margin-bottom: 20px;
             text-align: center;
+            font-family: 'Amiri', serif;
+            font-size: 1.4rem;
         }
 
         .points-list {
@@ -219,10 +312,16 @@
             background-color: white;
             border-radius: var(--border-radius);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .point-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .point-icon {
-            color: var(--secondary-color);
+            color: var(--gold-color);
             font-size: 1.5rem;
             flex-shrink: 0;
         }
@@ -231,104 +330,226 @@
             flex: 1;
         }
 
-        /* Navigation des articles */
-        .article-nav {
+        .point-text strong {
+            color: var(--primary-color);
+        }
+
+        .reflection-point {
+            background: var(--bg-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .reflection-title {
+            color: var(--primary-color);
+            font-family: 'Amiri', serif;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* === NAVIGATION ARTICLES === */
+        .article-navigation {
             display: flex;
             justify-content: space-between;
-            margin-top: 30px;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 2rem;
         }
 
-        .article-nav a {
-            display: inline-block;
-            padding: 12px 20px;
-            background-color: var(--primary-color);
-            color: white;
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
             text-decoration: none;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
             font-weight: 500;
+            transition: var(--transition);
         }
 
-        .article-nav a:hover {
-            background-color: #234a2e;
+        .nav-button:hover {
+            background: #004d00;
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        /* Pied de page */
+        .nav-button.prev {
+            background: var(--primary-color);
+        }
+
+        .nav-button.prev:hover {
+            background: #a00;
+        }
+
+        /* === FOOTER === */
         footer {
-            background-color: var(--dark-color);
-            color: white;
+            background: var(--text-color);
+            color: var(--white);
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
         }
 
         footer p {
-            margin-bottom: 15px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 1rem;
+            line-height: 1.6;
         }
 
-        /* Responsive Design */
+        /* === LOADING INDICATOR === */
+        .loading-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            z-index: 9999;
+        }
+
+        /* === BOUTON RETOUR EN HAUT === */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #a00;
+            transform: translateY(-3px);
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-container {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
+            50% { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); }
+        }
+
+        .article-image {
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        /* === RESPONSIVE DESIGN === */
         @media (max-width: 768px) {
-            .bannier-content h1 {
-                font-size: 2rem;
-            }
-            
-            .bannier-content p {
-                font-size: 1rem;
-            }
-            
-            article {
-                padding: 20px;
-            }
-            
-            article h1 {
-                font-size: 1.5rem;
-            }
-            
-            .quran-text {
-                font-size: 1.1rem;
-            }
-            
-            .article-nav {
+            .main-nav {
                 flex-direction: column;
-                gap: 15px;
+                gap: 1rem;
+                padding: 1rem 0.5rem;
             }
-            
-            .article-nav a {
+
+            .hero-banner {
+                padding: 3rem 1rem;
+            }
+
+            main {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .article-container {
+                padding: 1.5rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+                text-align: left;
+            }
+
+            .article-navigation {
+                flex-direction: column;
+                gap: 1rem;
                 text-align: center;
+            }
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .guidance-section,
+            .quran-quote,
+            .prayer-section,
+            .key-points {
+                padding: 1.5rem;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+            }
+
+            .points-list {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 480px) {
-            .main-nav {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
+            .hero-banner {
+                padding: 2rem 1rem;
             }
-            
-            .main-nav a {
-                margin: 5px 0;
+
+            .article-container {
+                padding: 1rem;
             }
-            
-            .bannier {
-                padding: 40px 15px;
+
+            .article-title {
+                font-size: 1.4rem;
             }
-            
-            .bannier-content h1 {
-                font-size: 1.8rem;
+
+            .guidance-section,
+            .quran-quote,
+            .prayer-section,
+            .key-points {
+                padding: 1rem;
             }
-            
-            main {
-                padding: 20px 15px;
+
+            .quran-text {
+                font-size: 1.1rem;
             }
-            
-            .quran-quote, .guidance-section, .prayer-section, .key-points {
-                padding: 15px;
-            }
-            
+
             .point-item {
                 flex-direction: column;
                 text-align: center;
@@ -337,101 +558,286 @@
     </style>
 </head>
 <body>
+    <!-- Indicateur de chargement -->
+    <div class="loading-indicator" id="loadingIndicator"></div>
+
+    <!-- Bouton retour en haut -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
     <header>
         <nav class="main-nav">
             <a href="index.html">Accueil</a>
             <a href="about.html">À Propos</a>
         </nav>
-        <section class="bannier">
-            <div class="bannier-content">
-                <h1>Ô Bons Rappels</h1>
-                <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-            </div>
-        </section>
     </header>
-    
+
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1>Ô Bons Rappels</h1>
+            <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+        </div>
+    </section>
+
     <main>
-        <article>
-            <h1>Quand Allah veut guider un cœur, Il lui ouvre la poitrine à l'Islam</h1>
+        <article class="article-container">
+            <h1 class="article-title">Quand Allah veut guider un cœur, Il lui ouvre la poitrine à l'Islam</h1>
             
-            <img src="Images/guider.jpg" alt="Illustration représentant la guidance divine">
-            
-            <p>
-                Dans le tumulte du monde, nombreux sont ceux qui cherchent des réponses, un sens, une direction. Mais le cœur ne s'ouvre pas à la vérité par la seule volonté de l'homme. C'est Allah qui ouvre la poitrine de celui qu'Il veut guider.
-            </p>
-            
-            <div class="quran-quote">
-                <div class="quran-text">
-                    « Et puis, quiconque Allah veut guider, Il lui ouvre la poitrine à l'Islam. »
-                </div>
-                <div class="quran-reference">
-                    Sourate Al-Anam, verset 125
-                </div>
-            </div>
-            
-            <div class="guidance-section">
+            <img src="Images/guider.jpg" alt="Illustration représentant la guidance divine" class="article-image" loading="lazy">
+
+            <div class="article-content">
                 <p>
-                    Cette ouverture du cœur n'est pas qu'une simple acceptation intellectuelle. Elle est une lumière intérieure, une paix profonde, une clarté soudaine face à la vérité. Elle permet à l'individu de ressentir une proximité avec son Créateur, d'embrasser la foi avec sincérité, et de se libérer des chaînes du doute ou de l'égo.
+                    Dans le tumulte du monde, nombreux sont ceux qui cherchent des réponses, un sens, une direction. Mais le cœur ne s'ouvre pas à la vérité par la seule volonté de l'homme. C'est Allah qui ouvre la poitrine de celui qu'Il veut guider.
                 </p>
-            </div>
-            
-            <div class="key-points">
-                <h3>Les signes de cette guidance divine</h3>
-                <div class="points-list">
-                    <div class="point-item">
-                        <div class="point-icon">💡</div>
-                        <div class="point-text">
-                            <strong>Clarté intérieure</strong><br>
-                            Une compréhension soudaine et profonde de la vérité
-                        </div>
+                
+                <div class="quran-quote">
+                    <div class="quran-text">
+                        « Et puis, quiconque Allah veut guider, Il lui ouvre la poitrine à l'Islam. »
                     </div>
-                    <div class="point-item">
-                        <div class="point-icon">🕊️</div>
-                        <div class="point-text">
-                            <strong>Paix du cœur</strong><br>
-                            Une sérénité qui dépasse toute compréhension terrestre
-                        </div>
+                    <div class="quran-reference">
+                        Sourate Al-Anam, verset 125
                     </div>
-                    <div class="point-item">
-                        <div class="point-icon">🌟</div>
-                        <div class="point-text">
-                            <strong>Attirance naturelle</strong><br>
-                            Un désir sincère de se rapprocher d'Allah et de Sa religion
+                </div>
+                
+                <div class="guidance-section">
+                    <p>
+                        Cette ouverture du cœur n'est pas qu'une simple acceptation intellectuelle. Elle est une lumière intérieure, une paix profonde, une clarté soudaine face à la vérité. Elle permet à l'individu de ressentir une proximité avec son Créateur, d'embrasser la foi avec sincérité, et de se libérer des chaînes du doute ou de l'égo.
+                    </p>
+                </div>
+
+                <div class="reflection-point">
+                    <h3 class="reflection-title">💫 La guidance divine</h3>
+                    <p>
+                        La guidance d'Allah est un don précieux qui transforme complètement 
+                        la perception et la compréhension. C'est une lumière qui éclaire 
+                        le chemin vers la vérité et la paix intérieure.
+                    </p>
+                </div>
+
+                <div class="reflection-point">
+                    <h3 class="reflection-title">🕊️ La paix du cœur</h3>
+                    <p>
+                        Lorsqu'Allah ouvre un cœur à l'Islam, Il y dépose une sérénité 
+                        qui dépasse toute compréhension terrestre. Cette paix intérieure 
+                        est un signe manifeste de Sa miséricorde.
+                    </p>
+                </div>
+                
+                <div class="key-points">
+                    <h3>Les signes de cette guidance divine</h3>
+                    <div class="points-list">
+                        <div class="point-item">
+                            <div class="point-icon">💡</div>
+                            <div class="point-text">
+                                <strong>Clarté intérieure</strong><br>
+                                Une compréhension soudaine et profonde de la vérité
+                            </div>
                         </div>
-                    </div>
-                    <div class="point-item">
-                        <div class="point-icon">🔓</div>
-                        <div class="point-text">
-                            <strong>Libération spirituelle</strong><br>
-                            Affranchissement des doutes et des chaînes de l'égo
+                        <div class="point-item">
+                            <div class="point-icon">🕊️</div>
+                            <div class="point-text">
+                                <strong>Paix du cœur</strong><br>
+                                Une sérénité qui dépasse toute compréhension terrestre
+                            </div>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-icon">🌟</div>
+                            <div class="point-text">
+                                <strong>Attirance naturelle</strong><br>
+                                Un désir sincère de se rapprocher d'Allah et de Sa religion
+                            </div>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-icon">🔓</div>
+                            <div class="point-text">
+                                <strong>Libération spirituelle</strong><br>
+                                Affranchissement des doutes et des chaînes de l'égo
+                            </div>
                         </div>
                     </div>
                 </div>
+                
+                <p>
+                    Cette guidance est un don, une miséricorde qu'on ne peut ni forcer ni simuler. Elle arrive souvent au moment le plus inattendu, mais jamais par hasard. C'est une manifestation de la sagesse et de la miséricorde infinies d'Allah envers Ses serviteurs.
+                </p>
+                
+                <div class="prayer-section">
+                    <p class="prayer-text">
+                        Que chacun d'entre nous demande à Allah d'ouvrir sa poitrine à Sa religion, de le guider sur le chemin droit et de raffermir son cœur face aux épreuves et aux illusions de ce monde.
+                    </p>
+                    <p style="margin-top: 15px; font-weight: bold; font-size: 1.3rem;">
+                        آمين يا رب العالمين
+                    </p>
+                </div>
+
+                <div class="reflection-point">
+                    <h3 class="reflection-title">🌱 La croissance spirituelle</h3>
+                    <p>
+                        Une fois que le cœur s'ouvre à l'Islam, commence un voyage 
+                        de croissance spirituelle continue. Chaque jour apporte 
+                        de nouvelles compréhensions et un rapprochement plus profond 
+                        avec le Créateur.
+                    </p>
+                </div>
             </div>
-            
-            <p>
-                Cette guidance est un don, une miséricorde qu'on ne peut ni forcer ni simuler. Elle arrive souvent au moment le plus inattendu, mais jamais par hasard. C'est une manifestation de la sagesse et de la miséricorde infinies d'Allah envers Ses serviteurs.
-            </p>
-            
-            <div class="prayer-section">
-                <p class="prayer-text">
-                    Que chacun d'entre nous demande à Allah d'ouvrir sa poitrine à Sa religion, de le guider sur le chemin droit et de raffermir son cœur face aux épreuves et aux illusions de ce monde.
-                </p>
-                <p style="margin-top: 15px; font-weight: bold;">
-                    آمين يا رب العالمين
-                </p>
+
+            <div class="article-navigation">
+                <a href="gaza.html" class="nav-button prev">
+                    ← Article précédent
+                </a>
+                <a href="invocations.html" class="nav-button">
+                    Article suivant →
+                </a>
             </div>
         </article>
-        
-        <nav class="article-nav">
-            <a href="gaza.html">← Article précédent</a>
-            <a href="invocations.html">Article suivant →</a>
-        </nav>
     </main>
-    
+
     <footer>
-        <p>Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
+        <p>Si un rappel t'a été utile, pense à le partager — car le bien se propage par ceux qui le transmettent.</p>
         <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const backToTop = document.getElementById('backToTop');
+
+            // Simuler le chargement
+            setTimeout(() => {
+                loadingIndicator.style.transform = 'scaleX(1)';
+                setTimeout(() => {
+                    loadingIndicator.style.display = 'none';
+                }, 500);
+            }, 1000);
+
+            // Gestion du bouton retour en haut
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Animation au défilement
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observer les sections spéciales
+            document.querySelectorAll('.guidance-section, .quran-quote, .prayer-section, .key-points, .reflection-point, .point-item').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Gestion du chargement de l'image
+            const articleImage = document.querySelector('.article-image');
+            if (articleImage) {
+                articleImage.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                });
+                articleImage.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    console.log("Image non chargée : " + this.src);
+                });
+            }
+
+            // Effet spécial pour la section prière
+            const prayerSection = document.querySelector('.prayer-section');
+            if (prayerSection) {
+                prayerSection.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                prayerSection.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            }
+
+            // Effet pour les points clés
+            const pointItems = document.querySelectorAll('.point-item');
+            pointItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Partage sur les réseaux sociaux
+            function shareArticle() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.title,
+                        text: 'Découvrez ce rappel bénéfique sur la guidance divine - Ô Bons Rappels',
+                        url: window.location.href
+                    });
+                }
+            }
+
+            // Ajouter un bouton de partage si supporté
+            if (navigator.share) {
+                const shareButton = document.createElement('button');
+                shareButton.innerHTML = '🕊️ Partager cette guidance';
+                shareButton.style.cssText = `
+                    display: block;
+                    margin: 2rem auto;
+                    padding: 0.8rem 1.5rem;
+                    background: var(--gold-color);
+                    color: var(--text-color);
+                    border: none;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    transition: var(--transition);
+                    font-weight: bold;
+                `;
+                shareButton.onmouseover = function() {
+                    this.style.background = '#b8941f';
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 4px 15px rgba(212, 175, 55, 0.4)';
+                };
+                shareButton.onmouseout = function() {
+                    this.style.background = 'var(--gold-color)';
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                };
+                shareButton.onclick = shareArticle;
+                
+                const articleContent = document.querySelector('.article-content');
+                articleContent.appendChild(shareButton);
+            }
+
+            // Animation spéciale pour le verset coranique
+            const quranQuote = document.querySelector('.quran-quote');
+            if (quranQuote) {
+                quranQuote.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
