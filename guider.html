@@ -1,64 +1,437 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial=1.0">
-		<title>Allah Guide - Ô Bons Rappels</title>
-		<link rel="stylesheet" href="bons.css">
-	</head>
-	<body>
-		<header>
-			<nav>
-				<a href="index.html">Accueil</a>
-				<a href="about.html">À Propos</a>
-			</nav>
-			<section class="bannier">
-				<div class="bannier-content">
-					<h1>Ô Bons Rappels</h1>
-					<p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-				</div>
-			</section>
-		</header>
-		<main>
-			<article>
-				<h1>Quand Allah veut guider un cœur, Il lui ouvre la poitrine à l’Islam</h1>
-				<img src="Images/guider.jpg" alt="guider">
-				<p>
-					Quand Allah veut guider un cœur, Il lui ouvre la<br>
-					poitrine à l’Islam<br><br>
-					Dans le tumulte du monde, nombreux sont ceux<br>
-					qui cherchent des réponses, un sens, une<br>
-					direction. Mais le cœur ne s’ouvre pas à la vérité<br>
-					par la seule volonté de l’homme. C’est Allah qui<br>
-					ouvre la poitrine de celui qu’Il veut guider, comme<br>
-					Il le dit dans le Coran :<br><br>
-					« Et puis, quiconque Allah veut guider, Il lui ouvre<br>
-					la poitrine à l’Islam.»<br>
-					(Sourate Al-Anam, verset 125)<br><br>
-					Cette ouverture du cœur n’est pas qu’une simple<br>
-					acceptation intellectuelle. Elle est une lumière<br>
-					intérieure, une paix profonde, une clarté soudaine<br>
-					face à la vérité. Elle permet à l’individu de ressentir<br>
-					une proximité avec son Créateur, d’embrasser la<br>
-					foi avec sincérité, et de se libérer des chaînes du<br>
-					doute ou de l’égo.<br><br>
-					Cette guidance est un don, une miséricorde qu’on<br>
-					ne peut ni forcer ni simuler. Elle arrive souvent au<br>
-					moment le plus inattendu, mais jamais par hasard.<br><br>
-					Que chacun d’entre nous demande à Allah<br>
-					d’ouvrir sa poitrine à Sa religion, de le guider sur<br>
-					le chemin droit et de raffermir son cœur face aux<br>
-					épreuves et aux illusions de ce monde.
-				</p>
-			</article>
-			<nav>
-				<a href="gaza.html">Article précédent</a>
-				<a href="invocations.html">Article suivant</a>
-			</nav>
-		</main>
-		<footer class="foot">
-			<p>Si un rappel t’a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
-			<p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
-		</footer>
-	</body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allah Guide - Ô Bons Rappels</title>
+    <style>
+        /* Variables CSS pour une maintenance facile */
+        :root {
+            --primary-color: #2c5e3a;
+            --secondary-color: #d4af37;
+            --accent-color: #8B4513;
+            --light-color: #f8f8f8;
+            --dark-color: #1a1a1a;
+            --text-color: #333;
+            --quote-bg: #f9f5e9;
+            --guidance-bg: #f0f7f0;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* En-tête */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Navigation principale */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: var(--border-radius);
+        }
+
+        .main-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Bannière */
+        .bannier {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c5e3a"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .bannier-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .bannier-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contenu principal */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            width: 100%;
+        }
+
+        /* Article */
+        article {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        article h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        article p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Image */
+        article img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: 20px auto;
+            display: block;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Citation coranique */
+        .quran-quote {
+            background-color: var(--quote-bg);
+            border-left: 4px solid var(--secondary-color);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            text-align: center;
+        }
+
+        .quran-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            line-height: 1.8;
+        }
+
+        .quran-reference {
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Section de guidance */
+        .guidance-section {
+            background-color: var(--guidance-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .guidance-section p {
+            margin-bottom: 15px;
+        }
+
+        /* Section de prière */
+        .prayer-section {
+            background-color: var(--quote-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px dashed var(--secondary-color);
+        }
+
+        .prayer-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Points importants */
+        .key-points {
+            background-color: #f8f8f8;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .key-points h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .points-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .points-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .point-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .point-icon {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .point-text {
+            flex: 1;
+        }
+
+        /* Navigation des articles */
+        .article-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .article-nav a {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .article-nav a:hover {
+            background-color: #234a2e;
+            transform: translateY(-2px);
+        }
+
+        /* Pied de page */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin-bottom: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .bannier-content h1 {
+                font-size: 2rem;
+            }
+            
+            .bannier-content p {
+                font-size: 1rem;
+            }
+            
+            article {
+                padding: 20px;
+            }
+            
+            article h1 {
+                font-size: 1.5rem;
+            }
+            
+            .quran-text {
+                font-size: 1.1rem;
+            }
+            
+            .article-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .article-nav a {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .main-nav a {
+                margin: 5px 0;
+            }
+            
+            .bannier {
+                padding: 40px 15px;
+            }
+            
+            .bannier-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            main {
+                padding: 20px 15px;
+            }
+            
+            .quran-quote, .guidance-section, .prayer-section, .key-points {
+                padding: 15px;
+            }
+            
+            .point-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+        </nav>
+        <section class="bannier">
+            <div class="bannier-content">
+                <h1>Ô Bons Rappels</h1>
+                <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+            </div>
+        </section>
+    </header>
+    
+    <main>
+        <article>
+            <h1>Quand Allah veut guider un cœur, Il lui ouvre la poitrine à l'Islam</h1>
+            
+            <img src="Images/guider.jpg" alt="Illustration représentant la guidance divine">
+            
+            <p>
+                Dans le tumulte du monde, nombreux sont ceux qui cherchent des réponses, un sens, une direction. Mais le cœur ne s'ouvre pas à la vérité par la seule volonté de l'homme. C'est Allah qui ouvre la poitrine de celui qu'Il veut guider.
+            </p>
+            
+            <div class="quran-quote">
+                <div class="quran-text">
+                    « Et puis, quiconque Allah veut guider, Il lui ouvre la poitrine à l'Islam. »
+                </div>
+                <div class="quran-reference">
+                    Sourate Al-Anam, verset 125
+                </div>
+            </div>
+            
+            <div class="guidance-section">
+                <p>
+                    Cette ouverture du cœur n'est pas qu'une simple acceptation intellectuelle. Elle est une lumière intérieure, une paix profonde, une clarté soudaine face à la vérité. Elle permet à l'individu de ressentir une proximité avec son Créateur, d'embrasser la foi avec sincérité, et de se libérer des chaînes du doute ou de l'égo.
+                </p>
+            </div>
+            
+            <div class="key-points">
+                <h3>Les signes de cette guidance divine</h3>
+                <div class="points-list">
+                    <div class="point-item">
+                        <div class="point-icon">💡</div>
+                        <div class="point-text">
+                            <strong>Clarté intérieure</strong><br>
+                            Une compréhension soudaine et profonde de la vérité
+                        </div>
+                    </div>
+                    <div class="point-item">
+                        <div class="point-icon">🕊️</div>
+                        <div class="point-text">
+                            <strong>Paix du cœur</strong><br>
+                            Une sérénité qui dépasse toute compréhension terrestre
+                        </div>
+                    </div>
+                    <div class="point-item">
+                        <div class="point-icon">🌟</div>
+                        <div class="point-text">
+                            <strong>Attirance naturelle</strong><br>
+                            Un désir sincère de se rapprocher d'Allah et de Sa religion
+                        </div>
+                    </div>
+                    <div class="point-item">
+                        <div class="point-icon">🔓</div>
+                        <div class="point-text">
+                            <strong>Libération spirituelle</strong><br>
+                            Affranchissement des doutes et des chaînes de l'égo
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p>
+                Cette guidance est un don, une miséricorde qu'on ne peut ni forcer ni simuler. Elle arrive souvent au moment le plus inattendu, mais jamais par hasard. C'est une manifestation de la sagesse et de la miséricorde infinies d'Allah envers Ses serviteurs.
+            </p>
+            
+            <div class="prayer-section">
+                <p class="prayer-text">
+                    Que chacun d'entre nous demande à Allah d'ouvrir sa poitrine à Sa religion, de le guider sur le chemin droit et de raffermir son cœur face aux épreuves et aux illusions de ce monde.
+                </p>
+                <p style="margin-top: 15px; font-weight: bold;">
+                    آمين يا رب العالمين
+                </p>
+            </div>
+        </article>
+        
+        <nav class="article-nav">
+            <a href="gaza.html">← Article précédent</a>
+            <a href="invocations.html">Article suivant →</a>
+        </nav>
+    </main>
+    
+    <footer>
+        <p>Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
+        <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
+    </footer>
+</body>
 </html>

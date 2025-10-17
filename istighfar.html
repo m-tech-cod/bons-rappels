@@ -1,69 +1,483 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial=1.0">
-		<title>Istighfar - Ô Bons Rappels</title>
-		<link rel="stylesheet" href="bons.css">
-	</head>
-	<body>
-		<header>
-			<nav>
-				<a href="index.html">Accueil</a>
-				<a href="about.html">À Propos</a>
-			</nav>
-			<section class="bannier">
-				<div class="bannier-content">
-					<h1>Ô Bons Rappels</h1>
-					<p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-				</div>
-			</section>
-		</header>
-		<main>
-			<article>
-				<h1>Le pouvoir apaisant de l’Istighfâr</h1>
-				<img src="Images/istighfar.jpg" alt="istighfar">
-				<p>
-					Cheikh ʿAbdur-Razzāq al-Badr – qu’Allah le 
-					préserve a dit :<br><br>
-					« Il y a dans al istighfâr (la demande de pardon) la<br>
-					disparition des soucis, la dissipation des angoisses<br>
-					et la facilitation des affaires. Plus encore, ses bienfaits<br>
-					et ses bénédictions pour ceux qui<br>
-					demandent pardon, dans ce bas-monde comme<br>
-					dans l’au-delà, sont tels qu’on ne peut les compter<br>
-					ni les dénombrer.»<br><br>
-					[Sharḥ Shamā’il an-Nabī ﷺ, page 287]<br><br>
-					L’istighfâr est une clé spirituelle puissante, trop<br>
-					souvent négligée. Il ne s’agit pas uniquement de<br>
-					répéter « Astaghfirullâh » de manière<br>
-					automatique, mais de reconnaître nos fautes,<br>
-					implorer la miséricorde d’Allah, et nous rapprocher<br>
-					de Lui avec sincérité et humilité.<br><br>
-					Selon les paroles du Cheikh, l’istighfâr agit comme<br>
-					un baume sur le cœur :<br>
-					•	Il allège les peines,<br>
-					•	Il apaise les tourments intérieurs,<br>
-					•	Il facilite les difficultés de la vie,<br>
-					•	Et surtout, il ouvre les portes de<br>
-					la bénédiction ici-bas et dans l’au-delà.<br><br>
-					Les bienfaits de l’istighfâr sont tels qu’ils<br>
-					échappent au calcul humain. C’est un acte simple,<br>
-					à la portée de tous, mais qui peut transformer des<br>
-					situations sombres en clarté divine. Dans un<br>
-					monde où les angoisses et les préoccupations se<br>
-					multiplient, cette invocation reste un refuge<br>
-					puissant et une porte vers la tranquillité intérieure.
-				</p>
-			</article>
-			<nav>
-				<a href="invocations.html">Article précédent</a>
-				<a href="joie.html">Article suivant</a>
-			</nav>
-		</main>
-		<footer class="foot">
-			<p>Si un rappel t’a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
-			<p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
-		</footer>
-	</body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Istighfar - Ô Bons Rappels</title>
+    <style>
+        /* Variables CSS pour une maintenance facile */
+        :root {
+            --primary-color: #2c5e3a;
+            --secondary-color: #d4af37;
+            --accent-color: #8B4513;
+            --light-color: #f8f8f8;
+            --dark-color: #1a1a1a;
+            --text-color: #333;
+            --quote-bg: #f9f5e9;
+            --peace-bg: #f0f7f0;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* En-tête */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Navigation principale */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: var(--border-radius);
+        }
+
+        .main-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Bannière */
+        .bannier {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c5e3a"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .bannier-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .bannier-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contenu principal */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            width: 100%;
+        }
+
+        /* Article */
+        article {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        article h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        article p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Image */
+        article img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: 20px auto;
+            display: block;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Citation du Cheikh */
+        .sheikh-quote {
+            background-color: var(--quote-bg);
+            border-left: 4px solid var(--secondary-color);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .quote-content {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .quote-reference {
+            font-weight: bold;
+            color: var(--primary-color);
+            text-align: right;
+        }
+
+        /* Section des bienfaits */
+        .benefits-section {
+            background-color: var(--peace-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .benefits-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .benefits-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .benefit-icon {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            flex: 1;
+        }
+
+        /* Section de pratique */
+        .practice-section {
+            background-color: #f8f8f8;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .practice-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Invocation en arabe */
+        .arabic-invocation {
+            background-color: var(--quote-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+            direction: rtl;
+        }
+
+        .arabic-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .translation {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        /* Section de conclusion */
+        .conclusion {
+            background-color: var(--peace-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px dashed var(--secondary-color);
+        }
+
+        .conclusion p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* Navigation des articles */
+        .article-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .article-nav a {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .article-nav a:hover {
+            background-color: #234a2e;
+            transform: translateY(-2px);
+        }
+
+        /* Pied de page */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin-bottom: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .bannier-content h1 {
+                font-size: 2rem;
+            }
+            
+            .bannier-content p {
+                font-size: 1rem;
+            }
+            
+            article {
+                padding: 20px;
+            }
+            
+            article h1 {
+                font-size: 1.5rem;
+            }
+            
+            .arabic-text {
+                font-size: 1.5rem;
+            }
+            
+            .article-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .article-nav a {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .main-nav a {
+                margin: 5px 0;
+            }
+            
+            .bannier {
+                padding: 40px 15px;
+            }
+            
+            .bannier-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            main {
+                padding: 20px 15px;
+            }
+            
+            .sheikh-quote, .benefits-section, .practice-section, .arabic-invocation, .conclusion {
+                padding: 15px;
+            }
+            
+            .arabic-text {
+                font-size: 1.3rem;
+            }
+            
+            .benefit-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+        </nav>
+        <section class="bannier">
+            <div class="bannier-content">
+                <h1>Ô Bons Rappels</h1>
+                <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+            </div>
+        </section>
+    </header>
+    
+    <main>
+        <article>
+            <h1>Le pouvoir apaisant de l'Istighfâr</h1>
+            
+            <img src="Images/istighfar.jpg" alt="Illustration représentant la demande de pardon et la paix intérieure">
+            
+            <div class="sheikh-quote">
+                <div class="quote-content">
+                    « Il y a dans al istighfâr (la demande de pardon) la disparition des soucis, la dissipation des angoisses et la facilitation des affaires. Plus encore, ses bienfaits et ses bénédictions pour ceux qui demandent pardon, dans ce bas-monde comme dans l'au-delà, sont tels qu'on ne peut les compter ni les dénombrer. »
+                </div>
+                <div class="quote-reference">
+                    Cheikh ʿAbdur-Razzāq al-Badr – qu'Allah le préserve<br>
+                    [Sharḥ Shamā'il an-Nabī ﷺ, page 287]
+                </div>
+            </div>
+            
+            <p>
+                L'istighfâr est une clé spirituelle puissante, trop souvent négligée. Il ne s'agit pas uniquement de répéter « Astaghfirullâh » de manière automatique, mais de reconnaître nos fautes, implorer la miséricorde d'Allah, et nous rapprocher de Lui avec sincérité et humilité.
+            </p>
+            
+            <div class="benefits-section">
+                <h3>Les bienfaits spirituels de l'Istighfâr</h3>
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🕊️</div>
+                        <div class="benefit-text">
+                            <strong>Disparition des soucis</strong><br>
+                            Allège les peines et préoccupations du cœur
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">💫</div>
+                        <div class="benefit-text">
+                            <strong>Dissipation des angoisses</strong><br>
+                            Apaise les tourments intérieurs et l'anxiété
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🔑</div>
+                        <div class="benefit-text">
+                            <strong>Facilitation des affaires</strong><br>
+                            Ouvre les portes vers des solutions inattendues
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🌧️</div>
+                        <div class="benefit-text">
+                            <strong>Bénédictions divines</strong><br>
+                            Attire les bénédictions dans ce monde et dans l'au-delà
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="practice-section">
+                <h3>Comment pratiquer l'Istighfâr avec sincérité</h3>
+                <p>
+                    L'istighfâr n'est pas une simple répétition mécanique. C'est un acte spirituel profond qui nécessite :
+                </p>
+                <p>• La reconnaissance sincère de nos fautes</p>
+                <p>• Le regret authentique d'avoir désobéi à Allah</p>
+                <p>• La ferme intention de ne pas recommencer</p>
+                <p>• L'humilité devant la grandeur d'Allah</p>
+            </div>
+            
+            <div class="arabic-invocation">
+                <div class="arabic-text">
+                    أَسْتَغْفِرُ اللَّهَ
+                </div>
+                <div class="translation">
+                    "Je demande pardon à Allah"
+                </div>
+                <p style="margin-top: 15px; font-style: italic;">
+                    L'invocation la plus courante pour demander pardon
+                </p>
+            </div>
+            
+            <p>
+                Les bienfaits de l'istighfâr sont tels qu'ils échappent au calcul humain. C'est un acte simple, à la portée de tous, mais qui peut transformer des situations sombres en clarté divine.
+            </p>
+            
+            <div class="conclusion">
+                <p><strong>Un refuge spirituel</strong></p>
+                <p>
+                    Dans un monde où les angoisses et les préoccupations se multiplient, l'istighfâr reste un refuge puissant et une porte vers la tranquillité intérieure.
+                </p>
+                <p style="margin-top: 15px; font-weight: bold;">
+                    Commençons dès aujourd'hui à multiplier nos istighfâr et à goûter à la paix qu'ils apportent.
+                </p>
+            </div>
+        </article>
+        
+        <nav class="article-nav">
+            <a href="invocations.html">← Article précédent</a>
+            <a href="joie.html">Article suivant →</a>
+        </nav>
+    </main>
+    
+    <footer>
+        <p>Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
+        <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
+    </footer>
+</body>
 </html>

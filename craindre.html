@@ -1,71 +1,332 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial=1.0">
-		<title>Craindre Allah - Ô Bons Rappels</title>
-		<link rel="stylesheet" href="bons.css">
-	</head>
-	<body>
-		<header>
-			<nav>
-				<a href="index.html">Accueil</a>
-				<a href="about.html">À Propos</a>
-			</nav>
-			<section class="bannier">
-				<div class="bannier-content">
-					<h1>Ô Bons Rappels</h1>
-					<p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-				</div>
-			</section>
-		</header>
-		<main>
-			<article>
-				<h1>Craindre Allah… c’est vouloir s’en rapprocher</h1>
-				<img src="Images/craindre.jpg" alt="craindre">
-				<p>
-					Dans notre expérience humaine, la crainte pousse souvent à fuir.<br>
-					Lorsqu’on a peur d’un être, d’un danger ou d’une situation, notre<br>
-					réflexe est de nous éloigner, de nous protéger, voire de fuir<br>
-					complètement.<br><br>
-					Mais cette logique change radicalement lorsqu’il s’agit de la crainte<br>
-					d’Allah.<br><br>
-					Comme l’exprime magnifiquement Ibn Qayyim Al-Jawziyya<br>
-					rahimahullāh – dans Les Méditations :<br><br>
-					💗 « Lorsque l’on craint une créature, on la fuit et s’éloigne d’elle. Quant<br>
-					au Seigneur – Taʿālā –, lorsqu’on Le craint, on cherche Sa compagnie et<br>
-					à se rapprocher de Lui. »<br><br>
-					Cette parole simple mais profonde renverse notre compréhension<br>
-					habituelle de la peur.<br>
-					La crainte d’Allah (al-khawf) n’est pas une peur paralysante ni une<br>
-					angoisse destructrice. Elle est plutôt une lumière dans le cœur, qui<br>
-					pousse vers le repentir, la réforme, l’invocation et l’amour.<br><br>
-					Craindre Allah, c’est être conscient de Sa grandeur, de Sa justice, mais<br>
-					aussi de Sa miséricorde infinie.<br>
-					Ce sentiment noble n’éloigne pas, il attire vers le Bien, vers le pardon,<br>
-					vers l’effort sincère.<br><br>
-					Alors que la peur des créatures éloigne et isole, la crainte d’Allah<br>
-					rapproche et libère.<br>
-					Elle invite à se réfugier en Lui, à multiplier les bonnes actions, à purifier<br>
-					son cœur, et à vivre avec cette belle conscience qu’Il nous voit, qu’Il<br>
-					entend nos soupirs, qu’Il connaît nos intentions.<br>
-					Conclusion :<br><br>
-					La vraie crainte d’Allah ne rend pas amer, elle rend humble.<br>
-					Elle ne fait pas fuir, elle ramène vers Lui.<br><br>
-					Et c’est peut-être là l’un des plus beaux signes de foi :<br>
-					Lorsque ton cœur se serre à cause d’un manquement, mais qu’au lieu<br>
-					de fuir, tu dis doucement :<br>
-					«Rabbī, je reviens à Toi…»
-				</p>
-			</article>
-			<nav>
-				<a href="coran_compagnons.html">Article précédent</a>
-				<a href="douceur.html">Article suivant</a>
-			</nav>
-		</main>
-		<footer class="foot">
-			<p>Si un rappel t’a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
-			<p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
-		</footer>
-	</body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craindre Allah - Ô Bons Rappels</title>
+    <style>
+        /* Variables CSS pour une maintenance facile */
+        :root {
+            --primary-color: #2c5e3a;
+            --secondary-color: #d4af37;
+            --light-color: #f8f8f8;
+            --dark-color: #1a1a1a;
+            --text-color: #333;
+            --quote-bg: #f9f5e9;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* En-tête */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Navigation principale */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: var(--border-radius);
+        }
+
+        .main-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Bannière */
+        .bannier {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c5e3a"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .bannier-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .bannier-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contenu principal */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            width: 100%;
+        }
+
+        /* Article */
+        article {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        article h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            line-height: 1.3;
+        }
+
+        article p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Image */
+        article img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            display: block;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Citation */
+        .quote {
+            background-color: var(--quote-bg);
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .quote-content {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .quote-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Section de conclusion */
+        .conclusion {
+            background-color: #f0f7f0;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .conclusion p {
+            margin-bottom: 15px;
+        }
+
+        /* Navigation des articles */
+        .article-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .article-nav a {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .article-nav a:hover {
+            background-color: #234a2e;
+            transform: translateY(-2px);
+        }
+
+        /* Pied de page */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin-bottom: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .bannier-content h1 {
+                font-size: 2rem;
+            }
+            
+            .bannier-content p {
+                font-size: 1rem;
+            }
+            
+            article {
+                padding: 20px;
+            }
+            
+            article h1 {
+                font-size: 1.5rem;
+            }
+            
+            .article-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .article-nav a {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .main-nav a {
+                margin: 5px 0;
+            }
+            
+            .bannier {
+                padding: 40px 15px;
+            }
+            
+            .bannier-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            main {
+                padding: 20px 15px;
+            }
+            
+            .quote {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+        </nav>
+        <section class="bannier">
+            <div class="bannier-content">
+                <h1>Ô Bons Rappels</h1>
+                <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+            </div>
+        </section>
+    </header>
+    
+    <main>
+        <article>
+            <h1>Craindre Allah… c'est vouloir s'en rapprocher</h1>
+            
+            <img src="Images/craindre.jpg" alt="Illustration représentant la crainte d'Allah qui rapproche">
+            
+            <p>
+                Dans notre expérience humaine, la crainte pousse souvent à fuir. Lorsqu'on a peur d'un être, d'un danger ou d'une situation, notre réflexe est de nous éloigner, de nous protéger, voire de fuir complètement.
+            </p>
+            
+            <p>
+                Mais cette logique change radicalement lorsqu'il s'agit de la crainte d'Allah.
+            </p>
+            
+            <div class="quote">
+                <div class="quote-content">
+                    💗 « Lorsque l'on craint une créature, on la fuit et s'éloigne d'elle. Quant au Seigneur – Taʿālā –, lorsqu'on Le craint, on cherche Sa compagnie et à se rapprocher de Lui. »
+                </div>
+                <div class="quote-author">
+                    Ibn Qayyim Al-Jawziyya rahimahullāh – Les Méditations
+                </div>
+            </div>
+            
+            <p>
+                Cette parole simple mais profonde renverse notre compréhension habituelle de la peur. La crainte d'Allah (al-khawf) n'est pas une peur paralysante ni une angoisse destructrice. Elle est plutôt une lumière dans le cœur, qui pousse vers le repentir, la réforme, l'invocation et l'amour.
+            </p>
+            
+            <p>
+                Craindre Allah, c'est être conscient de Sa grandeur, de Sa justice, mais aussi de Sa miséricorde infinie. Ce sentiment noble n'éloigne pas, il attire vers le Bien, vers le pardon, vers l'effort sincère.
+            </p>
+            
+            <p>
+                Alors que la peur des créatures éloigne et isole, la crainte d'Allah rapproche et libère. Elle invite à se réfugier en Lui, à multiplier les bonnes actions, à purifier son cœur, et à vivre avec cette belle conscience qu'Il nous voit, qu'Il entend nos soupirs, qu'Il connaît nos intentions.
+            </p>
+            
+            <div class="conclusion">
+                <p><strong>Conclusion :</strong></p>
+                <p>La vraie crainte d'Allah ne rend pas amer, elle rend humble. Elle ne fait pas fuir, elle ramène vers Lui.</p>
+                <p>Et c'est peut-être là l'un des plus beaux signes de foi : Lorsque ton cœur se serre à cause d'un manquement, mais qu'au lieu de fuir, tu dis doucement :</p>
+                <p style="text-align: center; font-style: italic; margin-top: 15px; font-size: 1.1rem;">
+                    « Rabbī, je reviens à Toi… »
+                </p>
+            </div>
+        </article>
+        
+        <nav class="article-nav">
+            <a href="coran_compagnons.html">← Article précédent</a>
+            <a href="douceur.html">Article suivant →</a>
+        </nav>
+    </main>
+    
+    <footer>
+        <p>Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
+        <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
+    </footer>
+</body>
 </html>

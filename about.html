@@ -1,46 +1,521 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial=1.0">
-		<title>À Propos - Ô Bons Rappels</title>
-		<link rel="stylesheet" href="bons.css">
-	</head>
-	<body>
-		<header>
-			<nav>
-				<a href="index.html">Accueil</a>
-				<a href="about.html">À Propos</a>
-			</nav>
-			<section class="bannier">
-				<div class="bannier-content">
-					<h1>Ô Bons Rappels</h1>
-					<p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-				</div>
-			</section>
-		</header>
-		<main>
-			<div>
-				<h1>À propos de moi</h1>
-				<p>
-					Je suis une simple servante d’Allah, sans prétention ni savoir particulier,<br>
-					si ce n’est ce qu’Il m’a permis d’apprendre.<br>
-					À travers ce blog, <strong> Ô Bons Rappels</strong>, je partage humblement des textes,<br>
-					des citations, des réflexions ou des rappels bénéfiques, en espérant<br>
-					qu’ils puissent toucher les cœurs et renforcer la foi, comme ils ont<br>
-					touché le mien.<br><br>
-					Je n’écris pas pour enseigner, mais pour rappeler à moi-même<br>
-					d’abord, puis à ceux et celles qui passeront par ici.<br>
-					Et si un mot, une phrase ou un verset peut rapprocher ne serait-ce<br>
-					qu’un cœur d’Allah, alors ce blog aura rempli son but.<br><br>
-					Qu’Allah accepte ce modeste effort, corrige mes erreurs, et en fasse une<br>
-					source de bien pour tous.
-				</p>
-			</div>
-		</main>
-		<footer class="foot">
-			<p>Si un rappel t’a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
-			<p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
-		</footer>
-	</body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - Ô Bons Rappels</title>
+    <style>
+        /* === RESET ET VARIABLES === */
+        :root {
+            --primary-color: #8b0000;
+            --secondary-color: #006400;
+            --accent-color: #2c5aa0;
+            --text-color: #222;
+            --bg-color: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* === STYLES GÉNÉRAUX === */
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('Images/fond.png') center/cover fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* === HEADER ET NAVIGATION === */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            gap: 2rem;
+        }
+
+        .main-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary-color);
+            background: rgba(139, 0, 0, 0.1);
+        }
+
+        /* === BANNIERE HERO === */
+        .hero-banner {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Images/ban.png') center/cover;
+            padding: 6rem 2rem;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-family: 'Amiri', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* === CONTENU PRINCIPAL === */
+        main {
+            flex: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+            width: 100%;
+        }
+
+        .about-container {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .about-title {
+            color: var(--primary-color);
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .about-content p::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .signature {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+
+        /* === SECTION VALEURS === */
+        .values-section {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .value-card {
+            background: var(--bg-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .value-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .value-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-family: 'Amiri', serif;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--text-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* === LOADING INDICATOR === */
+        .loading-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            z-index: 9999;
+        }
+
+        /* === BOUTON RETOUR EN HAUT === */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #a00;
+            transform: translateY(-3px);
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about-container {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .value-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .value-card:nth-child(1) { animation-delay: 0.1s; }
+        .value-card:nth-child(2) { animation-delay: 0.2s; }
+        .value-card:nth-child(3) { animation-delay: 0.3s; }
+
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0.5rem;
+            }
+
+            .hero-banner {
+                padding: 4rem 1rem;
+            }
+
+            main {
+                padding: 2rem 1rem;
+            }
+
+            .about-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .about-content {
+                font-size: 1rem;
+                text-align: left;
+            }
+
+            .about-content p::before {
+                display: none;
+            }
+
+            .about-content p {
+                padding-left: 0;
+            }
+
+            .values-section {
+                grid-template-columns: 1fr;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-banner {
+                padding: 3rem 1rem;
+            }
+
+            .about-container {
+                padding: 1.5rem 1rem;
+            }
+
+            .about-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Indicateur de chargement -->
+    <div class="loading-indicator" id="loadingIndicator"></div>
+
+    <!-- Bouton retour en haut -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <header>
+        <nav class="main-nav">
+            <a href="index.html">Accueil</a>
+            <a href="about.html" class="active">À Propos</a>
+        </nav>
+    </header>
+
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1>Ô Bons Rappels</h1>
+            <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+        </div>
+    </section>
+
+    <main>
+        <div class="about-container">
+            <h1 class="about-title">À propos de moi</h1>
+            
+            <div class="about-content">
+                <p>
+                    Je suis une simple servante d'Allah, sans prétention ni savoir particulier,
+                    si ce n'est ce qu'Il m'a permis d'apprendre.
+                </p>
+                
+                <p>
+                    À travers ce blog, <span class="highlight">Ô Bons Rappels</span>, je partage humblement des textes,
+                    des citations, des réflexions ou des rappels bénéfiques, en espérant
+                    qu'ils puissent toucher les cœurs et renforcer la foi, comme ils ont
+                    touché le mien.
+                </p>
+                
+                <p>
+                    Je n'écris pas pour enseigner, mais pour rappeler à moi-même
+                    d'abord, puis à ceux et celles qui passeront par ici.
+                </p>
+                
+                <p>
+                    Et si un mot, une phrase ou un verset peut rapprocher ne serait-ce
+                    qu'un cœur d'Allah, alors ce blog aura rempli son but.
+                </p>
+                
+                <p>
+                    Qu'Allah accepte ce modeste effort, corrige mes erreurs, et en fasse une
+                    source de bien pour tous.
+                </p>
+            </div>
+
+            <div class="signature">
+                <p>Une servante d'Allah</p>
+            </div>
+        </div>
+
+        <!-- Section valeurs -->
+        <div class="values-section">
+            <div class="value-card">
+                <div class="value-icon">📖</div>
+                <h3>Humble Partage</h3>
+                <p>Partager sans prétention, apprendre ensemble, grandir dans la foi avec modestie et sincérité.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">💝</div>
+                <h3>Sincérité</h3>
+                <p>Chaque mot est écrit avec la pure intention de plaire à Allah et de rappeler Ses bienfaits.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🤲</div>
+                <h3>Rappel Mutuel</h3>
+                <p>Se rappeler ensemble des bienfaits d'Allah et de l'importance de la foi dans notre vie quotidienne.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="foot">
+        <p>Si un rappel t'a été utile, pense à le partager — car le bien se propage par ceux qui le transmettent.</p>
+        <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const backToTop = document.getElementById('backToTop');
+
+            // Simuler le chargement
+            setTimeout(() => {
+                loadingIndicator.style.transform = 'scaleX(1)';
+                setTimeout(() => {
+                    loadingIndicator.style.display = 'none';
+                }, 500);
+            }, 1000);
+
+            // Gestion du bouton retour en haut
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Animation au défilement pour les cartes de valeurs
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            // Observer les cartes de valeurs
+            document.querySelectorAll('.value-card').forEach(card => {
+                card.style.animationPlayState = 'paused';
+                observer.observe(card);
+            });
+
+            // Optimisation pour les connexions lentes
+            if (navigator.connection) {
+                const connection = navigator.connection;
+                if (connection.saveData || connection.effectiveType.includes('2g')) {
+                    // Mode économie de données
+                    document.querySelectorAll('img').forEach(img => {
+                        img.setAttribute('loading', 'lazy');
+                    });
+                }
+            }
+        });
+
+        // Gestion du chargement des images
+        window.addEventListener('load', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                if (img.complete) {
+                    img.classList.add('loaded');
+                } else {
+                    img.addEventListener('load', function() {
+                        this.classList.add('loaded');
+                    });
+                    img.addEventListener('error', function() {
+                        this.style.display = 'none';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
 </html>

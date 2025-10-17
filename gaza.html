@@ -1,57 +1,388 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial=1.0">
-		<title>La souffrance de Gaza - Ô Bons Rappels</title>
-		<link rel="stylesheet" href="bons.css">
-	</head>
-	<body>
-		<header>
-			<nav>
-				<a href="index.html">Accueil</a>
-				<a href="about.html">À Propos</a>
-			</nav>
-			<section class="bannier">
-				<div class="bannier-content">
-					<h1>Ô Bons Rappels</h1>
-					<p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-				</div>
-			</section>
-		</header>
-		<main>
-			<article>
-				<h1>L’écume du torrent: une méditation sur la souffrance de Gaza</h1>
-				<img src="Images/gaza.jpg" alt="gaza">
-				<p>
-					L’écume du torrent : une méditation sur la souffrance de Gaza<br><br>
-					Nos frères et sœurs à Gaza sont en train de mourir de faim.<br><br>
-					Une poignée de sionistes affament un peuple musulman, pendant que<br>
-					des millions d’autres musulmans à travers le monde restent incapables<br>
-					de les nourrir, ni même de préserver leur sang.<br><br>
-					Face à cette réalité accablante, les paroles du Prophète ﷺ prennent<br>
-					tout leur sens :<br><br>
-					« Ce jour-là, vous serez plutôt nombreux, mais vous serez comme<br>
-					l’écume du torrent »<br>
-					(Rapporté dans les hadiths – signifiant faibles et misérables)<br><br>
-					Regarde attentivement notre situation.<br><br>
-					Observe la souffrance, le silence, l’impuissance. Médite sur cette<br>
-					comparaison : l’écume du torrent. Un amas léger, sans poids, emporté<br>
-					par le courant, incapable d’agir.<br><br>
-					Tu ne trouveras pas de meilleure description de l’état actuel de la<br>
-					communauté musulmane.<br><br>
-					Écrit par : Sheykh Ali Ramli – Qu’Allah le préserve<br>
-					Adaptation & traduction : Abdullah al Albani<br>
-				</p>
-			</article>
-			<nav>
-				<a href="douceur.html">Article précédent</a>
-				<a href="guider.html">Article suivant</a>
-			</nav>
-		</main>
-		<footer class="foot">
-			<p>Si un rappel t’a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
-			<p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
-		</footer>
-	</body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La souffrance de Gaza - Ô Bons Rappels</title>
+    <style>
+        /* Variables CSS pour une maintenance facile */
+        :root {
+            --primary-color: #2c5e3a;
+            --secondary-color: #8B0000;
+            --accent-color: #d4af37;
+            --light-color: #f8f8f8;
+            --dark-color: #1a1a1a;
+            --text-color: #333;
+            --quote-bg: #f9f5e9;
+            --urgent-bg: #fff5f5;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* En-tête */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Navigation principale */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: var(--border-radius);
+        }
+
+        .main-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Bannière */
+        .bannier {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c5e3a"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .bannier-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .bannier-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contenu principal */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            width: 100%;
+        }
+
+        /* Article */
+        article {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        article h1 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        article p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Image */
+        article img {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: 20px auto;
+            display: block;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Section urgente */
+        .urgent-section {
+            background-color: var(--urgent-bg);
+            border: 2px solid var(--secondary-color);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .urgent-section p {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Citation */
+        .quote {
+            background-color: var(--quote-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .quote-content {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .quote-reference {
+            font-weight: bold;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        /* Section de méditation */
+        .meditation-section {
+            background-color: #f8f8f8;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .meditation-section p {
+            margin-bottom: 15px;
+        }
+
+        /* Section des auteurs */
+        .authors-section {
+            background-color: var(--quote-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin: 25px 0;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Navigation des articles */
+        .article-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .article-nav a {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .article-nav a:hover {
+            background-color: #234a2e;
+            transform: translateY(-2px);
+        }
+
+        /* Appel à l'action */
+        .call-to-action {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .call-to-action p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* Pied de page */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin-bottom: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .bannier-content h1 {
+                font-size: 2rem;
+            }
+            
+            .bannier-content p {
+                font-size: 1rem;
+            }
+            
+            article {
+                padding: 20px;
+            }
+            
+            article h1 {
+                font-size: 1.5rem;
+            }
+            
+            .article-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .article-nav a {
+                text-align: center;
+            }
+            
+            .urgent-section p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .main-nav a {
+                margin: 5px 0;
+            }
+            
+            .bannier {
+                padding: 40px 15px;
+            }
+            
+            .bannier-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            main {
+                padding: 20px 15px;
+            }
+            
+            .quote, .urgent-section, .meditation-section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+        </nav>
+        <section class="bannier">
+            <div class="bannier-content">
+                <h1>Ô Bons Rappels</h1>
+                <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+            </div>
+        </section>
+    </header>
+    
+    <main>
+        <article>
+            <h1>L'écume du torrent : une méditation sur la souffrance de Gaza</h1>
+            
+            <img src="Images/gaza.jpg" alt="Situation humanitaire à Gaza">
+            
+            <div class="urgent-section">
+                <p>🚨 Nos frères et sœurs à Gaza sont en train de mourir de faim.</p>
+            </div>
+            
+            <p>
+                Une poignée de sionistes affament un peuple musulman, pendant que des millions d'autres musulmans à travers le monde restent incapables de les nourrir, ni même de préserver leur sang.
+            </p>
+            
+            <p>
+                Face à cette réalité accablante, les paroles du Prophète ﷺ prennent tout leur sens :
+            </p>
+            
+            <div class="quote">
+                <div class="quote-content">
+                    « Ce jour-là, vous serez plutôt nombreux, mais vous serez comme l'écume du torrent »
+                </div>
+                <div class="quote-reference">
+                    Rapporté dans les hadiths – signifiant faibles et misérables
+                </div>
+            </div>
+            
+            <div class="meditation-section">
+                <p><strong>Regarde attentivement notre situation.</strong></p>
+                <p>
+                    Observe la souffrance, le silence, l'impuissance. Médite sur cette comparaison : l'écume du torrent. Un amas léger, sans poids, emporté par le courant, incapable d'agir.
+                </p>
+                <p>
+                    Tu ne trouveras pas de meilleure description de l'état actuel de la communauté musulmane.
+                </p>
+            </div>
+            
+            <div class="call-to-action">
+                <p><strong>Que pouvons-nous faire ?</strong></p>
+                <p>Prions pour nos frères et sœurs de Gaza</p>
+                <p>Sensibilisons notre entourage à leur situation</p>
+                <p>Soutenons les organisations humanitaires fiables</p>
+            </div>
+            
+            <div class="authors-section">
+                <p>Écrit par : Sheykh Ali Ramli – Qu'Allah le préserve</p>
+                <p>Adaptation & traduction : Abdullah al Albani</p>
+            </div>
+        </article>
+        
+        <nav class="article-nav">
+            <a href="douceur.html">← Article précédent</a>
+            <a href="guider.html">Article suivant →</a>
+        </nav>
+    </main>
+    
+    <footer>
+        <p>Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
+        <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
+    </footer>
+</body>
 </html>

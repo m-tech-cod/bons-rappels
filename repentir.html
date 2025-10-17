@@ -1,86 +1,311 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="vieport" content="width=device-width, initial=1.0">
-		<title>Repentir - Ô Bons Rappels</title>
-		<link rel="stylesheet" href="bons.css">
-	</head>
-	<body>
-		<header>
-			<nav>
-				<a href="index.html">Accueil</a>
-				<a href="about.html">À Propos</a>
-			</nav>
-			<section class="bannier">
-				<div class="bannier-content">
-					<h1>Ô Bons Rappels</h1>
-					<p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-				</div>
-			</section>
-		</header>
-		<main>
-			<h1>Si tu pèches… repens-toi.</h1>
-			<video controls>
-				<source src="Vidéos/peche_repentir.mp4" type="video/mp4">Votre navigateur ne supporte pas la lecture de vidéos.
-			</video>
-			<p>
-				Tomber dans le péché fait<br>
-				partie de la nature humaine.<br>
-				Aucun être humain n’est infaillible.<br>
-				Même les plus pieux peuvent<br>
-				chuter. Ce qui fait la différence,<br>
-				c’est la réaction<br>
-				après la faute.  Le Prophète ﷺ a dit :  « Tous les fils<br>
-				d’Adam commettent des péchés, et les meilleurs<br>
-				des pécheurs sont ceux qui se<br>
-				repentent.»<br>
-				(Rapporté par At-Tirmidhi)<br><br>
-				Le repentir : une porte toujours ouverte<br>
-				Repens-toi. Même si tu as<br>
-				fauté mille fois. Même si tu as honte. Même si tu<br>
-				penses que c’est trop tard. Allah aime ceux qui<br>
-				reviennent à Lui. Allah aime ceux qui reviennent<br>
-				à Lui.<br>
-				« Dis : Ô Mes serviteurs qui avez commis des excès<br>
-				à votre propre détriment ! Ne désespérez pas de la<br>
-				miséricorde d’Allah. Car Allah pardonne<br>
-				tous les péchés.»<br>
-				(Sourate Az-Zumar, verset 53)<br><br>
-				Chaque fois que tu péches, Satan veut te faire<br>
-				croire que tu n’as plus de valeur, que tu n’as plus<br>
-				le droit de revenir. Ne l’écoute pas. Car tant que tu<br>
-				es vivant, le repentir reste possible. Et tant que tu<br>
-				te repens sincèrement, Allah t’accueille.<br>
-				💧Comment se repentir ?<br><br>
-				Le repentir sincère, appelé Tawbah, repose sur<br>
-				trois piliers :<br>
-				1.	Cesser immédiatement le péché.<br>
-				2.	Regretter profondément ce que<br>
-				l’on a fait.<br>
-				3.	Décider fermement de ne<br>
-				plus y retourner.<br>
-				Et si le péché concernait les droits d’autrui (vol,<br>
-				injustice, diffamation…), il faut en plus réparer<br>
-				le tort causé.<br><br>
-				🌸 Allah aime le repentant<br><br>
-				Repens-toi, même si tu l’as déjà fait cent fois. Car<br>
-				Allah aime le serviteur qui pleure, qui s’humilie<br>
-				devant Lui, qui reconnaît ses fautes. L’orgueilleux<br>
-				ne se repend pas, mais le croyant sincère<br>
-				revient encore et encore.<br><br>
-				« Allah aime ceux qui se repentent, et Il aime ceux<br>
-				qui se purifient. »<br>
-				(Sourate Al-Baqara, verset 222)
-			</p>
-			<nav>
-				<a href="paroles.html">Article précédent</a>
-				<a href="sagesse.html">Article suivant</a>
-			</nav>
-		</main>
-		<footer class="foot">
-			<p>Si un rappel t’a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
-			<p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
-		</footer>
-	</body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repentir - Ô Bons Rappels</title>
+    <link rel="stylesheet" href="bons.css">
+    <style>
+        /* Styles complémentaires pour améliorer la mise en page */
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        video {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .human-nature-section {
+            background-color: rgba(249, 245, 233, 0.8);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            border-left: 4px solid #8b0000;
+        }
+        
+        .hadith-section {
+            background-color: rgba(240, 247, 240, 0.8);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px dashed #006400;
+        }
+        
+        .hadith-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #006400;
+        }
+        
+        .hadith-reference {
+            font-style: italic;
+            color: #666;
+        }
+        
+        .quran-section {
+            background-color: rgba(249, 245, 233, 0.8);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #8b0000;
+            border-right: 4px solid #8b0000;
+        }
+        
+        .quran-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #8b0000;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .quran-reference {
+            font-style: italic;
+            color: #666;
+        }
+        
+        .repentance-section {
+            background-color: rgba(240, 247, 240, 0.8);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .repentance-section h3 {
+            color: #8b0000;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        @media (min-width: 768px) {
+            .pillars-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+        
+        .pillar-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pillar-number {
+            background-color: #8b0000;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+        
+        .pillar-title {
+            font-weight: bold;
+            color: #006400;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .love-section {
+            background-color: rgba(249, 245, 233, 0.9);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #8b0000;
+        }
+        
+        .love-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .encouragement {
+            background-color: rgba(139, 0, 0, 0.05);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        /* Améliorations responsives supplémentaires */
+        @media (max-width: 768px) {
+            .article-content {
+                padding: 0 15px;
+            }
+            
+            .human-nature-section, .hadith-section, .quran-section, .repentance-section, .love-section {
+                padding: 20px;
+                margin: 25px 0;
+            }
+            
+            .pillar-card {
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .article-content {
+                padding: 0 10px;
+            }
+            
+            h1 {
+                margin-left: 0 !important;
+                text-align: center !important;
+            }
+            
+            .pillars-grid {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+        </nav>
+        <section class="bannier">
+            <div class="bannier-content">
+                <h1>Ô Bons Rappels</h1>
+                <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+            </div>
+        </section>
+    </header>
+    
+    <main>
+        <article>
+            <div class="article-content">
+                <h1>Si tu pèches… repens-toi.</h1>
+                
+                <video controls poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'><rect width='600' height='400' fill='%232c5e3a'/><text x='50%' y='50%' font-family='Arial' font-size='20' fill='white' text-anchor='middle'>Vidéo : Le repentir et la miséricorde divine</text></svg>">
+                    <source src="Vidéos/peche_repentir.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+                
+                <div class="human-nature-section">
+                    <p>
+                        Tomber dans le péché fait partie de la nature humaine. Aucun être humain n'est infaillible. Même les plus pieux peuvent chuter. Ce qui fait la différence, c'est la réaction après la faute.
+                    </p>
+                </div>
+                
+                <div class="hadith-section">
+                    <div class="hadith-text">
+                        « Tous les fils d'Adam commettent des péchés, et les meilleurs des pécheurs sont ceux qui se repentent. »
+                    </div>
+                    <div class="hadith-reference">
+                        Rapporté par At-Tirmidhi
+                    </div>
+                </div>
+                
+                <div class="encouragement">
+                    <p><strong>Le repentir : une porte toujours ouverte</strong></p>
+                    <p>
+                        Repens-toi. Même si tu as fauté mille fois. Même si tu as honte. Même si tu penses que c'est trop tard. Allah aime ceux qui reviennent à Lui.
+                    </p>
+                </div>
+                
+                <div class="quran-section">
+                    <div class="quran-text">
+                        « Dis : Ô Mes serviteurs qui avez commis des excès à votre propre détriment ! Ne désespérez pas de la miséricorde d'Allah. Car Allah pardonne tous les péchés. »
+                    </div>
+                    <div class="quran-reference">
+                        Sourate Az-Zumar, verset 53
+                    </div>
+                </div>
+                
+                <p>
+                    Chaque fois que tu péches, Satan veut te faire croire que tu n'as plus de valeur, que tu n'as plus le droit de revenir. Ne l'écoute pas. Car tant que tu es vivant, le repentir reste possible. Et tant que tu te repens sincèrement, Allah t'accueille.
+                </p>
+                
+                <div class="repentance-section">
+                    <h3>💧 Comment se repentir ?</h3>
+                    <p>Le repentir sincère, appelé Tawbah, repose sur trois piliers :</p>
+                    
+                    <div class="pillars-grid">
+                        <div class="pillar-card">
+                            <div class="pillar-number">1</div>
+                            <div class="pillar-title">Cesser immédiatement</div>
+                            <p>Arrêter le péché sur-le-champ</p>
+                        </div>
+                        
+                        <div class="pillar-card">
+                            <div class="pillar-number">2</div>
+                            <div class="pillar-title">Regretter profondément</div>
+                            <p>Être sincèrement désolé de sa faute</p>
+                        </div>
+                        
+                        <div class="pillar-card">
+                            <div class="pillar-number">3</div>
+                            <div class="pillar-title">Décider fermement</div>
+                            <p>Prendre la résolution de ne plus recommencer</p>
+                        </div>
+                    </div>
+                    
+                    <p style="text-align: center; font-style: italic; margin-top: 15px;">
+                        <strong>Important :</strong> Si le péché concernait les droits d'autrui (vol, injustice, diffamation…), il faut en plus réparer le tort causé.
+                    </p>
+                </div>
+                
+                <div class="love-section">
+                    <p class="love-text">
+                        <strong>🌸 Allah aime le repentant</strong>
+                    </p>
+                    <p class="love-text">
+                        Repens-toi, même si tu l'as déjà fait cent fois. Car Allah aime le serviteur qui pleure, qui s'humilie devant Lui, qui reconnaît ses fautes. L'orgueilleux ne se repend pas, mais le croyant sincère revient encore et encore.
+                    </p>
+                    
+                    <div class="quran-section" style="margin: 20px 0; padding: 15px;">
+                        <div class="quran-text">
+                            « Allah aime ceux qui se repentent, et Il aime ceux qui se purifient. »
+                        </div>
+                        <div class="quran-reference">
+                            Sourate Al-Baqara, verset 222
+                        </div>
+                    </div>
+                    
+                    <p style="font-weight: bold; color: #8b0000; margin-top: 15px;">
+                        N'attends pas demain. Repens-toi aujourd'hui. Ta place auprès d'Allah t'attend.
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <nav>
+            <a href="paroles.html">Article précédent</a>
+            <a href="sagesse.html">Article suivant</a>
+        </nav>
+    </main>
+    
+    <footer class="foot">
+        <p>Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
+        <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
+    </footer>
+</body>
 </html>

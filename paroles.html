@@ -1,63 +1,239 @@
-<!DOCTYPTE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial=1.0">
-		<title>Paroles - Ô Bons Rappels</title>
-		<link rel="stylesheet" href="bons.css">
-	</head>
-	<body>
-		<header>
-			<nav>
-				<a href="index.html">Accueil</a>
-				<a href="about.html">À Propos</a>
-			</nav>
-			<section class="bannier">
-				<div class="bannier-content">
-					<h1>Ô Bons Rappels</h1>
-					<p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-				</div>
-			</section>
-		</header>
-		<main>
-			<article>
-				<h1>L’appel à Allah : la plus noble des paroles</h1>
-				<img src="Images/paroles.jpg" alt="paroles">
-				<p>
-					“Et qui profère plus belles paroles que celui qui appelle à Allah,<br>
-					fait bonne œuvre et dit : Je suis du nombre des Musulmans ?”<br>
-					وَمَنۡ أَحۡسَنُ قَوۡلًا مِّمَّن دَعَآ إِلَى ٱللَّهِ وَعَمِلَ صَٰلِحًا وَقَالَ إِنَّنِي مِنَ ٱلۡمُسۡلِمِينَ<br>
-					(Sourate Foussilat, verset 33)<br><br>
-					Ce verset met en lumière trois qualités essentielles
-					du croyant sincère :<br>
-					Appeler à Allah non pas uniquement par la parole,<br>
-					mais aussi par le comportement, l’exemple, l’attitude.<br>
-					Faire de bonnes œuvres car l’appel est creux<br>
-					s’il n’est pas suivi d’actes vertueux.<br>
-					Affirmer son identité musulmane sans<br>
-					arrogance, mais avec fierté et humilité.<br><br>
-					Ce verset nous enseigne que la beauté des paroles <br>
-					ne se mesure pas à l’éloquence, mais à la sincérité de l’appel,<br>
-					à la droiture de l’intention, et à la<br> 
-					cohérence entre les mots et les actes.<br><br>
-					Dans un monde où les voix s’élèvent pour tout et son contraire, celle qui invite au Bien,<br>
-					à la Vérité et à la Paix intérieure est la plus précieuse.<br>
-					L’appel à Allah est un acte de miséricorde pour soi et pour les autres,<br>
-					un geste d’amour véritable pour l’humanité.<br><br>
-					Ce verset est aussi une responsabilité silencieuse : si nous disons “Je suis musulman”,<br>
-					alors nos paroles, nos gestes et nos choix doivent le refléter.<br>
-					Il ne s’agit pas seulement d’un nom ou d’une<br>
-					identité culturelle, mais d’un engagement spirituel profond.	
-				</p>
-			</article>
-			<nav>
-				<a href="morale.html">Article précédent</a>
-				<a href="repentir.html">Article suivant</a>
-			</nav>
-		</main>
-		<footer class="foot">
-			<p>Si un rappel t’a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
-			<p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
-		</footer>
-	</body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paroles - Ô Bons Rappels</title>
+    <link rel="stylesheet" href="bons.css">
+    <style>
+        /* Styles complémentaires pour améliorer la mise en page */
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .quran-section {
+            background-color: rgba(249, 245, 233, 0.8);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #8b0000;
+            border-right: 4px solid #8b0000;
+        }
+        
+        .arabic-verse {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #8b0000;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            direction: rtl;
+        }
+        
+        .french-verse {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #006400;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .verse-reference {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 25px;
+        }
+        
+        .qualities-section {
+            background-color: rgba(240, 247, 240, 0.8);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            border: 1px dashed #006400;
+        }
+        
+        .qualities-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        @media (min-width: 768px) {
+            .qualities-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+        
+        .quality-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quality-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #8b0000;
+        }
+        
+        .quality-title {
+            font-weight: bold;
+            color: #006400;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .teaching-section {
+            background-color: rgba(249, 245, 233, 0.8);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            border-left: 4px solid #8b0000;
+        }
+        
+        .responsibility-section {
+            background-color: rgba(139, 0, 0, 0.05);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            border: 2px solid #8b0000;
+        }
+        
+        /* Améliorations responsives supplémentaires */
+        @media (max-width: 768px) {
+            .article-content {
+                padding: 0 15px;
+            }
+            
+            .quran-section, .qualities-section, .teaching-section, .responsibility-section {
+                padding: 20px;
+                margin: 25px 0;
+            }
+            
+            .arabic-verse {
+                font-size: 1.5rem;
+            }
+            
+            .french-verse {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .article-content {
+                padding: 0 10px;
+            }
+            
+            h1 {
+                margin-left: 0 !important;
+                text-align: center !important;
+            }
+            
+            .arabic-verse {
+                font-size: 1.3rem;
+            }
+            
+            .quality-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+        </nav>
+        <section class="bannier">
+            <div class="bannier-content">
+                <h1>Ô Bons Rappels</h1>
+                <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+            </div>
+        </section>
+    </header>
+    
+    <main>
+        <article>
+            <div class="article-content">
+                <h1>L'appel à Allah : la plus noble des paroles</h1>
+                
+                <img src="Images/paroles.jpg" alt="Illustration représentant l'appel à Allah et les belles paroles">
+                
+                <div class="quran-section">
+                    <div class="arabic-verse">
+                        وَمَنۡ أَحۡسَنُ قَوۡلًا مِّمَّن دَعَآ إِلَى ٱللَّهِ وَعَمِلَ صَٰلِحًا وَقَالَ إِنَّنِي مِنَ ٱلۡمُسۡلِمِينَ
+                    </div>
+                    <div class="french-verse">
+                        « Et qui profère plus belles paroles que celui qui appelle à Allah, fait bonne œuvre et dit : Je suis du nombre des Musulmans ? »
+                    </div>
+                    <div class="verse-reference">
+                        Sourate Foussilat, verset 33
+                    </div>
+                </div>
+                
+                <div class="qualities-section">
+                    <p><strong>Ce verset met en lumière trois qualités essentielles du croyant sincère :</strong></p>
+                    
+                    <div class="qualities-grid">
+                        <div class="quality-card">
+                            <div class="quality-icon">📢</div>
+                            <div class="quality-title">Appeler à Allah</div>
+                            <p>Non pas uniquement par la parole, mais aussi par le comportement, l'exemple, l'attitude.</p>
+                        </div>
+                        
+                        <div class="quality-card">
+                            <div class="quality-icon">🤲</div>
+                            <div class="quality-title">Faire de bonnes œuvres</div>
+                            <p>Car l'appel est creux s'il n'est pas suivi d'actes vertueux et de piété.</p>
+                        </div>
+                        
+                        <div class="quality-card">
+                            <div class="quality-icon">🕌</div>
+                            <div class="quality-title">Affirmer son identité</div>
+                            <p>Musulman sans arrogance, mais avec fierté et humilité devant Allah.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="teaching-section">
+                    <p>
+                        Ce verset nous enseigne que la beauté des paroles ne se mesure pas à l'éloquence, mais à la sincérité de l'appel, à la droiture de l'intention, et à la cohérence entre les mots et les actes.
+                    </p>
+                </div>
+                
+                <p>
+                    Dans un monde où les voix s'élèvent pour tout et son contraire, celle qui invite au Bien, à la Vérité et à la Paix intérieure est la plus précieuse. L'appel à Allah est un acte de miséricorde pour soi et pour les autres, un geste d'amour véritable pour l'humanité.
+                </p>
+                
+                <div class="responsibility-section">
+                    <p><strong>Une responsabilité silencieuse</strong></p>
+                    <p>
+                        Ce verset est aussi une responsabilité silencieuse : si nous disons "Je suis musulman", alors nos paroles, nos gestes et nos choix doivent le refléter. Il ne s'agit pas seulement d'un nom ou d'une identité culturelle, mais d'un engagement spirituel profond.
+                    </p>
+                    <p style="text-align: center; font-style: italic; margin-top: 15px; color: #8b0000;">
+                        Que nos paroles soient belles par leur sincérité,<br>
+                        que nos actions soient belles par leur droiture,<br>
+                        et que nos cœurs soient beaux par leur soumission à Allah.
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <nav>
+            <a href="morale.html">Article précédent</a>
+            <a href="repentir.html">Article suivant</a>
+        </nav>
+    </main>
+    
+    <footer class="foot">
+        <p>Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
+        <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
+    </footer>
+</body>
 </html>

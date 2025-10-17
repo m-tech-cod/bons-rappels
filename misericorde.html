@@ -1,68 +1,173 @@
-<!DOCTYPTE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial=1.0">
-		<title>Miséricorde - Ô Bons Rappels</title>
-		<link rel="stylesheet" href="bons.css">
-	</head>
-	<body>
-		<header>
-			<nav>
-				<a href="index.html">Accueil</a>
-				<a href="about.html">À Propos</a>
-			</nav>
-			<section class="bannier">
-				<div class="bannier-content">
-					<h1>Ô Bons Rappels</h1>
-					<p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-				</div>
-			</section>
-		</header>
-		<main>
-			<article>
-				<h1>Un petit geste, une immense miséricorde : la mouche de l’Imâm al-Ghazâlî</h1>
-				<img src="Images/geste.jpg" alt="geste">
-				<p>
-					Ce petit geste que le Très Miséricordieux n’a pas oublié<br><br>
-					L’histoire suivante, transmise à travers les générations, illustre à quel<br>
-					point la miséricorde d’Allah peut se manifester<br>
-					à partir d’un acte que<br>
-					l’on considérerait, à première vue, comme insignifiant.<br>
-					Après sa mort, l’Imâm al-Ghazâlî, l’un des plus grands savants de<br>
-					l’islam fut vu en rêve. On lui demanda :<br>
-					« Que t’a fait ton Seigneur ?» <br><br>
-					Il répondit :<br><br>
-					« Allah ﷻ me fit comparaître devant Lui et me demanda :<br>
-					‘Qu’as-tu apporté avec toi ?’<br>
-					Je Lui présentai alors mes œuvres : mes prières, mes jeûnes, mes<br>
-					écrits, mes longues veilles en adoration…<br>
-					Mais Il me dit : ‘Rien de tout cela n’a été retenu.’Puis Il ajouta :<br>
-					Mais Je t’ai pardonné. Sais-tu pourquoi ?»<br>
-					Et voici la raison, aussi étonnante qu’émouvante :<br>
-					« Un jour, alors que tu écrivais, une mouche s’est posée sur ta plume.<br>
-					Tu as cessé d’écrire, et tu l’as laissée boire de l’encre, par pure miséricorde.<br>
-					Comme tu as fait miséricorde à cette créature sans défense, Moi, le Très Miséricordieux,<br>
-					J’ai eu miséricorde de toi.Va, car Je t’ai pardonné.»<br><br>
-					Cet épisode, rapporté par l’Imâm ʿAbd ar-Ra’ūf al-Munâwî (m. 1622)<br>
-					dans son ouvrage Fayḍ al-Qadīr fī Sharḥ al-Jāmiʿ aṣ-Ṣaghīr (vol. 2),<br>
-					nous rappelle avec force que rien n’échappe à la science divine,<br>
-					et que les petits gestes de compassion<br>
-					ont un poids immense auprès d’Allah ﷻ.<br><br>
-					Une leçon pour chacun d’entre nous<br>
-					Ne négligeons jamais un acte de bonté, aussi discret soit-il.<br>
-					La miséricorde envers les créatures, même les plus faibles, est un signe d’un cœur vivant<br>
-					et pur, et c’est parfois cela que Dieu regarde avec le plus de tendresse.
-				</p>
-			</article>
-			<nav>
-				<a href="joie.html">Article précédent</a>
-				<a href="morale.html">Article suivant</a>
-			</nav>
-		</main>
-		<footer class="foot">
-			<p>Si un rappel t’a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
-			<p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
-		</footer>
-	</body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miséricorde - Ô Bons Rappels</title>
+    <link rel="stylesheet" href="bons.css">
+    <style>
+        /* Styles complémentaires pour améliorer la mise en page */
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .story-section {
+            background-color: rgba(249, 245, 233, 0.8);
+            border-left: 4px solid #8b0000;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .dialogue {
+            font-style: italic;
+            margin: 15px 0;
+            padding-left: 20px;
+            border-left: 2px solid #006400;
+        }
+        
+        .quote-highlight {
+            background-color: rgba(139, 0, 0, 0.1);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .lesson-section {
+            background-color: rgba(240, 247, 240, 0.8);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            border: 1px dashed #006400;
+        }
+        
+        .reference {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        /* Améliorations responsives supplémentaires */
+        @media (max-width: 768px) {
+            .article-content {
+                padding: 0 15px;
+            }
+            
+            .story-section, .lesson-section {
+                padding: 15px;
+                margin: 20px 0;
+            }
+            
+            .dialogue {
+                padding-left: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .article-content {
+                padding: 0 10px;
+            }
+            
+            h1 {
+                margin-left: 0 !important;
+                text-align: center !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+        </nav>
+        <section class="bannier">
+            <div class="bannier-content">
+                <h1>Ô Bons Rappels</h1>
+                <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+            </div>
+        </section>
+    </header>
+    
+    <main>
+        <article>
+            <div class="article-content">
+                <h1>Un petit geste, une immense miséricorde : la mouche de l'Imâm al-Ghazâlî</h1>
+                
+                <img src="Images/geste.jpg" alt="Illustration représentant la miséricorde et la compassion">
+                
+                <p><strong>Ce petit geste que le Très Miséricordieux n'a pas oublié</strong></p>
+                
+                <p>
+                    L'histoire suivante, transmise à travers les générations, illustre à quel point la miséricorde d'Allah peut se manifester à partir d'un acte que l'on considérerait, à première vue, comme insignifiant.
+                </p>
+                
+                <div class="story-section">
+                    <p>
+                        Après sa mort, l'Imâm al-Ghazâlî, l'un des plus grands savants de l'islam fut vu en rêve. On lui demanda :
+                    </p>
+                    
+                    <div class="dialogue">
+                        « Que t'a fait ton Seigneur ?»
+                    </div>
+                    
+                    <p>Il répondit :</p>
+                    
+                    <div class="dialogue">
+                        « Allah ﷻ me fit comparaître devant Lui et me demanda :<br>
+                        'Qu'as-tu apporté avec toi ?'<br><br>
+                        
+                        Je Lui présentai alors mes œuvres : mes prières, mes jeûnes, mes écrits, mes longues veilles en adoration…<br><br>
+                        
+                        Mais Il me dit : 'Rien de tout cela n'a été retenu.' Puis Il ajouta :<br>
+                        Mais Je t'ai pardonné. Sais-tu pourquoi ?»
+                    </div>
+                    
+                    <div class="quote-highlight">
+                        Et voici la raison, aussi étonnante qu'émouvante :
+                    </div>
+                    
+                    <div class="dialogue">
+                        « Un jour, alors que tu écrivais, une mouche s'est posée sur ta plume.<br>
+                        Tu as cessé d'écrire, et tu l'as laissée boire de l'encre, par pure miséricorde.<br><br>
+                        
+                        Comme tu as fait miséricorde à cette créature sans défense, Moi, le Très Miséricordieux,<br>
+                        J'ai eu miséricorde de toi. Va, car Je t'ai pardonné.»
+                    </div>
+                </div>
+                
+                <div class="reference">
+                    Cet épisode, rapporté par l'Imâm ʿAbd ar-Ra'ūf al-Munâwî (m. 1622) dans son ouvrage <em>Fayḍ al-Qadīr fī Sharḥ al-Jāmiʿ aṣ-Ṣaghīr</em> (vol. 2)
+                </div>
+                
+                <p>
+                    nous rappelle avec force que rien n'échappe à la science divine, et que les petits gestes de compassion ont un poids immense auprès d'Allah ﷻ.
+                </p>
+                
+                <div class="lesson-section">
+                    <p><strong>Une leçon pour chacun d'entre nous</strong></p>
+                    <p>
+                        Ne négligeons jamais un acte de bonté, aussi discret soit-il. La miséricorde envers les créatures, même les plus faibles, est un signe d'un cœur vivant et pur, et c'est parfois cela que Dieu regarde avec le plus de tendresse.
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <nav>
+            <a href="joie.html">Article précédent</a>
+            <a href="morale.html">Article suivant</a>
+        </nav>
+    </main>
+    
+    <footer class="foot">
+        <p>Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
+        <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
+    </footer>
+</body>
 </html>

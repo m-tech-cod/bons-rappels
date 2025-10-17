@@ -1,59 +1,459 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial=1.0">
-		<title>Souviens Allah dans la Joie - Ô Bons Rappels</title>
-		<link rel="stylesheet" href="bons.css">
-	</head>
-	<body>
-		<header>
-			<nav>
-				<a href="index.html">Accueil</a>
-				<a href="about.html">À Propos</a>
-			</nav>
-			<section class="bannier">
-				<div class="bannier-content">
-					<h1>Ô Bons Rappels</h1>
-					<p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-				</div>
-			</section>
-		</header>
-		<main>
-			<article>
-				<h1>Se souvenir d’Allah dans la joie, pour être secouru dans l’épreuve</h1>
-				<img src="Images/joie.jpg" alt="joie">
-				<p>
-					Il est naturel pour l’être humain de se tourner vers son Créateur<br>
-					lorsque l’épreuve frappe à sa porte : la maladie, le deuil, les soucis,<br>
-					l’angoisse… Tous nous rappellent notre fragilité. Mais que dire des<br>
-					jours de joie ? Des instants de réussite, de facilité, d’abondance ?<br><br>
-					Abu Ad-Darda qu’Allah l’agrée a laissé cette parole profondément sage :<br><br>
-					« Invoque Allah le jour de tes joies, peut-être qu’Il te répondra le jour de tes peines.»<br>
-					Abu Ad-Darda Al-Ansari<br><br>
-					Ce conseil nous rappelle que l’amour et la reconnaissance envers<br>
-					Allah doivent être constants, et non dépendants de nos états d’âme.<br>
-					Invoquer Allah dans la facilité, c’est témoigner de gratitude. C’est<br>
-					reconnaître que tout bienfait vient de Lui. Et c’est aussi poser les<br>
-					fondations d’une relation sincère avec Lui, qui ne naît pas uniquement<br>
-					dans la douleur.<br><br>
-					En retour, cette proximité établie dans les jours heureux rend les<br>
-					supplications plus sincères et plus fortes lorsque les jours sombres<br>
-					arrivent. Le cœur n’est plus étranger à la soumission, et la langue n’a<br>
-					pas oublié comment L’appeler.<br><br>
-					Comme le dit un autre hadith :<br>
-					« Connais Allah dans l’aisance, Il te connaîtra dans l’adversité.»<br>
-					(Rapporté par At-Tirmidhi)
-				</p>
-			</article>
-			<nav>
-				<a href="istighfar.html">Article précédent</a>
-				<a href="misericorde.html">Article suivant</a>
-			</nav>
-		</main>
-		<footer class="foot">
-			<p>Si un rappel t’a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
-			<p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
-		</footer>
-	</body>
-</html>	
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Souviens Allah dans la Joie - Ô Bons Rappels</title>
+    <style>
+        /* Variables CSS pour une maintenance facile */
+        :root {
+            --primary-color: #2c5e3a;
+            --secondary-color: #d4af37;
+            --accent-color: #8B4513;
+            --joy-color: #FF6B35;
+            --light-color: #f8f8f8;
+            --dark-color: #1a1a1a;
+            --text-color: #333;
+            --quote-bg: #f9f5e9;
+            --joy-bg: #fff5e6;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* En-tête */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Navigation principale */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: var(--border-radius);
+        }
+
+        .main-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Bannière */
+        .bannier {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c5e3a"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .bannier-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .bannier-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contenu principal */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            width: 100%;
+        }
+
+        /* Article */
+        article {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        article h1 {
+            color: var(--joy-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        article p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Image */
+        article img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: 20px auto;
+            display: block;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Citation principale */
+        .main-quote {
+            background-color: var(--joy-bg);
+            border-left: 4px solid var(--joy-color);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            text-align: center;
+        }
+
+        .quote-content {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--joy-color);
+            line-height: 1.7;
+        }
+
+        .quote-author {
+            font-style: italic;
+            color: var(--accent-color);
+        }
+
+        /* Section de sagesse */
+        .wisdom-section {
+            background-color: var(--quote-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .wisdom-section p {
+            margin-bottom: 15px;
+        }
+
+        /* Section des moments */
+        .moments-section {
+            background-color: #f8f8f8;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .moments-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .moments-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .moments-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .moment-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .moment-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .joy-icon {
+            color: var(--joy-color);
+        }
+
+        .trial-icon {
+            color: var(--primary-color);
+        }
+
+        .moment-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        /* Citation du hadith */
+        .hadith-quote {
+            background-color: var(--joy-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px dashed var(--secondary-color);
+        }
+
+        .hadith-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .hadith-reference {
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Section de conclusion */
+        .conclusion {
+            background-color: var(--quote-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .conclusion p {
+            margin-bottom: 15px;
+        }
+
+        /* Navigation des articles */
+        .article-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .article-nav a {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .article-nav a:hover {
+            background-color: #234a2e;
+            transform: translateY(-2px);
+        }
+
+        /* Pied de page */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin-bottom: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .bannier-content h1 {
+                font-size: 2rem;
+            }
+            
+            .bannier-content p {
+                font-size: 1rem;
+            }
+            
+            article {
+                padding: 20px;
+            }
+            
+            article h1 {
+                font-size: 1.5rem;
+            }
+            
+            .quote-content {
+                font-size: 1.1rem;
+            }
+            
+            .article-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .article-nav a {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .main-nav a {
+                margin: 5px 0;
+            }
+            
+            .bannier {
+                padding: 40px 15px;
+            }
+            
+            .bannier-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            main {
+                padding: 20px 15px;
+            }
+            
+            .main-quote, .wisdom-section, .moments-section, .hadith-quote, .conclusion {
+                padding: 15px;
+            }
+            
+            .moment-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+        </nav>
+        <section class="bannier">
+            <div class="bannier-content">
+                <h1>Ô Bons Rappels</h1>
+                <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+            </div>
+        </section>
+    </header>
+    
+    <main>
+        <article>
+            <h1>Se souvenir d'Allah dans la joie, pour être secouru dans l'épreuve</h1>
+            
+            <img src="Images/joie.jpg" alt="Illustration représentant la joie et la gratitude envers Allah">
+            
+            <p>
+                Il est naturel pour l'être humain de se tourner vers son Créateur lorsque l'épreuve frappe à sa porte : la maladie, le deuil, les soucis, l'angoisse… Tous nous rappellent notre fragilité. Mais que dire des jours de joie ? Des instants de réussite, de facilité, d'abondance ?
+            </p>
+            
+            <div class="main-quote">
+                <div class="quote-content">
+                    « Invoque Allah le jour de tes joies, peut-être qu'Il te répondra le jour de tes peines. »
+                </div>
+                <div class="quote-author">
+                    Abu Ad-Darda Al-Ansari - qu'Allah l'agrée
+                </div>
+            </div>
+            
+            <div class="wisdom-section">
+                <p>
+                    Ce conseil nous rappelle que l'amour et la reconnaissance envers Allah doivent être constants, et non dépendants de nos états d'âme. Invoquer Allah dans la facilité, c'est témoigner de gratitude. C'est reconnaître que tout bienfait vient de Lui. Et c'est aussi poser les fondations d'une relation sincère avec Lui, qui ne naît pas uniquement dans la douleur.
+                </p>
+            </div>
+            
+            <div class="moments-section">
+                <h3>Deux moments, une même relation avec Allah</h3>
+                <div class="moments-grid">
+                    <div class="moment-card">
+                        <div class="moment-icon joy-icon">😊</div>
+                        <div class="moment-title">Dans la Joie</div>
+                        <p>Témoigner de gratitude pour les bienfaits</p>
+                        <p>Renforcer le lien avec le Créateur</p>
+                        <p>Préparer son cœur pour les épreuves futures</p>
+                    </div>
+                    <div class="moment-card">
+                        <div class="moment-icon trial-icon">🤲</div>
+                        <div class="moment-title">Dans l'Épreuve</div>
+                        <p>Se tourner vers Celui qui connaît déjà notre cœur</p>
+                        <p>Bénéficier d'une relation déjà établie</p>
+                        <p>Recevoir le secours avec plus de facilité</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p>
+                En retour, cette proximité établie dans les jours heureux rend les supplications plus sincères et plus fortes lorsque les jours sombres arrivent. Le cœur n'est plus étranger à la soumission, et la langue n'a pas oublié comment L'appeler.
+            </p>
+            
+            <div class="hadith-quote">
+                <div class="hadith-text">
+                    « Connais Allah dans l'aisance, Il te connaîtra dans l'adversité. »
+                </div>
+                <div class="hadith-reference">
+                    Rapporté par At-Tirmidhi
+                </div>
+            </div>
+            
+            <div class="conclusion">
+                <p><strong>Une relation constante</strong></p>
+                <p>
+                    La sagesse d'Abu Ad-Darda nous enseigne que notre relation avec Allah ne devrait pas être conditionnelle aux circonstances. En L'invoquant dans nos moments de bonheur, nous construisons une connexion authentique qui nous soutiendra naturellement dans les moments difficiles.
+                </p>
+                <p style="text-align: center; font-style: italic; margin-top: 15px; font-size: 1.1rem;">
+                    Apprenons à être des serviteurs reconnaissants dans l'aisance,<br>
+                    pour être des serviteurs patients et confiants dans l'adversité.
+                </p>
+            </div>
+        </article>
+        
+        <nav class="article-nav">
+            <a href="istighfar.html">← Article précédent</a>
+            <a href="misericorde.html">Article suivant →</a>
+        </nav>
+    </main>
+    
+    <footer>
+        <p>Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
+        <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

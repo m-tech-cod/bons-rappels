@@ -1,72 +1,223 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial=1.0">
-		<title>Une morale - Ô Bons Rappels</title>
-		<link rel="stylesheet" href="bons.css">
-	</head>
-	<body>
-		<header>
-			<nav>
-				<a href="index.html">Accueil</a>
-				<a href="about.html">À Propos</a>
-			</nav>
-			<section class="bannier">
-				<div class="bannier-content">
-					<h1>Ô Bons Rappels</h1>
-					<p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-				</div>
-			</section>
-		<main>
-			<article>
-				<h1>Quand le mal dort en paix et que le bien s’accuse en silence</h1>
-				<img src="Images/morale.jpg" alt="morale">
-				<p>
-					Il ne s’agit pas d’une vie injuste, mais d’une humanité déséquilibrée.<br>
-					Un monde où ceux qui causent le mal avancent sans scrupules,<br>
-					pendant que ceux qui portent le bien en eux se remettent en<br>
-					question, jusqu’à s’accuser eux-mêmes de fautes qu’ils n’ont pas<br>
-					commises.<br><br>
-					Il y a ceux qui blessent, mentent, écrasent, et dorment profondément<br>
-					la nuit.
-					Et il y a ceux qui donnent, écoutent, soutiennent… et pourtant, se<br>
-					demandent sans cesse s’ils en ont fait assez, ou s’ils ont fait du tort<br>
-					sans le vouloir.<br><br>
-					Ces contrastes frappent. Ils dérangent.<br>
-					On aimerait croire que la conscience est équitablement répartie. Mais<br>
-					en vérité, elle pèse lourd chez les justes et devient muette chez les<br>
-					égoïstes.<br><br>
-					Face à cette injustice morale, beaucoup s’effondrent intérieurement.<br>
-					Ils souffrent en silence, portant des douleurs qui ne leur<br>
-					appartiennent pas.<br>
-					Ils culpabilisent à la place de ceux qui refusent de reconnaître leurs<br>
-					torts.<br><br>
-					Mais il est important de se rappeler ceci :<br><br>
-					“Hasbuna Allah wa ni’ma al-wakîl”<br>
-					Allah nous suffit, Il est le Meilleur des protecteurs.<br><br>
-					Cette parole, simple et puissante, est un refuge.<br>
-					Car au-delà de l’injustice des hommes, il y a la justice d’Allah.<br>
-					Au-delà des accusations injustes, il y a un Savoir Parfait.<br>
-					Et au-delà de ce déséquilibre humain, il y a un équilibre divin qui, tôt ou<br>
-					tard, rétablit les choses.<br><br>
-					À ceux qui souffrent en silence :<br>
-					Ton cœur n’est pas faible, il est pur.<br>
-					Ta douleur n’est pas une faiblesse, mais une preuve de ta profondeur.<br><br>
-					Continue à faire le bien, même si personne ne le voit.<br>
-					Continue à marcher droit, même si ceux qui t’entourent marchent de<br>
-					travers.<br>
-					Car celui qui agit pour Allah n’est jamais perdant.
-				</p>
-			</article>
-			<nav>
-				<a href="misericorde.html">Article précédent</a>
-				<a href="paroles.html">Article suivant</a>
-			</nav>
-		</main>
-		<footer class="foot">
-			<p>Si un rappel t’a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
-			<p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
-		</footer>
-	</body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Une morale - Ô Bons Rappels</title>
+    <link rel="stylesheet" href="bons.css">
+    <style>
+        /* Styles complémentaires pour améliorer la mise en page */
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .contrast-section {
+            background-color: rgba(249, 245, 233, 0.8);
+            border-left: 4px solid #8b0000;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .character-type {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .evil-type {
+            background-color: rgba(139, 0, 0, 0.05);
+            border-left: 3px solid #8b0000;
+        }
+        
+        .good-type {
+            background-color: rgba(0, 100, 0, 0.05);
+            border-left: 3px solid #006400;
+        }
+        
+        .arabic-quote {
+            background-color: rgba(139, 0, 0, 0.1);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+            direction: rtl;
+        }
+        
+        .arabic-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #8b0000;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        
+        .translation {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #006400;
+            margin-bottom: 15px;
+        }
+        
+        .refuge-section {
+            background-color: rgba(240, 247, 240, 0.8);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            border: 1px dashed #006400;
+        }
+        
+        .encouragement-section {
+            background-color: rgba(249, 245, 233, 0.9);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #8b0000;
+            border-right: 4px solid #8b0000;
+        }
+        
+        .encouragement-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        /* Améliorations responsives supplémentaires */
+        @media (max-width: 768px) {
+            .article-content {
+                padding: 0 15px;
+            }
+            
+            .contrast-section, .refuge-section, .encouragement-section {
+                padding: 15px;
+                margin: 20px 0;
+            }
+            
+            .arabic-text {
+                font-size: 1.5rem;
+            }
+            
+            .arabic-quote {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .article-content {
+                padding: 0 10px;
+            }
+            
+            h1 {
+                margin-left: 0 !important;
+                text-align: center !important;
+            }
+            
+            .arabic-text {
+                font-size: 1.3rem;
+            }
+            
+            .character-type {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+        </nav>
+        <section class="bannier">
+            <div class="bannier-content">
+                <h1>Ô Bons Rappels</h1>
+                <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+            </div>
+        </section>
+    </header>
+    
+    <main>
+        <article>
+            <div class="article-content">
+                <h1>Quand le mal dort en paix et que le bien s'accuse en silence</h1>
+                
+                <img src="Images/morale.jpg" alt="Illustration représentant le contraste entre le bien et le mal">
+                
+                <p>
+                    Il ne s'agit pas d'une vie injuste, mais d'une humanité déséquilibrée. Un monde où ceux qui causent le mal avancent sans scrupules, pendant que ceux qui portent le bien en eux se remettent en question, jusqu'à s'accuser eux-mêmes de fautes qu'ils n'ont pas commises.
+                </p>
+                
+                <div class="contrast-section">
+                    <div class="character-type evil-type">
+                        <p><strong>Il y a ceux qui :</strong></p>
+                        <p>• Blessent, mentent, écrasent</p>
+                        <p>• Dorment profondément la nuit</p>
+                        <p>• Avancent sans scrupules ni remords</p>
+                    </div>
+                    
+                    <div class="character-type good-type">
+                        <p><strong>Et il y a ceux qui :</strong></p>
+                        <p>• Donnent, écoutent, soutiennent</p>
+                        <p>• Se demandent sans cesse s'ils en ont fait assez</p>
+                        <p>• Craignent d'avoir fait du tort sans le vouloir</p>
+                    </div>
+                </div>
+                
+                <p>
+                    Ces contrastes frappent. Ils dérangent. On aimerait croire que la conscience est équitablement répartie. Mais en vérité, elle pèse lourd chez les justes et devient muette chez les égoïstes.
+                </p>
+                
+                <p>
+                    Face à cette injustice morale, beaucoup s'effondrent intérieurement. Ils souffrent en silence, portant des douleurs qui ne leur appartiennent pas. Ils culpabilisent à la place de ceux qui refusent de reconnaître leurs torts.
+                </p>
+                
+                <div class="arabic-quote">
+                    <div class="arabic-text">
+                        حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ
+                    </div>
+                    <div class="translation">
+                        "Hasbuna Allah wa ni'ma al-wakîl"
+                    </div>
+                    <p>Allah nous suffit, Il est le Meilleur des protecteurs.</p>
+                </div>
+                
+                <div class="refuge-section">
+                    <p>
+                        Cette parole, simple et puissante, est un refuge. Car au-delà de l'injustice des hommes, il y a la justice d'Allah. Au-delà des accusations injustes, il y a un Savoir Parfait. Et au-delà de ce déséquilibre humain, il y a un équilibre divin qui, tôt ou tard, rétablit les choses.
+                    </p>
+                </div>
+                
+                <div class="encouragement-section">
+                    <p class="encouragement-text">
+                        <strong>À ceux qui souffrent en silence :</strong>
+                    </p>
+                    <p class="encouragement-text">
+                        Ton cœur n'est pas faible, il est pur.<br>
+                        Ta douleur n'est pas une faiblesse, mais une preuve de ta profondeur.
+                    </p>
+                    <p class="encouragement-text">
+                        Continue à faire le bien, même si personne ne le voit.<br>
+                        Continue à marcher droit, même si ceux qui t'entourent marchent de travers.
+                    </p>
+                    <p style="font-weight: bold; color: #8b0000; margin-top: 20px;">
+                        Car celui qui agit pour Allah n'est jamais perdant.
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <nav>
+            <a href="misericorde.html">Article précédent</a>
+            <a href="paroles.html">Article suivant</a>
+        </nav>
+    </main>
+    
+    <footer class="foot">
+        <p>Si un rappel t'a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
+        <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
+    </footer>
+</body>
 </html>

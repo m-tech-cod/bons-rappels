@@ -1,66 +1,654 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UFT-8">
-		<meta name="viewport" content="width=device-width, initial=1.0">
-		<title>Bénédiction - Ô Bons Rappels</title>
-		<link rel="stylesheet" href="bons.css">
-	</head>
-	<body>
-		<header>
-			<nav>
-				<a href="index.html">Accueil</a>
-				<a href="about.html">À Propos</a>
-			</nav>
-			<section class="bannier">
-				<div class="bannier-content">
-					<h1>Ô Bons Rappels</h1>
-					<p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
-				</div>
-			</section>
-		</header>
-		<main>
-			<article>
-				<h1>Quand partir, c’est mieux : les séparations comme bénédictions</h1>
-				<img src="Images/separation_benediction.jpg" alt="separation_benediction">
-				<p>
-					Certaines séparations sont des bénédictions déguisées.<br>
-					On pense parfois que ce qu’on perdait était<br>
-					essentiel. Mais avec le recul, on réalise que ce<br>
-					départ qu’il s’agisse d’une personne, d’un<br>
-					projet ou d’une situation était en réalité<br>
-					nécessaire pour notre croissance, notre paix ou<br>
-					notre foi.<br>
-					Combien de fois avons-nous pleuré sur ce qui<br>
-					s’éloignait, sans savoir que cela nous empêchait<br>
-					d’avancer ?<br>
-					Combien de fois avons-nous prié pour qu’une<br>
-					chose reste, sans comprendre que sa disparition<br>
-					était la réponse à une autre invocation : celle d’un<br>
-					bien que nous ne voyions pas encore ?<br><br>
-					“Ce qui est parti devait partir, pour laisser place à<br>
-					mieux.”<br><br>
-					Dans les épreuves, dans les pertes, dans les<br>
-					éloignements… il y a parfois plus de miséricorde<br>
-					que dans ce que l’on garde. Car Allah sait ce que<br>
-					nos cœurs ignorent.<br><br>
-					« Al-hamdoulillah ʿala koulli ḥāl »<br>
-					(Louange à Allah en toute situation)<br><br>
-					Apprendre à dire al-ḥamdoulillāh même face à la<br>
-					séparation, c’est apprendre à faire confiance à la<br>
-					sagesse divine. C’est reconnaître que tout départ<br>
-					fait partie d’un plan plus vaste, plus juste, plus<br>
-					doux — même si, sur le moment, cela fait mal.
-				</p>
-			</article>
-			<nav>
-				<a href="aumone.html">Article précédent</a>
-				<a href="coran.html">Article suivant</a>
-			</nav>
-		</main>
-		<footer class="foot">
-			<p>Si un rappel t’a été utile, pense à le partager car le bien se propage par ceux qui le transmettent.</p>
-			<p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
-		</footer>
-	</body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bénédiction - Ô Bons Rappels</title>
+    <style>
+        /* === RESET ET VARIABLES === */
+        :root {
+            --primary-color: #8b0000;
+            --secondary-color: #006400;
+            --accent-color: #2c5aa0;
+            --text-color: #222;
+            --bg-color: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* === STYLES GÉNÉRAUX === */
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('Images/fond.png') center/cover fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* === HEADER ET NAVIGATION === */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            gap: 2rem;
+        }
+
+        .main-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary-color);
+            background: rgba(139, 0, 0, 0.1);
+        }
+
+        /* === BANNIERE HERO === */
+        .hero-banner {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Images/ban.png') center/cover;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* === CONTENU PRINCIPAL === */
+        main {
+            flex: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            width: 100%;
+        }
+
+        .article-container {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .article-title {
+            color: var(--primary-color);
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 1rem;
+        }
+
+        .article-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            margin: 0 auto 2rem auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .article-image:hover {
+            transform: scale(1.02);
+        }
+
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* === SECTIONS SPÉCIALES === */
+        .wisdom-section {
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--secondary-color);
+            position: relative;
+        }
+
+        .wisdom-section::before {
+            content: "💫";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .quote-section {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+            font-style: italic;
+            position: relative;
+            border: 1px solid #ffd43b;
+        }
+
+        .quote-section::before,
+        .quote-section::after {
+            content: """;
+            font-size: 3rem;
+            color: var(--primary-color);
+            position: absolute;
+            opacity: 0.3;
+        }
+
+        .quote-section::before {
+            top: 10px;
+            left: 20px;
+        }
+
+        .quote-section::after {
+            bottom: 10px;
+            right: 20px;
+            transform: rotate(180deg);
+        }
+
+        .arabic-section {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            direction: rtl;
+        }
+
+        .translation {
+            display: block;
+            margin-top: 1rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: var(--text-color);
+            direction: ltr;
+            font-style: italic;
+        }
+
+        .reflection-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border: 1px solid #e0e0e0;
+        }
+
+        .reflection-title {
+            color: var(--primary-color);
+            font-family: 'Amiri', serif;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .reflection-icon {
+            font-size: 1.3rem;
+        }
+
+        /* === NAVIGATION ARTICLES === */
+        .article-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 2rem;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-button:hover {
+            background: #004d00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .nav-button.prev {
+            background: var(--primary-color);
+        }
+
+        .nav-button.prev:hover {
+            background: #a00;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--text-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* === LOADING INDICATOR === */
+        .loading-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            z-index: 9999;
+        }
+
+        /* === BOUTON RETOUR EN HAUT === */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #a00;
+            transform: translateY(-3px);
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-container {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0.5rem;
+            }
+
+            .hero-banner {
+                padding: 3rem 1rem;
+            }
+
+            main {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .article-container {
+                padding: 1.5rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+                text-align: left;
+            }
+
+            .article-navigation {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .wisdom-section,
+            .quote-section,
+            .arabic-section {
+                padding: 1.5rem;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-banner {
+                padding: 2rem 1rem;
+            }
+
+            .article-container {
+                padding: 1rem;
+            }
+
+            .article-title {
+                font-size: 1.4rem;
+            }
+
+            .wisdom-section,
+            .quote-section,
+            .arabic-section {
+                padding: 1rem;
+            }
+
+            .arabic-section {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Indicateur de chargement -->
+    <div class="loading-indicator" id="loadingIndicator"></div>
+
+    <!-- Bouton retour en haut -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <header>
+        <nav class="main-nav">
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+        </nav>
+    </header>
+
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1>Ô Bons Rappels</h1>
+            <p>🌙 Éveiller la foi, cultiver la paix intérieure</p>
+        </div>
+    </section>
+
+    <main>
+        <article class="article-container">
+            <h1 class="article-title">Quand partir, c'est mieux : les séparations comme bénédictions</h1>
+            
+            <img src="Images/separation_benediction.jpg" alt="Représentation spirituelle des séparations et bénédictions déguisées" class="article-image" loading="lazy">
+
+            <div class="article-content">
+                <div class="wisdom-section">
+                    <p>
+                        Certaines séparations sont des bénédictions déguisées.
+                        On pense parfois que ce qu'on perdait était essentiel. Mais avec le recul, 
+                        on réalise que ce départ - qu'il s'agisse d'une personne, d'un projet ou 
+                        d'une situation - était en réalité nécessaire pour notre croissance, 
+                        notre paix ou notre foi.
+                    </p>
+                </div>
+
+                <p>
+                    Combien de fois avons-nous pleuré sur ce qui s'éloignait, sans savoir que 
+                    cela nous empêchait d'avancer ?
+                </p>
+
+                <p>
+                    Combien de fois avons-nous prié pour qu'une chose reste, sans comprendre 
+                    que sa disparition était la réponse à une autre invocation : celle d'un 
+                    bien que nous ne voyions pas encore ?
+                </p>
+
+                <div class="quote-section">
+                    <p>« Ce qui est parti devait partir, pour laisser place à mieux. »</p>
+                </div>
+
+                <p>
+                    Dans les épreuves, dans les pertes, dans les éloignements… il y a parfois 
+                    plus de miséricorde que dans ce que l'on garde. Car Allah sait ce que 
+                    nos cœurs ignorent.
+                </p>
+
+                <div class="arabic-section">
+                    <p>« الْحَمْدُ لِلَّهِ عَلَى كُلِّ حَال »</p>
+                    <span class="translation">(Louange à Allah en toute situation)</span>
+                </div>
+
+                <div class="reflection-section">
+                    <h3 class="reflection-title">
+                        <span class="reflection-icon">🤲</span>
+                        Apprendre à faire confiance
+                    </h3>
+                    <p>
+                        Apprendre à dire <strong>al-ḥamdoulillāh</strong> même face à la séparation, 
+                        c'est apprendre à faire confiance à la sagesse divine. C'est reconnaître 
+                        que tout départ fait partie d'un plan plus vaste, plus juste, plus doux — 
+                        même si, sur le moment, cela fait mal.
+                    </p>
+                </div>
+
+                <div class="reflection-section">
+                    <h3 class="reflection-title">
+                        <span class="reflection-icon">🌱</span>
+                        La sagesse derrière l'éloignement
+                    </h3>
+                    <p>
+                        Chaque séparation porte en elle une leçon, une protection ou une 
+                        orientation vers un chemin meilleur. Ce qui nous semble être une perte 
+                        peut être en réalité une préservation contre un mal plus grand, ou 
+                        une orientation vers un bien que nous n'aurions pas choisi par nous-mêmes.
+                    </p>
+                </div>
+
+                <div class="wisdom-section">
+                    <p>
+                        <strong>Rappel :</strong> La patience dans l'épreuve et la gratitude dans toute situation 
+                        sont les clés qui transforment nos séparations en occasions de nous 
+                        rapprocher d'Allah et de grandir spirituellement.
+                    </p>
+                </div>
+            </div>
+
+            <div class="article-navigation">
+                <a href="aumone.html" class="nav-button prev">
+                    ← Article précédent
+                </a>
+                <a href="coran.html" class="nav-button">
+                    Article suivant →
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="foot">
+        <p>Si un rappel t'a été utile, pense à le partager — car le bien se propage par ceux qui le transmettent.</p>
+        <p>&copy; 2025 Ô Bons Rappels - Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const backToTop = document.getElementById('backToTop');
+
+            // Simuler le chargement
+            setTimeout(() => {
+                loadingIndicator.style.transform = 'scaleX(1)';
+                setTimeout(() => {
+                    loadingIndicator.style.display = 'none';
+                }, 500);
+            }, 1000);
+
+            // Gestion du bouton retour en haut
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Animation au défilement
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observer les sections spéciales
+            document.querySelectorAll('.wisdom-section, .reflection-section, .quote-section, .arabic-section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Gestion du chargement de l'image
+            const articleImage = document.querySelector('.article-image');
+            if (articleImage) {
+                articleImage.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                });
+                articleImage.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    console.log("Image non chargée : " + this.src);
+                });
+            }
+
+            // Partage sur les réseaux sociaux
+            function shareArticle() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.title,
+                        text: 'Découvrez ce rappel bénéfique sur Ô Bons Rappels',
+                        url: window.location.href
+                    });
+                }
+            }
+
+            // Ajouter un bouton de partage si supporté
+            if (navigator.share) {
+                const shareButton = document.createElement('button');
+                shareButton.innerHTML = '📤 Partager cet article';
+                shareButton.style.cssText = `
+                    display: block;
+                    margin: 2rem auto;
+                    padding: 0.8rem 1.5rem;
+                    background: var(--accent-color);
+                    color: white;
+                    border: none;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    transition: var(--transition);
+                `;
+                shareButton.onmouseover = function() {
+                    this.style.background = '#1e3d6f';
+                    this.style.transform = 'translateY(-2px)';
+                };
+                shareButton.onmouseout = function() {
+                    this.style.background = 'var(--accent-color)';
+                    this.style.transform = 'translateY(0)';
+                };
+                shareButton.onclick = shareArticle;
+                
+                const articleContent = document.querySelector('.article-content');
+                articleContent.appendChild(shareButton);
+            }
+        });
+    </script>
+</body>
 </html>
